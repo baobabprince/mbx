@@ -15,8 +15,8 @@ all <-
   left_join(groups) %>% 
   left_join(metadata, by = "SampleID") %>% 
   filter(Compound %in% groups$Compound) %>%
-  filter(!Compound == "Adenosine" && value >2e7) %>%
-  filter(!Compound == "Guanine" && value >3e6)
+  filter(!Compound == "Adenosine" & value >2e7) %>%
+  filter(!Compound == "Guanine" & value >3e6)
 
 pl <- 
   ggplot(all, aes(x = Disease_Status, y = value, fill = Disease_Status)) + 
