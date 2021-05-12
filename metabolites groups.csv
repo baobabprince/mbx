@@ -1,0 +1,50 @@
+﻿group,name,old_name
+aa,Lysine,Lysine
+glut,N-Acetylglutamine,acetyl.glutamine
+aa,Phenylalanine,Phenylalanine
+aa,pyruvate,pyruvate
+aa,Threonine,Threonine
+aa,Tryptophan,Tryptophan
+aa,Uridine,Uridine
+aa,Valine,Valine
+aa,Alanine,Alanine
+aa,Asparagine,Asparagine
+aa,Histidine,Histidine
+aa,nicotinamide,nicotinamide
+aa,Serotonin,Serotonin..nv.
+glut,Alanine,Alanine
+glut,Asparagine,Asparagine
+hist,Histidine,Histidine
+hist,nicotinamide,nicotinamide
+hist,Serotonin,Serotonin..nv.
+FA,2-Hydroxyisocapric Acid / D-Leucic acid,X2.Hydroxyisocapric.Acid
+FA,3-hydroxybutyric acid,X3.hydroxybutyric.acid
+FA,Beta-hydroxyvaleric Acid,Beta.hydroxyvaleric.Acid
+FA,Docosahexaenoic acid,Docosahexaenoic.acid
+FA,Linoleic acid,Linoleic acid
+FA,Octanoic acid,Octanoic.acid
+FA,Oleic acid,Oleic acid
+FA,Palmitic acid,Palmitic acid
+FA,Propionyl-carnitine,Propionyl.carnitine
+FA,pyroglutamic acid,X5.Oxoproline..pyroglutamic.acid.
+glut,GABA,GABA
+glycolysis,Glucose,Glucose
+glycolysis,Ribose,Ribose
+purines,Ribose,Ribose
+met,betaine,betaine
+met,Cystine,Cystine
+met,Homocysteine,Homocysteine
+met,Methionine,Methionine
+Purines,Adenine,Adenine
+Purines,Adenosine,Adenosine
+Purines,Guanine,Guanine
+Purines,Guanosine,Guanosine
+Purines,Urate,Urate
+TCA,Acetoacetate,Acetoacetate
+TCA,cis-aconitate,cis.aconitate
+TCA,Malate,Malate
+TCA,aKG,aKG
+TCA??,Oxalate,Oxalate
+urea,Citrulline,Citrulline
+urea,Ornithine,Ornithine
+glut,aKG,aKG
