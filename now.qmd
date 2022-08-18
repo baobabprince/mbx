@@ -1,0 +1,78 @@
+---
+title: "Donut_heatmap-18Aug2022"
+format: html
+editor: visual
+---
+
+## Quarto
+
+Quarto enables you to weave together content and executable code into a finished document. To learn more about Quarto see <https://quarto.org>.
+
+## Running Code
+
+When you click the **Render** button a document will be generated that includes both content and the output of embedded code. You can embed code like this:
+
+```{r}
+list.files("Stool_maaslin_#2_DS-CD/")
+list.files("Serum_maaslin_#2_DS-CD/")
+```
+
+You can add options to executable code like this
+
+```{r}
+#| echo: false
+library(tidyverse)
+
+#serum_md <- "Serum_metadata.txt" |>  read_tsv()
+#stool_md <- "Stool_metadata.txt" |>  read_tsv()
+
+
+#sig <- "Serum_maaslin_#2_DS-CD/significant_results.tsv" |> read_tsv()
+sig <- "Stool_maaslin_#2_DS-CD/significant_results.tsv" |> read_tsv()
+
+hole <- 4
+nba <- 
+sig |> filter(metadata != "Fasting") |> filter(metadata != "Age") |> 
+  filter(metadata != "Gender") |> 
+  complete(feature, metadata) |> replace_na(list(coef = NA)) |> 
+  mutate(metadata = metadata |> as.factor(), 
+         num.metadata = metadata |> as.numeric() + hole) 
+
+y_labels = levels(nba$metadata)
+y_breaks = seq_along(y_labels) + hole
+```
+
+The `echo: false` option disables the printing of code (only output is displayed).
+
+```{r}
+#| echo: false
+nba.labs <- subset(nba, metadata==levels(nba$metadata)[nlevels(nba$metadata)])
+# nba.labs <- nba
+nba.labs <- nba.labs[order(nba.labs$feature),]
+
+nba.labs$ang <- seq(from=(360/nrow(nba.labs))/1.5, to=(1.5*(360/nrow(nba.labs)))-360, length.out=nrow(nba.labs))+80
+nba.labs$hjust <- 0
+nba.labs$hjust[which(nba.labs$ang < -90)] <- 1
+nba.labs$ang[which(nba.labs$ang < -90)] <- (180+nba.labs$ang)[which(nba.labs$ang < -90)]
+# nba.labs$feature <- nba$feature |> str_remove("_.*")
+```
+
+```{r}
+nba |> 
+  ggplot(aes(fill = coef, x = feature, y = num.metadata)) + 
+  geom_text(data = nba.labs, aes(x = feature, y = num.metadata + .5, label = feature %>% str_remove("_.*"), angle = ang, hjust = hjust), size = 3) + 
+  geom_tile(color = "black") + 
+  ylim(c(0, max(nba$num.metadata) + 4.5)) +
+  scale_fill_continuous(low="red", high="blue", 
+                       guide="colorbar",na.value="white") + 
+  # scale_y_discrete(breaks=y_breaks, labels=y_labels) +
+  coord_polar() + 
+  #theme_minimal() + 
+  theme_void() +
+  theme(axis.text = element_blank() , panel.grid = element_blank()
+        , axis.title = element_blank(), legend.position = c(0.5, 0.5)) +
+  geom_text(aes(x= -Inf, label = metadata), size = 3.5, data = nba[!duplicated(nba$metadata),]) +   scale_x_discrete(expand = c(0.05, 0))
+
+
+ggsave(filename = "Stool_donut3.png", height = 10, width = 10)
+```
