@@ -79,7 +79,7 @@ Plot settings.
 #| fig-height: 10
 #| echo: false
 #| cache: true
-#| fig-cap: "[Download](www.github.com/baobabprince/mbx/Stool_donut3.png)"
+#| fig-cap: "[Download](https://raw.githubusercontent.com/baobabprince/mbx/master/Stool_donut3.png)"
 
 # knitr::md("")
 pl
