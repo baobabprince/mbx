@@ -1,19 +1,20 @@
 ---
-title: "Donut_heatmap-18Aug2022"
+title: "Donut heatmap"
+date: "`r Sys.Date()`"
 format: revealjs
-Author: Rotem & Nina
-code-fold: show
+author: Rotem & Nina
+code-fold: true
 ---
 
 ## Data read and preperation
 
 ```{r}
+#| echo: fenced
 #| cache: true
 library(tidyverse)
 
 #serum_md <- "Serum_metadata.txt" |>  read_tsv()
 #stool_md <- "Stool_metadata.txt" |>  read_tsv()
-
 
 #sig <- "Serum_maaslin_#2_DS-CD/significant_results.tsv" |> read_tsv()
 sig <- "Stool_maaslin_#2_DS-CD/significant_results.tsv" |> read_tsv()
@@ -30,10 +31,11 @@ y_labels = levels(nba$metadata)
 y_breaks = seq_along(y_labels) + hole
 ```
 
-Here we set the hole size (= `r hole`).
+Also set the hole size (= `r hole`).
 
 ```{r}
 #| cache: true
+#| echo: true
 nba.labs <- subset(nba, metadata==levels(nba$metadata)[nlevels(nba$metadata)])
 # nba.labs <- nba
 nba.labs <- nba.labs[order(nba.labs$feature),]
@@ -47,13 +49,10 @@ nba.labs$ang[which(nba.labs$ang < -90)] <- (180+nba.labs$ang)[which(nba.labs$ang
 
 Set the text angle.
 
-## Plot
-
 ```{r}
 #| cache: true
-#| fig-width: 10
-#| fig-height: 10
-nba |> 
+#| echo: true
+pl <- nba |> 
   ggplot(aes(fill = coef, x = feature, y = num.metadata)) + 
   geom_text(data = nba.labs, aes(x = feature, y = num.metadata + .5, label = feature %>% str_remove("_.*"), angle = ang, hjust = hjust), size = 3) + 
   geom_tile(color = "black") + 
@@ -67,7 +66,23 @@ nba |>
   theme(axis.text = element_blank() , panel.grid = element_blank()
         , axis.title = element_blank(), legend.position = c(0.5, 0.5)) +
   geom_text(aes(x= -Inf, label = metadata), size = 3.5, data = nba[!duplicated(nba$metadata),]) +   scale_x_discrete(expand = c(0.05, 0))
+```
 
+Plot settings.
 
+#### Plot at next slide.
+
+## Plot
+
+```{r}
+#| fig-width: 10
+#| fig-height: 10
+#| echo: false
+#| cache: true
+#| fig-cap: "[Download](www.github.com/baobabprince/mbx/Stool_donut3.png)"
+
+# knitr::md("")
+pl
 ggsave(filename = "Stool_donut3.png", height = 10, width = 10)
 ```
+
