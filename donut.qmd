@@ -1,26 +1,14 @@
 ---
 title: "Donut_heatmap-18Aug2022"
-format: html
-editor: visual
+format: revealjs
+Author: Rotem & Nina
+code-fold: show
 ---
 
-## Quarto
-
-Quarto enables you to weave together content and executable code into a finished document. To learn more about Quarto see <https://quarto.org>.
-
-## Running Code
-
-When you click the **Render** button a document will be generated that includes both content and the output of embedded code. You can embed code like this:
+## Data read and preperation
 
 ```{r}
-list.files("Stool_maaslin_#2_DS-CD/")
-list.files("Serum_maaslin_#2_DS-CD/")
-```
-
-You can add options to executable code like this
-
-```{r}
-#| echo: false
+#| cache: true
 library(tidyverse)
 
 #serum_md <- "Serum_metadata.txt" |>  read_tsv()
@@ -42,10 +30,10 @@ y_labels = levels(nba$metadata)
 y_breaks = seq_along(y_labels) + hole
 ```
 
-The `echo: false` option disables the printing of code (only output is displayed).
+Here we set the hole size (= `r hole`).
 
 ```{r}
-#| echo: false
+#| cache: true
 nba.labs <- subset(nba, metadata==levels(nba$metadata)[nlevels(nba$metadata)])
 # nba.labs <- nba
 nba.labs <- nba.labs[order(nba.labs$feature),]
@@ -57,7 +45,14 @@ nba.labs$ang[which(nba.labs$ang < -90)] <- (180+nba.labs$ang)[which(nba.labs$ang
 # nba.labs$feature <- nba$feature |> str_remove("_.*")
 ```
 
+Set the text angle.
+
+## Plot
+
 ```{r}
+#| cache: true
+#| fig-width: 10
+#| fig-height: 10
 nba |> 
   ggplot(aes(fill = coef, x = feature, y = num.metadata)) + 
   geom_text(data = nba.labs, aes(x = feature, y = num.metadata + .5, label = feature %>% str_remove("_.*"), angle = ang, hjust = hjust), size = 3) + 
