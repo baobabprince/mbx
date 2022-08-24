@@ -4,6 +4,10 @@ format: html
 editor: visual
 ---
 
+
+Where Are they?
+
+
 ## Quarto
 
 Quarto enables you to weave together content and executable code into a finished document. To learn more about Quarto see <https://quarto.org>.
@@ -18,7 +22,8 @@ library(tidyverse)
 library(dplyr)
 library(ggplot2)
 library(RColorBrewer)
-setwd("~/Dropbox/Metabolomics")
+# setwd("~/Dropbox/Metabolomics")
+# setwd("mbx")
 ```
 
 You can add options to executable code like this
@@ -37,8 +42,7 @@ The `echo: false` option disables the printing of code (only output is displayed
 
 ```{r}
 #| echo: false
-
-data <- paste0('~/Dropbox/Metabolomics/Final_datasets/',sample_type, '_Data_MZM10_N2_filtered_calour.tsv') %>% read_tsv()
+data <- paste0('./',sample_type, '_Data_MZM10_N2_filtered_calour.tsv') %>% read_tsv()
 
 data$name_mz <- make.names(data$name_mz)
 ```
@@ -46,7 +50,7 @@ data$name_mz <- make.names(data$name_mz)
 ```{r}
 #| echo: false
 
-metadata <- paste0('~/Dropbox/Metabolomics/Final_datasets/',sample_type, '_metadata.txt') %>% read_tsv()
+metadata <- paste0('./',sample_type, '_metadata.txt') %>% read_tsv()
 
 metadata1 <- metadata %>% filter(Cohort == 'IIRN')
 
@@ -58,13 +62,13 @@ iirn <- metadata1$SampleID
 iirn1 <- intersect(colnames(data), iirn)
 
 data1 <- data %>% select('name_mz',all_of(iirn1))
-
 ```
 
 ```{r}
 #| echo: false
-
-compounds <- paste0('~/Dropbox/Metabolomics/Maaslin/', folder_name,'/significant_results.tsv') %>% read_tsv()
+# unzip("Stool_maaslin_#4_IIRNFlare2.zip")
+# unzip("Serum_maaslin_#4_IIRNFlare2.zip")
+compounds <- paste0('./', folder_name,'/significant_results.tsv') %>% read_tsv()
 
 compounds1 <- 
   compounds %>% filter(metadata == 'IIRN_Flare')
@@ -91,12 +95,17 @@ pl <-
   data3 %>% ggplot(aes(x=as.factor(Visit), y=Peak_Area, color = IIRN_Flare)) + geom_boxplot() + 
   facet_wrap(~feature, scales = "free")
 
-#pl
+pl
 ggsave(filename = paste0(sample_type,'_maaslin4_compounds3.png'), width = 60, height = 60, units = "cm", pl)
 ```
 
 ```{r}
 #| echo: false
+#pl <-
+  data3 |> left_join(metadata) |> 
+  filter(feature == data3$feature[1]) |> 
+  ggplot(aes(x=Visit, y=Peak_Area, color = IIRN_Flare, line = pn_ID)) + 
+  geom_point(size = 3) + geom_line(color = "gray", alpha = .5) 
 
 ```
 
