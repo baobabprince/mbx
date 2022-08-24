@@ -1,9 +1,11 @@
 ---
 title: "Donut heatmap"
 date: "`r Sys.Date()`"
-format: revealjs
+format: html
 author: Rotem & Nina
 code-fold: true
+warnings: false
+messages: false
 ---
 
 ## Data read and preperation
@@ -86,3 +88,6 @@ pl
 ggsave(filename = "Stool_donut3.png", height = 10, width = 10)
 ```
 
+```{python}
+1+1
+```
