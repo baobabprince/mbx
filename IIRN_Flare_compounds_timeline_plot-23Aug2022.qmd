@@ -4,7 +4,6 @@ format: html
 editor: visual
 ---
 
-
 Where Are they?
 
 
@@ -101,13 +100,21 @@ ggsave(filename = paste0(sample_type,'_maaslin4_compounds3.png'), width = 60, he
 
 ```{r}
 #| echo: false
-#pl <-
-  data3 |> left_join(metadata) |> 
-  filter(feature == data3$feature[1]) |> 
-  ggplot(aes(x=Visit, y=Peak_Area, color = IIRN_Flare, line = pn_ID)) + 
-  geom_point(size = 3) + geom_line(color = "gray", alpha = .5) 
 
+#install.packages("ggh4x")
+library(ggh4x)
+pl <-
+  data3 |> left_join(metadata) |> 
+  #filter(feature == data3$feature[1]) |> 
+  ggplot(aes(x=Visit, y=Peak_Area, color = IIRN_Flare, line = pn_ID)) + 
+  geom_point(size = 3) + geom_line(color = "gray", alpha = .5) +
+  ggh4x::facet_nested(IIRN_Flare ~ feature, scale = "free_y") + 
+  theme_void()
+
+
+ggsave("nested_facete.png", plot = pl)
 ```
+whats the name of the variable? IIRN_Flare
 
 ```{r}
 #| echo: false
