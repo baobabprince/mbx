@@ -101,18 +101,31 @@ ggsave(filename = paste0(sample_type,'_maaslin4_compounds3.png'), width = 60, he
 ```{r}
 #| echo: false
 
+first_metabolites <- unique(data3$feature)[1:7]
+last_metabolites <- unique(data3$feature)[8:14]
+
 #install.packages("ggh4x")
 library(ggh4x)
-pl <-
+library(magrittr)
+pl1 <-
   data3 |> left_join(metadata) |> 
-  #filter(feature == data3$feature[1]) |> 
+  filter(feature %in% first_metabolites) |> 
   ggplot(aes(x=Visit, y=Peak_Area, color = IIRN_Flare, line = pn_ID)) + 
   geom_point(size = 3) + geom_line(color = "gray", alpha = .5) +
-  ggh4x::facet_nested(IIRN_Flare ~ feature, scale = "free_y") + 
-  theme_void()
+  ggh4x::facet_nested(IIRN_Flare ~ feature, scales = "free", independent = "y" ) + 
+  theme_minimal()
 
+pl2 <-
+  data3 |> left_join(metadata) |> 
+  filter(feature %in% last_metabolites) |> 
+  ggplot(aes(x=Visit, y=Peak_Area, color = IIRN_Flare, line = pn_ID)) + 
+  geom_point(size = 3) + geom_line(color = "gray", alpha = .5) +
+  ggh4x::facet_nested(IIRN_Flare ~ feature, scales = "free", independent = "y" ) + 
+  theme_minimal()
 
-ggsave("nested_facete.png", plot = pl)
+pl <- ggpubr::ggarrange(pl1, pl2, nrow = 2)
+pl
+ggsave("nested_facete.png", plot = pl,  width = 30,  height = 10)
 ```
 whats the name of the variable? IIRN_Flare
 
