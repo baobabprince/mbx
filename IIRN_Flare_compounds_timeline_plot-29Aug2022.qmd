@@ -20,8 +20,8 @@ library(tidyverse)
 library(dplyr)
 library(ggplot2)
 library(RColorBrewer)
-setwd("~/Dropbox/Metabolomics")
-# setwd("mbx")
+#setwd("~/Dropbox/Metabolomics")
+setwd("mbx")
 ```
 
 You can add options to executable code like this
@@ -40,9 +40,9 @@ The `echo: false` option disables the printing of code (only output is displayed
 
 ```{r}
 #| echo: false
-#data <- paste0('./',sample_type, '_Data_MZM10_N2_filtered_calour.tsv') %>% read_tsv()
+data <- paste0('./',sample_type, '_Data_MZM10_N2_filtered_calour.tsv') %>% read_tsv()
 
-data <- paste0('~/Dropbox/Metabolomics/Final_datasets/',sample_type, '_Data_MZM10_N2_filtered_calour.tsv') %>% read_tsv()
+# data <- paste0('~/Dropbox/Metabolomics/Final_datasets/',sample_type, '_Data_MZM10_N2_filtered_calour.tsv') %>% read_tsv()
 
 data$name_mz <- make.names(data$name_mz)
 ```
@@ -50,9 +50,9 @@ data$name_mz <- make.names(data$name_mz)
 ```{r}
 #| echo: false
 
-#metadata <- paste0('./',sample_type, '_metadata.txt') %>% read_tsv()
+metadata <- paste0('./',sample_type, '_metadata.txt') %>% read_tsv()
 
-metadata <- paste0('~/Dropbox/Metabolomics/Final_datasets/',sample_type, '_metadata.txt') %>% read_tsv()
+# metadata <- paste0('~/Dropbox/Metabolomics/Final_datasets/',sample_type, '_metadata.txt') %>% read_tsv()
 
 metadata1 <- metadata %>% filter(Cohort == 'IIRN')
 
@@ -70,9 +70,9 @@ data1 <- data %>% select('name_mz',all_of(iirn1))
 #| echo: false
 # unzip("Stool_maaslin_#4_IIRNFlare2.zip")
 # unzip("Serum_maaslin_#4_IIRNFlare2.zip")
-#compounds <- paste0('./', folder_name,'/significant_results.tsv') %>% read_tsv()
+compounds <- paste0('./', folder_name,'/significant_results.tsv') %>% read_tsv()
 
-compounds <- paste0('~/Dropbox/Metabolomics/Maaslin/', folder_name,'/significant_results.tsv') %>% read_tsv()
+#compounds <- paste0('~/Dropbox/Metabolomics/Maaslin/', folder_name,'/significant_results.tsv') %>% read_tsv()
 
 compounds1 <- 
   compounds %>% filter(metadata == 'IIRN_Flare')
@@ -89,8 +89,13 @@ data2 <- data1 %>% rename(feature =  name_mz) %>% inner_join(compounds1 %>% sele
 
 data3 <- data2 %>% pivot_longer(cols = contains("_"), names_to = 'SampleID', values_to = 'Peak_Area')
 
-data3 <- data3 %>% inner_join(metadata1 %>% select('SampleID', 'Visit', 'IIRN_Flare', 'Disease_Status'))
+data3 <- data3 %>% inner_join(metadata1 %>% select('SampleID', 'Visit', 'IIRN_Flare', 'Disease_Status', "pn_ID"))
 
+nudnikim <- data3 |> filter((pn_ID == "p13" & Visit < 5) | (pn_ID == "p29" & Visit < 5)) 
+
+data3 <- data3 |> anti_join(nudnikim)
+data3 <- data3 |> arrange(Visit) |> group_by(pn_ID, feature) |> 
+         mutate(n = 1, Visit = cumsum(n)) 
 ```
 
 ```{r}
@@ -132,24 +137,30 @@ last_metabolites <- unique(data3$feature)[8:14]
 #| echo: false
 
 pl1 <-
-  data3 |> left_join(metadata) |> 
+  data3 |> 
   filter(feature %in% first_metabolites) |> 
-  ggplot(aes(x=Visit, y=Peak_Area, color = IIRN_Flare, line = pn_ID, shape = Disease_Status)) +
-  geom_point(size = 3) + geom_line(color = "gray", alpha = .5) +
+  ggplot(aes(x=Visit * -1, y=Peak_Area, color = IIRN_Flare, shape = Disease_Status, group = pn_ID)) +
+  geom_point(size = 3) + 
+  geom_line(color = "gray", alpha = .5) +
   ggh4x::facet_nested(IIRN_Flare ~ feature, scales = "free", independent = "y" ) +
-  scale_x_continuous(breaks = seq(from = 1,to = 11,by = 2))
+  scale_x_continuous(breaks = seq(from = 1,to = 11,by = 2)) + 
+  theme(legend.position = "none")
 
 pl2 <-
-  data3 |> left_join(metadata) |> 
+  data3 |> 
   filter(feature %in% last_metabolites) |> 
-  ggplot(aes(x=Visit, y=Peak_Area, color = IIRN_Flare, line = pn_ID, shape = Disease_Status)) +
-  geom_point(size = 3) + geom_line(color = "gray", alpha = .5) +
+  ggplot(aes(x=Visit * -1, y=Peak_Area, color = IIRN_Flare, shape = Disease_Status, group = pn_ID)) +
+  geom_point(size = 3) + 
+  geom_line(color = "gray", alpha = .5) +
   ggh4x::facet_nested(IIRN_Flare ~ feature, scales = "free_y", independent = "y" ) +
-  scale_x_continuous(breaks = seq(from = 1,to = 11,by = 2))
+  scale_x_continuous(breaks = seq(from = 1,to = 11,by = 2)) + 
+  theme(legend.position = "bottom")
 
 pl3 <- ggpubr::ggarrange(pl1, pl2, nrow = 2)
 
 ggsave(filename = paste0(sample_type,'_maaslin4_compounds_lineplot9.png'), width = 70, height = 15, units = "cm", pl3)
+pl3
+
 ```
 
 ```{r}

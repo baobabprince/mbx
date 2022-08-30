@@ -113,15 +113,15 @@ pl1 <-
   ggplot(aes(x=Visit, y=Peak_Area, color = IIRN_Flare, line = pn_ID)) + 
   geom_point(size = 3) + geom_line(color = "gray", alpha = .5) +
   ggh4x::facet_nested(IIRN_Flare ~ feature, scales = "free", independent = "y" ) + 
-  theme_minimal()
+  theme_minimal() + theme(legend.position = "none")
 
 pl2 <-
   data3 |> left_join(metadata) |> 
   filter(feature %in% last_metabolites) |> 
   ggplot(aes(x=Visit, y=Peak_Area, color = IIRN_Flare, line = pn_ID)) + 
   geom_point(size = 3) + geom_line(color = "gray", alpha = .5) +
-  ggh4x::facet_nested(IIRN_Flare ~ feature, scales = "free", independent = "y" ) + 
-  theme_minimal()
+  ggh4x::facet_nested(IIRN_Flare ~ feature, scales = "free_y", independent = "y" ) + 
+  theme_minimal() + theme(legend.position = "bottom")
 
 pl <- ggpubr::ggarrange(pl1, pl2, nrow = 2)
 pl
