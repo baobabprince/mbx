@@ -18,16 +18,26 @@ library(tidyverse)
 #serum_md <- "Serum_metadata.txt" |>  read_tsv()
 #stool_md <- "Stool_metadata.txt" |>  read_tsv()
 
-#sig <- "Serum_maaslin_#2_DS-CD/significant_results.tsv" |> read_tsv()
-sig <- "Stool_maaslin_#2_DS-CD/significant_results.tsv" |> read_tsv()
+sig <- "Serum_maaslin_#2_DS-CD/significant_results.tsv" |> read_tsv()
+#sig <- "Stool_maaslin_#2_DS-CD/significant_results.tsv" |> read_tsv()
+sig_features <- sig |> filter(metadata != "Fasting") |> filter(metadata != "Age") |> filter(metadata != "Gender") |> pull(feature)
+
+#all_results <- "Stool_maaslin_#2_DS-CD/all_results.tsv" |> 
+all_results <- "Serum_maaslin_#2_DS-CD/all_results.tsv" |> 
+    read_tsv() |> filter(feature %in% sig_features)
+
+
 
 hole <- 4
+a_alpha <- .25
 nba <- 
-sig |> filter(metadata != "Fasting") |> filter(metadata != "Age") |> 
-  filter(metadata != "Gender") |> 
-  complete(feature, metadata) |> replace_na(list(coef = NA)) |> 
+  all_results |> filter(metadata != "Fasting") |> 
+  filter(metadata != "Age") |> 
+  filter(metadata != "Gender") |>
+ # complete(feature, metadata) |> replace_na(list(coef = NA)) |> 
   mutate(metadata = metadata |> as.factor(), 
-         num.metadata = metadata |> as.numeric() + hole) 
+         num.metadata = metadata |> as.numeric() + hole) |>
+  mutate(signif = qval < a_alpha)
 
 y_labels = levels(nba$metadata)
 y_breaks = seq_along(y_labels) + hole
@@ -56,10 +66,10 @@ Set the text angle.
 #| echo: true
 pl <- nba |> 
   ggplot(aes(fill = coef, x = feature, y = num.metadata)) + 
-  geom_text(data = nba.labs, aes(x = feature, y = num.metadata + .5, label = feature %>% str_remove("_.*"), angle = ang, hjust = hjust), size = 3) + 
+  geom_text(data = nba.labs, aes(x = feature, y = num.metadata + 1, label = feature %>% str_remove("_.*"), angle = ang, hjust = hjust), size = 3) +
   geom_tile(color = "black") + 
   ylim(c(0, max(nba$num.metadata) + 4.5)) +
-  scale_fill_continuous(low="red", high="blue", 
+  scale_fill_gradient2(low="red", mid = "white", high="blue", 
                        guide="colorbar",na.value="white") + 
   # scale_y_discrete(breaks=y_breaks, labels=y_labels) +
   coord_polar() + 
@@ -67,7 +77,9 @@ pl <- nba |>
   theme_void() +
   theme(axis.text = element_blank() , panel.grid = element_blank()
         , axis.title = element_blank(), legend.position = c(0.5, 0.5)) +
-  geom_text(aes(x= -Inf, label = metadata), size = 3.5, data = nba[!duplicated(nba$metadata),]) +   scale_x_discrete(expand = c(0.05, 0))
+  geom_text(aes(x= -Inf, label = metadata), size = 3.5, data = nba[!duplicated(nba$metadata),]) +   scale_x_discrete(expand = c(0.05, 0)) +
+    geom_text(aes(x = feature, y = num.metadata, label = ifelse(signif, "+","")), size = 2)
+pl  
 ```
 
 Plot settings.
@@ -85,7 +97,7 @@ Plot settings.
 
 # knitr::md("")
 pl
-ggsave(filename = "Stool_donut3.png", height = 10, width = 10)
+ggsave(filename = "Serum_donut3.png", height = 10, width = 10)
 ```
 
 ```{python}
