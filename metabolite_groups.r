@@ -16,7 +16,7 @@ data %>%
   left_join(groups) %>% 
   left_join(metadata, by = "SampleID") %>% 
   filter(group == element) %>% filter(Fasting == "Y")
-  
+}  
 pl <- 
  ggplot(merged_table, aes(x = Disease_Status, y = value, fill = Disease_Status)) + 
   geom_boxplot() + 

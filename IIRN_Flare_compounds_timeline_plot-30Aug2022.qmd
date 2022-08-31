@@ -21,7 +21,7 @@ library(dplyr)
 library(ggplot2)
 library(RColorBrewer)
 #setwd("~/Dropbox/Metabolomics")
-setwd("~/mbx")
+#setwd("~/mbx")
 ```
 
 You can add options to executable code like this
@@ -121,7 +121,6 @@ last_metabolites <- unique(data3$feature)[8:14]
 ```
 
 ```{r}
-
 y_plot_range <- data3 %>% group_by(feature) %>% summarise(area_min = min(Peak_Area), area_max = max(Peak_Area))
 
 my_breaks <- function(x){seq(min(x), max(x), length.out = 5)}
@@ -134,70 +133,50 @@ round(testfunc('Acetoacetate_101'), digits = 2)
 ```
 
 ```{r}
-
-y_plot_range <- data3 %>% group_by(feature) %>% summarise(area_min = min(Peak_Area), area_max = max(Peak_Area))
+y_plot_range <- data3 %>% group_by(feature) %>% 
+                summarise(area_min = min(Peak_Area),
+                          area_max = max(Peak_Area))
 
 test <- data3 %>% group_by(feature, IIRN_Flare) %>% select(feature, IIRN_Flare) %>% unique()
 
-test2 <- y_plot_range %>% right_join(test)
-
-
+test2 <- y_plot_range %>% right_join(test) |>
+        pivot_longer(cols = contains("area"), names_to = NULL, values_to = "Peak_Area")
+test2$Visit <- 0
 test2_first <- test2 %>% filter(feature %in% first_metabolites)
-
-test2_first_p <- test2_first %>% pivot_longer(cols = contains("area"), names_to = NULL, values_to = "Y")
-
-test2_first_p$X <- 0
+test2_last <- test2 %>% filter(feature %in% last_metabolites)
 ```
+
 
 ```{r}
 #| echo: false
-
+library(scales)
+ 
 pl1 <-
-  data3 |> 
-  filter(feature %in% first_metabolites) |> 
-  ggplot(aes(x=Visit, y=Peak_Area, color = Disease_Status, group = pn_ID)) +
-  geom_point(size = 3) + 
-  geom_line(color = "gray", alpha = .5) +
-  ggh4x::facet_nested(IIRN_Flare ~ feature, scales = "free_y", independent = "y" ) +
+  data3 |> filter(feature %in% first_metabolites) |>
+  ggplot() +
+  geom_point(aes(x=Visit, y=Peak_Area, color = Disease_Status), size = 3) + 
+  geom_line(aes(x=Visit, y=Peak_Area, group = pn_ID), color = "gray", alpha = .5) +
+  geom_blank(data = test2_first, aes(x = Visit, y = Peak_Area)) +
+  ggh4x::facet_nested(IIRN_Flare ~ feature, scales = "free_y", independent = "y") +
   scale_x_continuous(breaks = seq(from = 1,to = 6,by = 1)) + 
-  theme(legend.position = "none")
+  scale_y_continuous(breaks = trans_breaks(identity, identity, n = 4)) + 
+  theme(legend.position = "none") + theme_classic()
 
 pl2 <-
-  data3 |> 
-  filter(feature %in% last_metabolites) |> 
-  ggplot(aes(x=Visit, y=Peak_Area, color = Disease_Status, group = pn_ID)) +
-  geom_point(size = 3) + 
-  geom_line(color = "gray", alpha = .5) +
-  ggh4x::facet_nested(IIRN_Flare ~ feature, scales = "free_y", independent = "y" ) +
+  data3 |> filter(feature %in% last_metabolites) |>
+  ggplot() +
+  geom_point(aes(x=Visit, y=Peak_Area, color = Disease_Status), size = 3) + 
+  geom_line(aes(x=Visit, y=Peak_Area, group = pn_ID), color = "gray", alpha = .5) +
+  geom_blank(data = test2_last, aes(x = Visit, y = Peak_Area)) +
+  ggh4x::facet_nested(IIRN_Flare ~ feature, scales = "free_y", independent = "y") +
   scale_x_continuous(breaks = seq(from = 1,to = 6,by = 1)) + 
-  theme(legend.position = "bottom")
+  scale_y_continuous(breaks = trans_breaks(identity, identity, n = 4)) + 
+  theme(legend.position = "bottom") + theme_classic()
+
 
 pl3 <- ggpubr::ggarrange(pl1, pl2, nrow = 2)
 pl3
 
-#ggsave(filename = paste0(sample_type,'_maaslin4_compounds_lineplot9.png'), width = 70, height = 15, units = "cm", pl3)
-
-
-```
-
-```{r}
-#| echo: false
-
-pl1 <-
-  data3 |> 
-  filter(feature %in% first_metabolites) |> 
-  ggplot(aes(x=Visit, y=Peak_Area, color = Disease_Status)) +
-  geom_point(size = 3) + 
-  geom_line(group = pn_ID, color = "gray", alpha = .5) +
-  geom_blank(data = test2_first_p, aes(x = X, y = Y)) +
-  ggh4x::facet_nested(IIRN_Flare ~ feature, scales = "free_y") +
-  scale_x_continuous(breaks = seq(from = 1,to = 6,by = 1)) + 
-  #scale_y_continuous(limits = ) +
-  #scale_y_continuous(limits = c(0,rep(round(as.numeric(y_plot_range$area_max), digits=2),each = 2))) +
-  #scale_y_continuous(breaks = testfunc) + #my_breaks, labels = my_labels) +
-  theme(legend.position = "none")
-
-pl1
 ```
 
 ```{r}
