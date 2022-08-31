@@ -1,0 +1,205 @@
+---
+title: "IIRN_Flare-30Aug2022"
+format: html
+editor: visual
+---
+
+Where Are they?
+
+## Quarto
+
+Quarto enables you to weave together content and executable code into a finished document. To learn more about Quarto see <https://quarto.org>.
+
+## Running Code
+
+When you click the **Render** button a document will be generated that includes both content and the output of embedded code. You can embed code like this:
+
+```{r}
+#| echo: false
+library(tidyverse)
+library(dplyr)
+library(ggplot2)
+library(RColorBrewer)
+#setwd("~/Dropbox/Metabolomics")
+setwd("~/mbx")
+```
+
+You can add options to executable code like this
+
+```{r}
+#| echo: false
+
+sample_type <- 'Serum'
+#sample_type <- 'Stool'
+
+folder_num <- '#4_IIRNFlare2'
+folder_name <- paste0(sample_type, '_maaslin_', folder_num)
+```
+
+The `echo: false` option disables the printing of code (only output is displayed).
+
+```{r}
+#| echo: false
+data <- paste0('./',sample_type, '_Data_MZM10_N2_filtered_calour.tsv') %>% read_tsv()
+
+# data <- paste0('~/Dropbox/Metabolomics/Final_datasets/',sample_type, '_Data_MZM10_N2_filtered_calour.tsv') %>% read_tsv()
+
+data$name_mz <- make.names(data$name_mz)
+```
+
+```{r}
+#| echo: false
+
+metadata <- paste0('./',sample_type, '_metadata.txt') %>% read_tsv()
+
+# metadata <- paste0('~/Dropbox/Metabolomics/Final_datasets/',sample_type, '_metadata.txt') %>% read_tsv()
+
+metadata1 <- metadata %>% filter(Cohort == 'IIRN')
+
+iirn <- metadata1$SampleID
+```
+
+```{r}
+#| echo: false
+iirn1 <- intersect(colnames(data), iirn)
+
+data1 <- data %>% select('name_mz',all_of(iirn1))
+```
+
+```{r}
+#| echo: false
+unzip("Stool_maaslin_#4_IIRNFlare2.zip")
+unzip("Serum_maaslin_#4_IIRNFlare2.zip")
+compounds <- paste0('./', folder_name,'/significant_results.tsv') %>% read_tsv()
+
+#compounds <- paste0('~/Dropbox/Metabolomics/Maaslin/', folder_name,'/significant_results.tsv') %>% read_tsv()
+
+compounds1 <- 
+  compounds %>% filter(metadata == 'IIRN_Flare')
+```
+
+```{r}
+#| echo: false
+
+data2 <- data1 %>% rename(feature =  name_mz) %>% inner_join(compounds1 %>% select(feature))
+```
+
+```{r}
+#| echo: false
+
+data3 <- data2 %>% pivot_longer(cols = contains("_"), names_to = 'SampleID', values_to = 'Peak_Area')
+
+data3 <- data3 %>% inner_join(metadata1 %>% select('SampleID', 'Visit', 'IIRN_Flare', 'Disease_Status', "pn_ID"))
+
+nudnikim <- data3 |> filter((pn_ID == "p13" & Visit < 6) | (pn_ID == "p29" & Visit < 6)) 
+
+data3 <- data3 |> anti_join(nudnikim)
+data3 <- data3 |> arrange(Visit) |> group_by(pn_ID, feature) |> 
+         mutate(n = 1, Visit = cumsum(n)) 
+```
+
+```{r}
+#| echo: false
+pl1 <- 
+  data3 %>% ggplot(aes(x=as.factor(Visit), y=Peak_Area, color = IIRN_Flare)) + 
+  geom_boxplot() + 
+  facet_wrap(~feature, scales = "free")
+
+pl1
+#ggsave(filename = paste0(sample_type,'_maaslin4_compounds6.png'), width = 60, height = 60, units = "cm", pl1)
+```
+
+```{r}
+#| echo: false
+
+```
+
+```{r}
+#| echo: false
+first_metabolites <- unique(data3$feature)[1:7]
+last_metabolites <- unique(data3$feature)[8:14]
+```
+
+```{r}
+
+y_plot_range <- data3 %>% group_by(feature) %>% summarise(area_min = min(Peak_Area), area_max = max(Peak_Area))
+
+my_breaks <- function(x){seq(min(x), max(x), length.out = 5)}
+my_labels <- function(x){round(x, digits = 2)}
+#test <- my_breaks(data3$feature)
+
+testfunc <- function(x){seq(y_plot_range %>% filter(feature==x) %>% select(area_min) %>% as.numeric() , y_plot_range %>% filter(feature==x) %>% select(area_max) %>% as.numeric(), length.out = 4)}
+
+round(testfunc('Acetoacetate_101'), digits = 2)
+```
+
+```{r}
+
+y_plot_range <- data3 %>% group_by(feature) %>% summarise(area_min = min(Peak_Area), area_max = max(Peak_Area))
+
+test <- data3 %>% group_by(feature, IIRN_Flare) %>% select(feature, IIRN_Flare) %>% unique()
+
+test2 <- y_plot_range %>% right_join(test)
+
+
+test2_first <- test2 %>% filter(feature %in% first_metabolites)
+
+test2_first_p <- test2_first %>% pivot_longer(cols = contains("area"), names_to = NULL, values_to = "Y")
+
+test2_first_p$X <- 0
+```
+
+```{r}
+#| echo: false
+
+pl1 <-
+  data3 |> 
+  filter(feature %in% first_metabolites) |> 
+  ggplot(aes(x=Visit, y=Peak_Area, color = Disease_Status, group = pn_ID)) +
+  geom_point(size = 3) + 
+  geom_line(color = "gray", alpha = .5) +
+  ggh4x::facet_nested(IIRN_Flare ~ feature, scales = "free_y", independent = "y" ) +
+  scale_x_continuous(breaks = seq(from = 1,to = 6,by = 1)) + 
+  theme(legend.position = "none")
+
+pl2 <-
+  data3 |> 
+  filter(feature %in% last_metabolites) |> 
+  ggplot(aes(x=Visit, y=Peak_Area, color = Disease_Status, group = pn_ID)) +
+  geom_point(size = 3) + 
+  geom_line(color = "gray", alpha = .5) +
+  ggh4x::facet_nested(IIRN_Flare ~ feature, scales = "free_y", independent = "y" ) +
+  scale_x_continuous(breaks = seq(from = 1,to = 6,by = 1)) + 
+  theme(legend.position = "bottom")
+
+pl3 <- ggpubr::ggarrange(pl1, pl2, nrow = 2)
+pl3
+
+#ggsave(filename = paste0(sample_type,'_maaslin4_compounds_lineplot9.png'), width = 70, height = 15, units = "cm", pl3)
+
+
+```
+
+```{r}
+#| echo: false
+
+pl1 <-
+  data3 |> 
+  filter(feature %in% first_metabolites) |> 
+  ggplot(aes(x=Visit, y=Peak_Area, color = Disease_Status)) +
+  geom_point(size = 3) + 
+  geom_line(group = pn_ID, color = "gray", alpha = .5) +
+  geom_blank(data = test2_first_p, aes(x = X, y = Y)) +
+  ggh4x::facet_nested(IIRN_Flare ~ feature, scales = "free_y") +
+  scale_x_continuous(breaks = seq(from = 1,to = 6,by = 1)) + 
+  #scale_y_continuous(limits = ) +
+  #scale_y_continuous(limits = c(0,rep(round(as.numeric(y_plot_range$area_max), digits=2),each = 2))) +
+  #scale_y_continuous(breaks = testfunc) + #my_breaks, labels = my_labels) +
+  theme(legend.position = "none")
+
+pl1
+```
+
+```{r}
+
+```
