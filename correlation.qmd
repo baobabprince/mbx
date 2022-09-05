@@ -1,0 +1,118 @@
+---
+title: "Correlation plot"
+author: "Rotem Hadar"
+format: html
+---
+
+```{r}
+library(tidyverse)
+
+serum <- "./Serum_metadata.txt" |> read_tsv() |> mutate(source = "serum") |> 
+  mutate(  Dysbiosis_Index = Dysbiosis_Index |> as.numeric()
+         , FCP_Absolute = FCP_Absolute |> as.numeric())
+
+stool <- "./Stool_metadata.txt" |> read_tsv() |> mutate(source = "stool") |> 
+  mutate(Dysbiosis_Index = Dysbiosis_Index |> as.numeric())
+```
+
+```{r}
+input <- 
+"Faith + dysbiosis index
+Faith + FCP_Absolute
+Faith + CRP_Absolute
+Dysbiosis index + FCP absolute
+Dysbiosis index + CRP absolute
+FCP absolute + CRP absolute"
+
+#  AAAAAAAAHHHHHHHH!
+input <- input |> str_replace_all("dysbiosis index", "Dysbiosis_Index")
+input <- input |> str_replace_all("Dysbiosis index", "Dysbiosis_Index")
+input <- input |> str_replace_all("Faith", "Faith_pd")
+input <- input |> str_replace_all("FCP a", "FCP_A")
+input <- input |> str_replace_all("CRP a", "CRP_A")
+couples <- read.table(sep = '+', text = input)
+couples$V1 <- couples$V1 |> trimws()
+couples$V2 <- couples$V2 |> trimws()
+couples
+serum |> 
+    select(SampleID, Faith_pd, FCP_Absolute, CRP_Absolute, Dysbiosis_Index) |> 
+    select(-1) |> 
+    cor.test(na.rm = T)
+```
+
+
+```{r}
+couples$cor <- NA
+couples$pval <- NA
+couples$N <- NA
+couples
+serum <- serum |> filter(MZM10_included == "Y")
+for(row in couples |> nrow() |> seq()){ # Shame on me
+  v1 <- couples[row,1] ; v2 <- couples[row,2] 
+  # 1
+  couples[row, "cor"] <- serum |> 
+    select(SampleID, !!sym(v1), !!sym(v2)) |> drop_na() |>
+  summarise(cor(!!sym(v1), !!sym(v2), method = "spearman"))
+  # 3
+  couples[row, "pval"] <- 
+  serum |> 
+    select(SampleID, !!sym(v1), !!sym(v2)) |> drop_na() |>
+  summarise(cor.test(x = !!sym(v1),y =  !!sym(v2), method = "spearman")$p.value)
+
+    couples[row, "N"] <- 
+  serum |> 
+    select(SampleID, !!sym(v1), !!sym(v2)) |> drop_na() |>
+    summarise(n = n())
+}
+variables = couples$V1 |> c(couples$V2) |> unique()
+couples <- expand.grid(variables, variables |> rev()) |> 
+    rename(V1 = Var1, V2 = Var2) |> 
+    left_join(couples) |> 
+    arrange(pval)
+
+library(forcats)
+couples
+factor(couples$V1)
+fct_relevel(couples$V2, levels())
+couples$V2 <- factor(couples$V2, levels = couples$V2[order(couples$V2)])
+couples$V1 <- factor(couples$V1)
+```
+```{r}
+couples |> 
+    mutate(text = paste0("Pval=", pval |> round(4), "\nN=(", N, ")")) |> 
+    ggplot() +
+    aes(x = V1, y = V2, fill = cor, label = text) + 
+    geom_tile() + geom_text(color = "white") + 
+    scale_fill_gradient2(na.value = "white") + 
+    theme_minimal() +
+    theme(panel.grid = element_blank()
+        , axis.title = element_blank()
+        , legend.position = c(.65,.65))
+```
+```{r}
+vals <- stool |>
+  select(Faith_pd, FCP_Absolute, CRP_Absolute, Dysbiosis_Index) |> 
+  drop_na()
+
+m <- cor(vals, method = "spearman")
+peas <- corrplot::cor.mtest(vals)
+corrplot::corrplot(m ,p.mat = peas$p
+                   , type = "lower"
+                   # , sig.level = 0.05
+                   # , sig.level = 1
+                   , order = 'hclust'
+                   # , insig = 'label_sig', sig.level = c(.000001,.0001, 0.001, 0.01, 0.05)
+                   , addrect = 2
+                   , number.cex = 1
+                   ,col = "white"
+                   , addCoef.col ='black'
+                   , tl.col = 'black'
+                   # , tl.pos = 'd'
+                   , diag=F)
+
+
+
+corrplot::corrplot.mixed(m, order = "AOE", p.mat = peas$p, addCoef.col ='black')
+m
+peas$p
+```
