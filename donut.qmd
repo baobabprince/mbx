@@ -14,16 +14,13 @@ messages: false
 #| echo: fenced
 #| cache: true
 library(tidyverse)
+sample_type  <- "Serum" # "Stool"
+#md <- paste0(sample_type, "_metadata.txt") |>  read_tsv()
 
-#serum_md <- "Serum_metadata.txt" |>  read_tsv()
-#stool_md <- "Stool_metadata.txt" |>  read_tsv()
-
-sig <- "Serum_maaslin_#2_DS-CD/significant_results.tsv" |> read_tsv()
-#sig <- "Stool_maaslin_#2_DS-CD/significant_results.tsv" |> read_tsv()
+sig <- paste0(sample_type, "_maaslin_#2_DS-CD/significant_results.tsv") |> read_tsv()
 sig_features <- sig |> filter(metadata != "Fasting") |> filter(metadata != "Age") |> filter(metadata != "Gender") |> pull(feature)
 
-#all_results <- "Stool_maaslin_#2_DS-CD/all_results.tsv" |> 
-all_results <- "Serum_maaslin_#2_DS-CD/all_results.tsv" |> 
+all_results <- paste0(sample_type, "_maaslin_#2_DS-CD/all_results.tsv") |> 
     read_tsv() |> filter(feature %in% sig_features)
 
 
@@ -37,7 +34,10 @@ nba <-
  # complete(feature, metadata) |> replace_na(list(coef = NA)) |> 
   mutate(metadata = metadata |> as.factor(), 
          num.metadata = metadata |> as.numeric() + hole) |>
-  mutate(signif = qval < a_alpha)
+  mutate(signif = qval < a_alpha) |> 
+  mutate(mz = str_extract(feature, pattern = "(?!_)\\d+") |> as.numeric()) |> 
+  arrange(mz |> desc()) |> 
+  mutate(feature = str_remove(feature, "_.*")) |> distinct(feature, metadata, .keep_all = T)
 
 y_labels = levels(nba$metadata)
 y_breaks = seq_along(y_labels) + hole
@@ -56,7 +56,6 @@ nba.labs$ang <- seq(from=(360/nrow(nba.labs))/1.5, to=(1.5*(360/nrow(nba.labs)))
 nba.labs$hjust <- 0
 nba.labs$hjust[which(nba.labs$ang < -90)] <- 1
 nba.labs$ang[which(nba.labs$ang < -90)] <- (180+nba.labs$ang)[which(nba.labs$ang < -90)]
-# nba.labs$feature <- nba$feature |> str_remove("_.*")
 ```
 
 Set the text angle.
@@ -66,10 +65,10 @@ Set the text angle.
 #| echo: true
 pl <- nba |> 
   ggplot(aes(fill = coef, x = feature, y = num.metadata)) + 
-  geom_text(data = nba.labs, aes(x = feature, y = num.metadata + 1, label = feature %>% str_remove("_.*"), angle = ang, hjust = hjust), size = 3) +
-  geom_tile(color = "black") + 
+  geom_text(data = nba.labs, aes(x = feature, y = num.metadata + 1, label = feature, angle = ang, hjust = hjust), size = 3) +
+  geom_tile(color = "darkgrey") + 
   ylim(c(0, max(nba$num.metadata) + 4.5)) +
-  scale_fill_gradient2(low="red", mid = "white", high="blue", 
+  scale_fill_gradient2(low="blue", mid = "white", high="red", 
                        guide="colorbar",na.value="white") + 
   # scale_y_discrete(breaks=y_breaks, labels=y_labels) +
   coord_polar() + 
@@ -78,7 +77,8 @@ pl <- nba |>
   theme(axis.text = element_blank() , panel.grid = element_blank()
         , axis.title = element_blank(), legend.position = c(0.5, 0.5)) +
   geom_text(aes(x= -Inf, label = metadata), size = 3.5, data = nba[!duplicated(nba$metadata),]) +   scale_x_discrete(expand = c(0.05, 0)) +
-    geom_text(aes(x = feature, y = num.metadata, label = ifelse(signif, "+","")), size = 2)
+    geom_text(aes(x = feature, y = num.metadata, label = ifelse(signif, "+","")), size = 2) + 
+    ggtitle(sample_type)
 pl  
 ```
 
@@ -97,9 +97,6 @@ Plot settings.
 
 # knitr::md("")
 pl
-ggsave(filename = "Serum_donut3.png", height = 10, width = 10)
+ggsave(filename = paste0(sample_type, "_donut3.png"), height = 10, width = 10)
 ```
 
-```{python}
-1+1
-```
