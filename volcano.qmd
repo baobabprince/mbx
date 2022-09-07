@@ -7,21 +7,27 @@ format: html
 ```{r}
 library(tidyverse)
 library(ggrepel)
+library(gghighlight)
+sample_type  <- "Serum" # Stool
 ```
 
 
 ```{r}
-all_results <- "Serum_maaslin_#1_allDx2/all_results.tsv" |> read_tsv()
+
+all_results <- paste0(sample_type, "_maaslin_#1_allDx2/all_results.tsv") |> read_tsv()
 
 all_results <- all_results|> 
-    mutate(interst = ifelse(qval < .1, 2,ifelse(qval < .25,1,NA))) |>
+    mutate(interst = ifelse(qval < .1, 1,NA)) |>
     filter(metadata == "Dx") |>
-    mutate(feature = feature |> str_remove("_.*"))
-
+    mutate(feature = feature |> str_remove("_.*")) |> 
+    mutate(sig = sign(coef))
+all_results |> filter(qval < .1)
 all_results |>
-    ggplot() +aes(y =-log(qval), x = coef, color = interst |> as.factor()) + 
+    ggplot() + aes(y =-log(qval), x = coef, color = sig |> factor()) + 
     expand_limits(x = c(-2.5,2)) + 
     geom_point(size = 4) + 
-    geom_text_repel(data = all_results |>filter(interst == 2), aes(label = feature), color = "black") + 
+    gghighlight(qval < .1) +
+    geom_text_repel(data = all_results |>filter(interst == 1), aes(label = feature), color = "black") + 
+    scale_color_manual(values = c("blue", "red")) +
     theme_minimal()
 ``` 
