@@ -44,6 +44,20 @@ y_labels = levels(nba$metadata)
 y_breaks = seq_along(y_labels) + hole
 ```
 
+
+Cluster coef
+```{r}
+#| cache: true
+#| echo: true
+
+temp <- nba |> select(feature, metadata, coef)  |> 
+  pivot_wider(names_from = metadata, values_from = coef) 
+# rownames(temp) <- paste0(temp$feature)
+ord <- hclust( dist(temp |> select(-1), method = "euclidean"), method = "ward.D" )$order
+nba$feature = factor(nba$feature, temp$feature[ord])
+
+```
+
 Also set the hole size (= `r hole`).
 
 ```{r}
@@ -67,10 +81,12 @@ Set the text angle.
 ```{r}
 #| cache: true
 #| echo: true
+
+
 pl <- nba |> 
   ggplot(aes(fill = coef, x = feature, y = num.metadata)) + 
   geom_text(data = nba.labs, aes(x = feature, y = num.metadata + 1, label = feature, angle = ang, hjust = hjust), size = 3) +
-  geom_tile(color = "darkgrey") + 
+  geom_tile(color = "darkgrey") +
   ylim(c(0, max(nba$num.metadata) + 4.5)) +
   scale_fill_gradient2(low="blue", mid = "white", high="red", 
                        guide="colorbar",na.value="white") + 
