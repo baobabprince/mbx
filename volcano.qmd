@@ -17,17 +17,58 @@ sample_type  <- "Serum" # Stool
 all_results <- paste0(sample_type, "_maaslin_#1_allDx2/all_results.tsv") |> read_tsv()
 
 all_results <- all_results|> 
-    mutate(interst = ifelse(qval < .1, 1,NA)) |>
+    mutate(interst = ifelse(qval < .25, 1,NA)) |>
     filter(metadata == "Dx") |>
     mutate(feature = feature |> str_remove("_.*")) |> 
     mutate(sig = sign(coef))
-all_results |> filter(qval < .1)
-all_results |>
-    ggplot() + aes(y =-log(qval), x = coef, color = sig |> factor()) + 
+# all_results |> filter(qval < .25)
+
+all_results |> 
+    ggplot() + 
+    aes(y =-log(qval), x = coef, color = sig |> factor(), alpha = rev(qval)) + 
     expand_limits(x = c(-2.5,2)) + 
+    #scale_color_manual(values = )
     geom_point(size = 4) + 
-    gghighlight(qval < .1) +
-    geom_text_repel(data = all_results |>filter(interst == 1), aes(label = feature), color = "black") + 
+    gghighlight(qval < .25) +
+    geom_hline(aes(yintercept = -log(.1)), linetype = 2) +
+    #geom_hline(aes(yintercept = -log(.25)), linetype = 3) +
+    geom_text_repel(data = all_results |> filter(interst == 1)
+        , aes(label = feature), color = "black", alpha = 1) + 
     scale_color_manual(values = c("blue", "red")) +
     theme_minimal()
+
+``` 
+
+
+```{r}
+sample_type  <- "Stool"
+```
+
+
+```{r}
+
+all_results <- paste0(sample_type, "_maaslin_#1_allDx2/all_results.tsv") |> read_tsv()
+
+all_results <- all_results|> 
+    mutate(interst = ifelse(qval < .25, 1,NA)) |>
+    filter(metadata == "Dx") |>
+    mutate(feature = feature |> str_remove("_.*")) |> 
+    mutate(sig = sign(coef))
+# all_results |> filter(qval < .25)
+
+all_results |> 
+    ggplot() + 
+    aes(y =sqrt(-log(qval)), x = coef, color = sig |> factor(), alpha = rev(qval)) + 
+    expand_limits(x = c(-2.5,2)) + 
+    #scale_color_manual(values = )
+    geom_point(size = 4) + 
+    gghighlight(qval < .25) +
+    #scale_y_continuous(trans = "sqrt") + 
+    geom_hline(aes(yintercept = -log(.1)), linetype = 2) +
+    #geom_hline(aes(yintercept = -log(.25)), linetype = 3) +
+    geom_text_repel(data = all_results |> filter(interst == 1)
+        , aes(label = feature), color = "black", alpha = 1) + 
+    scale_color_manual(values = c("blue", "red")) +
+    theme_minimal()
+
 ``` 
