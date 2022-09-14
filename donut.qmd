@@ -15,11 +15,11 @@ messages: false
 #| cache: true
 library(tidyverse)
 sample_type  <- "Serum" # "Stool"
-# sample_type  <-  "Stool"
+sample_type  <-  "Stool"
 #md <- paste0(sample_type, "_metadata.txt") |>  read_tsv()
 
 sig <- paste0(sample_type, "_maaslin_#2_DS-CD/significant_results.tsv") |> read_tsv()
-sig_features <- sig |> filter(metadata != "Fasting") |> filter(metadata != "Age") |> filter(metadata != "Gender") |> pull(feature)
+  sig_features <- sig |> filter(metadata != "Fasting") |> filter(metadata != "Age") |> filter(metadata != "Gender") |> pull(feature)
 
 all_results <- paste0(sample_type, "_maaslin_#2_DS-CD/all_results.tsv") |> 
     read_tsv() |> filter(feature %in% sig_features)
@@ -38,7 +38,8 @@ nba <-
   mutate(signif = qval < a_alpha) |> 
   mutate(mz = str_extract(feature, pattern = "(?!_)\\d+") |> as.numeric()) |> 
   arrange(mz |> desc()) |> 
-  mutate(feature = str_remove(feature, "_.*")) |> distinct(feature, metadata, .keep_all = T)
+  mutate(feature = str_remove(feature, "_.*")) |> 
+  distinct(feature, metadata, .keep_all = T)
 
 y_labels = levels(nba$metadata)
 y_breaks = seq_along(y_labels) + hole
