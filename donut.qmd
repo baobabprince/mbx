@@ -1,7 +1,7 @@
 ---
 title: "Donut heatmap"
 date: "`r Sys.Date()`"
-format: html
+format: revealjs
 author: Rotem & Nina
 code-fold: true
 warnings: false
@@ -44,7 +44,6 @@ y_labels = levels(nba$metadata)
 y_breaks = seq_along(y_labels) + hole
 ```
 
-
 Cluster coef
 ```{r}
 #| cache: true
@@ -55,7 +54,6 @@ temp <- nba |> select(feature, metadata, coef)  |>
 # rownames(temp) <- paste0(temp$feature)
 ord <- hclust( dist(temp |> select(-1), method = "euclidean"), method = "ward.D" )$order
 nba$feature = factor(nba$feature, temp$feature[ord])
-
 ```
 
 Also set the hole size (= `r hole`).

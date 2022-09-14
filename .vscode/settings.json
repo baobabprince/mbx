@@ -1,0 +1,6 @@
+{
+    "r.rpath.linux": "/home/rotem/anaconda3/envs/qiime2-2022.2/bin/R",
+    "r.rterm.linux": "/home/rotem/anaconda3/bin/radian",
+    "editor.fontFamily": "'Fira Code','Droid Sans Mono', 'monospace', monospace",
+    "editor.fontLigatures": true
+}

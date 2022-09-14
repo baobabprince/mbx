@@ -1,0 +1,629 @@
+2022-07-10 13:35:36 INFO::Writing function arguments to log file
+2022-07-10 13:35:36 DEBUG::Function arguments
+2022-07-10 13:35:36 DEBUG::Input data file: maaslin_otu_MZM.tsv
+2022-07-10 13:35:36 DEBUG::Input metadata file: maaslin_metadata_MZM_#4_IIRNFlare2.tsv
+2022-07-10 13:35:36 DEBUG::Output folder: Stool_maaslin_#4_IIRNFlare2
+2022-07-10 13:35:36 DEBUG::Min Abundance: 0.000000
+2022-07-10 13:35:36 DEBUG::Min Prevalence: 0.100000
+2022-07-10 13:35:36 DEBUG::Normalization: TSS
+2022-07-10 13:35:36 DEBUG::Transform: LOG
+2022-07-10 13:35:36 DEBUG::Analysis method: LM
+2022-07-10 13:35:36 DEBUG::Max significance: 0.250000
+2022-07-10 13:35:36 DEBUG::Random effects: pn_ID
+2022-07-10 13:35:36 DEBUG::Fixed effects: Gender,Age,IIRN_Flare
+2022-07-10 13:35:36 DEBUG::Correction method: BH
+2022-07-10 13:35:36 DEBUG::Standardize: TRUE
+2022-07-10 13:35:36 DEBUG::Cores: 1
+2022-07-10 13:35:36 INFO::Verifying options selected are valid
+2022-07-10 13:35:36 INFO::Determining format of input files
+2022-07-10 13:35:36 INFO::Input format is data samples as columns and metadata samples as rows
+2022-07-10 13:35:36 DEBUG::Transformed data so samples are rows
+2022-07-10 13:35:36 DEBUG::The following samples were found to have features but no metadata. They will be removed. X135_A311_Lab_Control_Male_Control_2019,X14_SMC_FC_A067s1_CD,X141_18_IIRN_Male_CD_2017,X142_8_IIRN_Male_CD_2015,X112_A302_Lab_Control_Female_Control_2019,X10_SMC_FC_A009s2_CD,X118_A305_Lab_Control_Female_Control_2019,X04_13_IIRN_Male_CD_2016,X116_42_IIRN_Female_CD_2016,X149_S005_SOURCE_Male_CD_2019,X13_SMC_FC_A066s3_CD,X123_15_IIRN_Female_CD_2016,X140_S050_SOURCE_Female_Control_NI,X12_SMC_FC_A066s2_CD,X146_A302_Lab_Control_Female_Control_2019,X125_S028_SOURCE_Female_Control_2019,X102_A312_Lab_Control_Male_Control_2019,X09_A303_Lab_Control_Female_Control_2019,X15_SMC_FC_A067s2_CD,X169_S046_SOURCE_Female_CD_2020,X167_A307_Lab_Control_Male_Control_2019,X185_S047_SOURCE_Female_Control_NI,X165_13_IIRN_Male_CD_2016,X11_SMC_FC_A066s1_CD,X157_A309_Lab_Control_Male_Control_2019,X161_19_IIRN_Male_CD_2016,X196_A304_Lab_Control_Female_Control_2020,X177_S001_SOURCE_Female_CD_2019,X208_S054_SOURCE_Female_CD_NI,X198_25_IIRN_Male_CD_2017,X193_S020_SOURCE_Male_CD_2019,X203_A304_Lab_Control_Female_Control_2020,X215_A306_Lab_Control_Male_Control_2019,X233_A313_Lab_Control_Female_Control_2019,X1_SMC_FC_A301s1_Control,X232_45_IIRN_Male_CD_2015,X224_A308_Lab_Control_Female_Control_2020,X212_10_IIRN_Female_CD_2015,X242_S038_SOURCE_Male_Control_2020,X231_S053_SOURCE_Male_CD_NI,X21_A308_Lab_Control_Female_Control_2020,X248_A303_Lab_Control_Female_Control_2019,X245_S011_SOURCE_Female_CD_2019,X228_S006_SOURCE_Male_Control_2019,X263_S044_SOURCE_Male_Control_2020,X256_S031_SOURCE_Male_Control_2019,X258_A302_Lab_Control_Female_Control_2018,X26_S032_SOURCE_Female_Control_2019,X255_29_IIRN_Male_CD_2017,X268_S040_SOURCE_Male_CD_2020,X265_38_IIRN_Female_CD_2017,X278_A306_Lab_Control_Male_Control_2019,X287_A309_Lab_Control_Male_Control_2019,X282_S042_SOURCE_Female_CD_2020,X2_SMC_FC_A301s2_Control,X297_A304_Lab_Control_Female_Control_2019,X4_SMC_FC_A304s2_Control,X277_12_IIRN_Male_CD_2017,X293_S007_SOURCE_Female_CD_2019,X3_SMC_FC_A304s1_Control,X271_A308_Lab_Control_Female_Control_2020,X44_S057_SOURCE_Male_Control_NI,X35_A311_Lab_Control_Male_Control_NI,X32_S055_SOURCE_Female_CD_NI,X51_S030_SOURCE_Female_Control_2019,X5_SMC_FC_A305s1_Control,X63_S029_SOURCE_Male_Control_2019,X57_A363_Lab_Control_Female_Control_2020,X69_A313_Lab_Control_Female_Control_NI,X7_SMC_FC_A308s1_Control,X8_SMC_FC_A308s2_Control,X73_42_IIRN_Female_CD_2016,X98_15_IIRN_Female_CD_2016,X90_S051_SOURCE_Male_Control_NI,X85_A301_Lab_Control_Female_Control_2019,X9_SMC_FC_A009s1_CD,X99_S002_SOURCE_Female_Control_2019
+2022-07-10 13:35:36 DEBUG::The following samples were found to have metadata but no features. They will be removed. X05_14_IIRN_Female_CD_2017,X14_39_IIRN_Male_CD_2016,X16_27_IIRN_Female_CD_2016,X17_1_IIRN_Male_CD_2016,X19_31_IIRN_Female_CD_2015,X29_29_IIRN_Male_CD_2015,X54_SMC_FC_p17_CD,X64_2_IIRN_Male_CD_2018,X66_41_IIRN_Male_CD_2015,X84_37_IIRN_Male_CD_2016,X152_6_IIRN_Male_CD_2016,X163_3_IIRN_Male_CD_2016,X182_5_IIRN_Female_CD_2017,X186_SMC_FC_p9_CD,X189_SMC_FC_p43_CD,X223_14_IIRN_Female_CD_2016,X276_SMC_FC_p28_CD
+2022-07-10 13:35:36 DEBUG::A total of 216 samples were found in both the data and metadata
+2022-07-10 13:35:36 DEBUG::Reordering data/metadata to use same sample ordering
+2022-07-10 13:35:36 INFO::Formula for random effects: expr ~ (1 | pn_ID)
+2022-07-10 13:35:36 INFO::Formula for fixed effects: expr ~  Gender + Age + IIRN_Flare
+2022-07-10 13:35:36 INFO::Filter data based on min abundance and min prevalence
+2022-07-10 13:35:36 INFO::Total samples in data: 216
+2022-07-10 13:35:36 INFO::Min samples required with min abundance for a feature not to be filtered: 21.600000
+2022-07-10 13:35:36 INFO::Total filtered features: 0
+2022-07-10 13:35:36 INFO::Filtered feature names from abundance and prevalence filtering:
+2022-07-10 13:35:36 INFO::Total filtered features with variance filtering: 0
+2022-07-10 13:35:36 INFO::Filtered feature names from variance filtering:
+2022-07-10 13:35:36 INFO::Running selected normalization method: TSS
+2022-07-10 13:35:36 INFO::Applying z-score to standardize continuous metadata
+2022-07-10 13:35:36 INFO::Running selected transform method: LOG
+2022-07-10 13:35:36 INFO::Running selected analysis method: LM
+2022-07-10 13:35:36 INFO::Fitting model to feature number 1, X10.HAD_185.1
+2022-07-10 13:35:36 INFO::Fitting model to feature number 2, X10.Hydroxydecanoic.acid_187.1
+2022-07-10 13:35:36 INFO::Fitting model to feature number 3, X13Z.16Z.docosadienoic.acid_335.3
+2022-07-10 13:35:36 INFO::Fitting model to feature number 4, X14.Methylhexadecanoic.acid_269.2
+2022-07-10 13:35:36 INFO::Fitting model to feature number 5, X1.Aminocyclopropanecarboxylate_102.1
+2022-07-10 13:35:36 INFO::Fitting model to feature number 6, X1.Methyladenosine_282.1
+2022-07-10 13:35:36 INFO::Fitting model to feature number 7, X2.Deoxy.D.Glucose_163.1
+2022-07-10 13:35:36 INFO::Fitting model to feature number 8, X2.3.Dihydroxybenzoate_153
+2022-07-10 13:35:36 INFO::Fitting model to feature number 9, X2.4.Dihydroxypteridine_163
+2022-07-10 13:35:36 INFO::Fitting model to feature number 10, X2.6.Dihydroxypyridine_112
+2022-07-10 13:35:36 INFO::Fitting model to feature number 11, X2.Acetamido.2.Deoxy.Beta.D.Glucosylamine_221.1
+2022-07-10 13:35:36 INFO::Fitting model to feature number 12, X2.Aminoisobutyrate_104.1
+2022-07-10 13:35:36 INFO::Fitting model to feature number 13, X2.Aminophenol_108
+2022-07-10 13:35:36 INFO::Fitting model to feature number 14, X2.Deoxy.D.Glucose.6.phosphate_243
+2022-07-10 13:35:36 INFO::Fitting model to feature number 15, X2.Hydroxy.4..Methylthio.Butyric.Acid_149
+2022-07-10 13:35:36 INFO::Fitting model to feature number 16, X2.hydroxyglutarate_147
+2022-07-10 13:35:36 INFO::Fitting model to feature number 17, X2.Hydroxyhexadecanoic.acid_271.2
+2022-07-10 13:35:36 INFO::Fitting model to feature number 18, X2.Hydroxyisocaproic.acid_131.1
+2022-07-10 13:35:36 INFO::Fitting model to feature number 19, X2.Hydroxypyridine_96
+2022-07-10 13:35:37 INFO::Fitting model to feature number 20, X2.Hydroxytetradecanoic.acid_243.2
+2022-07-10 13:35:37 INFO::Fitting model to feature number 21, X2.Methylcitrate_205
+2022-07-10 13:35:37 INFO::Fitting model to feature number 22, X2.Methylmaleate_129
+2022-07-10 13:35:37 INFO::Fitting model to feature number 23, X2.Phosphoglycerate_185
+2022-07-10 13:35:37 INFO::Fitting model to feature number 24, X3.Hydroxybenzyl.Alcohol_123
+2022-07-10 13:35:37 INFO::Fitting model to feature number 25, X3..2.Hydroxyphenyl.Propanoate_165.1
+2022-07-10 13:35:37 INFO::Fitting model to feature number 26, X3..4.Hydroxyphenyl.Pyruvate_179
+2022-07-10 13:35:37 INFO::Fitting model to feature number 27, X3.4.Dihydroxymandelate_183
+2022-07-10 13:35:37 INFO::Fitting model to feature number 28, X3.4.Dihydroxybenzoate_153
+2022-07-10 13:35:37 INFO::Fitting model to feature number 29, X3.4.Dihydroxyphenylglycol_169.1
+2022-07-10 13:35:37 INFO::Fitting model to feature number 30, X3.Amino.4.Hydroxybenzoate_152
+2022-07-10 13:35:37 INFO::Fitting model to feature number 31, X3.Amino.5.Hydroxybenzoate_152
+2022-07-10 13:35:37 INFO::Fitting model to feature number 32, X3.Dehydroshikimate_171
+2022-07-10 13:35:37 INFO::Fitting model to feature number 33, X3.Hydroxyanthranilate_152
+2022-07-10 13:35:37 INFO::Fitting model to feature number 34, X3.Hydroxybenzaldehyde_121
+2022-07-10 13:35:37 INFO::Fitting model to feature number 35, X3.hydroxybutyric.acid_103
+2022-07-10 13:35:37 INFO::Fitting model to feature number 36, X3.Hydroxykynurenine_225.1
+2022-07-10 13:35:37 INFO::Fitting model to feature number 37, X3.Hydroxymethylglutarate_161
+2022-07-10 13:35:37 INFO::Fitting model to feature number 38, X3.Hydroxyoctanoic.acid_159.1
+2022-07-10 13:35:37 INFO::Fitting model to feature number 39, X3.Methoxy.4.Hydroxymandelate_197
+2022-07-10 13:35:37 INFO::Fitting model to feature number 40, X3.Methoxytyramine_168.1
+2022-07-10 13:35:37 INFO::Fitting model to feature number 41, X3.Methoxytyrosine_210.1
+2022-07-10 13:35:37 INFO::Fitting model to feature number 42, X3.Methyl.2.Oxovalerate_129.1
+2022-07-10 13:35:38 INFO::Fitting model to feature number 43, X3.Methyladenine_150.1
+2022-07-10 13:35:38 INFO::Fitting model to feature number 44, X3.Methylglutaconate_143
+2022-07-10 13:35:38 INFO::Fitting model to feature number 45, X3.Methyl.L.Histidine_170.1
+2022-07-10 13:35:38 INFO::Fitting model to feature number 46, X3.Sulfinoalanine_154
+2022-07-10 13:35:38 INFO::Fitting model to feature number 47, X4.Acetamidobutanoate_146.1
+2022-07-10 13:35:38 INFO::Fitting model to feature number 48, X4.Aminobenzoate_136
+2022-07-10 13:35:38 INFO::Fitting model to feature number 49, X4.Coumarate_163
+2022-07-10 13:35:38 INFO::Fitting model to feature number 50, X4.Guanidinobutanoate_146.1
+2022-07-10 13:35:38 INFO::Fitting model to feature number 51, X4.Hydroxybenzaldehyde_121
+2022-07-10 13:35:38 INFO::Fitting model to feature number 52, X4.Hydroxybenzoate_137
+2022-07-10 13:35:38 INFO::Fitting model to feature number 53, X4.Hydroxy.L.Phenylglycine_168.1
+2022-07-10 13:35:38 INFO::Fitting model to feature number 54, X4.Imidazoleacetate_127.1
+2022-07-10 13:35:38 INFO::Fitting model to feature number 55, X4.Pyridoxate_184.1
+2022-07-10 13:35:38 INFO::Fitting model to feature number 56, X5.Z..8.Z..11.Z..Eicosatrienoic.Acid_305.2
+2022-07-10 13:35:38 INFO::Fitting model to feature number 57, X5.Aminolevulinic.acid_132.1
+2022-07-10 13:35:38 INFO::Fitting model to feature number 58, X5.Aminopentanoate_118.1
+2022-07-10 13:35:38 INFO::Fitting model to feature number 59, X5.Deoxyadenosine_252.1
+2022-07-10 13:35:38 INFO::Fitting model to feature number 60, X5.Hydroxylysine_163.1
+2022-07-10 13:35:38 INFO::Fitting model to feature number 61, X5.Hydroxymethyluracil_141
+2022-07-10 13:35:38 INFO::Fitting model to feature number 62, X5.Methylcytosine_126.1
+2022-07-10 13:35:38 INFO::Fitting model to feature number 63, X5.Valerolactone_101.1
+2022-07-10 13:35:38 INFO::Fitting model to feature number 64, X6.Carboxyhexanoate_159.1
+2022-07-10 13:35:39 INFO::Fitting model to feature number 65, X6.Hydroxynicotinate_138
+2022-07-10 13:35:39 INFO::Fitting model to feature number 66, X9.Decenoic.acid_169.1
+2022-07-10 13:35:39 INFO::Fitting model to feature number 67, Acetaminophen_152.1
+2022-07-10 13:35:39 INFO::Fitting model to feature number 68, Acetoacetate_101
+2022-07-10 13:35:39 INFO::Fitting model to feature number 69, acetyl.carnitine_204.1
+2022-07-10 13:35:39 INFO::Fitting model to feature number 70, Acetylcholine_146.1
+2022-07-10 13:35:39 INFO::Fitting model to feature number 71, Acetylcysteine_164
+2022-07-10 13:35:39 INFO::Fitting model to feature number 72, Adenine_136.1
+2022-07-10 13:35:39 INFO::Fitting model to feature number 73, Adenosine_268.1
+2022-07-10 13:35:39 INFO::Fitting model to feature number 74, Adenosine.Diphosphate.Ribose_560.1
+2022-07-10 13:35:39 INFO::Fitting model to feature number 75, Adipate_145.1
+2022-07-10 13:35:39 INFO::Fitting model to feature number 76, ADP_428
+2022-07-10 13:35:39 INFO::Fitting model to feature number 77, ADP_426
+2022-07-10 13:35:39 INFO::Fitting model to feature number 78, Alanine_90.1
+2022-07-10 13:35:39 INFO::Fitting model to feature number 79, all.cis.4.7.10.13.16.Docosapentaenoic.acid_329.2
+2022-07-10 13:35:39 INFO::Fitting model to feature number 80, Allothreonine_120.1
+2022-07-10 13:35:39 INFO::Fitting model to feature number 81, aminoadipate_162.1
+2022-07-10 13:35:39 INFO::Fitting model to feature number 82, AMP_346.1
+2022-07-10 13:35:39 INFO::Fitting model to feature number 83, AMP_348.1
+2022-07-10 13:35:39 INFO::Fitting model to feature number 84, Aniline.2.Sulfonate_172
+2022-07-10 13:35:39 INFO::Fitting model to feature number 85, Anserine_239.1
+2022-07-10 13:35:40 INFO::Fitting model to feature number 86, Arachidic.acid_311.3
+2022-07-10 13:35:40 INFO::Fitting model to feature number 87, Arachidonic.acid_303.2
+2022-07-10 13:35:40 INFO::Fitting model to feature number 88, Arginine_175.1
+2022-07-10 13:35:40 INFO::Fitting model to feature number 89, Argininosuccinate_291.1
+2022-07-10 13:35:40 INFO::Fitting model to feature number 90, Ascorbic.acid_175
+2022-07-10 13:35:40 INFO::Fitting model to feature number 91, Asparagine_133.1
+2022-07-10 13:35:40 INFO::Fitting model to feature number 92, Aspartate_132
+2022-07-10 13:35:40 INFO::Fitting model to feature number 93, Aspartate_134
+2022-07-10 13:35:40 INFO::Fitting model to feature number 94, Azelate_187.1
+2022-07-10 13:35:40 INFO::Fitting model to feature number 95, Behenic.acid_339.3
+2022-07-10 13:35:40 INFO::Fitting model to feature number 96, Benzaldehyde_107
+2022-07-10 13:35:40 INFO::Fitting model to feature number 97, Benzyl.Alcohol_107.1
+2022-07-10 13:35:40 INFO::Fitting model to feature number 98, Beta.Alanine_90.1
+2022-07-10 13:35:40 INFO::Fitting model to feature number 99, Beta.hydroxyvaleric.Acid_117.1
+2022-07-10 13:35:40 INFO::Fitting model to feature number 100, Betaine_118.1
+2022-07-10 13:35:40 INFO::Fitting model to feature number 101, Biotin_245.1
+2022-07-10 13:35:40 INFO::Fitting model to feature number 102, Bis.2.Ethylhexyl.Phthalate_391.3
+2022-07-10 13:35:40 INFO::Fitting model to feature number 103, Buthionine.sulfoximine_223.1
+2022-07-10 13:35:40 INFO::Fitting model to feature number 104, Butyric.acid_87
+2022-07-10 13:35:40 INFO::Fitting model to feature number 105, Butyryl.carnitine_232.2
+2022-07-10 13:35:40 INFO::Fitting model to feature number 106, Caffeate_179
+2022-07-10 13:35:40 INFO::Fitting model to feature number 107, Carnitine_162.1
+2022-07-10 13:35:41 INFO::Fitting model to feature number 108, Carnosine_227.1
+2022-07-10 13:35:41 INFO::Fitting model to feature number 109, Cholate_407.3
+2022-07-10 13:35:41 INFO::Fitting model to feature number 110, Choline_104.1
+2022-07-10 13:35:41 INFO::Fitting model to feature number 111, Cinnamate_147
+2022-07-10 13:35:41 INFO::Fitting model to feature number 112, cis.10.Nonadecenoic.acid_295.3
+2022-07-10 13:35:41 INFO::Fitting model to feature number 113, cis.11.Eicosenoic.acid_309.3
+2022-07-10 13:35:41 INFO::Fitting model to feature number 114, Cis.4.Hydroxy.D.Proline_132.1
+2022-07-10 13:35:41 INFO::Fitting model to feature number 115, cis.5.Dodecenoic.acid_197.2
+2022-07-10 13:35:41 INFO::Fitting model to feature number 116, cis.7.10.13.16.Docosatetraenoic.acid_331.3
+2022-07-10 13:35:41 INFO::Fitting model to feature number 117, cis.aconitate_173
+2022-07-10 13:35:41 INFO::Fitting model to feature number 118, Citramalate_147
+2022-07-10 13:35:41 INFO::Fitting model to feature number 119, Citrate_191
+2022-07-10 13:35:41 INFO::Fitting model to feature number 120, Citrulline_176.1
+2022-07-10 13:35:41 INFO::Fitting model to feature number 121, CMP_324.1
+2022-07-10 13:35:41 INFO::Fitting model to feature number 122, CMP_322
+2022-07-10 13:35:41 INFO::Fitting model to feature number 123, Cortexolone_345.2
+2022-07-10 13:35:41 INFO::Fitting model to feature number 124, Cortisone_359.2
+2022-07-10 13:35:41 INFO::Fitting model to feature number 125, Creatine_130.1
+2022-07-10 13:35:41 INFO::Fitting model to feature number 126, Creatine_132.1
+2022-07-10 13:35:41 INFO::Fitting model to feature number 127, Creatinine_114.1
+2022-07-10 13:35:41 INFO::Fitting model to feature number 128, Crotonic.acid_85
+2022-07-10 13:35:41 INFO::Fitting model to feature number 129, Cys.Gly_177
+2022-07-10 13:35:42 INFO::Fitting model to feature number 130, Cystathionine_223.1
+2022-07-10 13:35:42 INFO::Fitting model to feature number 131, Cysteate_170
+2022-07-10 13:35:42 INFO::Fitting model to feature number 132, Cysteine_122
+2022-07-10 13:35:42 INFO::Fitting model to feature number 133, Cystine_241
+2022-07-10 13:35:42 INFO::Fitting model to feature number 134, Cytidine_244.1
+2022-07-10 13:35:42 INFO::Fitting model to feature number 135, Cytosine_112.1
+2022-07-10 13:35:42 INFO::Fitting model to feature number 136, Decanoic.acid_171.1
+2022-07-10 13:35:42 INFO::Fitting model to feature number 137, Dehydroascorbate_173
+2022-07-10 13:35:42 INFO::Fitting model to feature number 138, Deoxycarnitine_146.1
+2022-07-10 13:35:42 INFO::Fitting model to feature number 139, Deoxycholate_391.3
+2022-07-10 13:35:42 INFO::Fitting model to feature number 140, Deoxycytidine_228.1
+2022-07-10 13:35:42 INFO::Fitting model to feature number 141, Deoxycytidine.Monophosphate_308.1
+2022-07-10 13:35:42 INFO::Fitting model to feature number 142, Deoxyguanosine_268.1
+2022-07-10 13:35:42 INFO::Fitting model to feature number 143, Deoxyguanosine.monophosphate_348.1
+2022-07-10 13:35:42 INFO::Fitting model to feature number 144, Deoxyribose_133.1
+2022-07-10 13:35:42 INFO::Fitting model to feature number 145, Deoxyuridine_229.1
+2022-07-10 13:35:42 INFO::Fitting model to feature number 146, Dethiobiotin_215.1
+2022-07-10 13:35:42 INFO::Fitting model to feature number 147, DHAP_169
+2022-07-10 13:35:42 INFO::Fitting model to feature number 148, Diaminopimelate_191.1
+2022-07-10 13:35:42 INFO::Fitting model to feature number 149, Didecanoyl.Glycerophosphocholine_566.4
+2022-07-10 13:35:42 INFO::Fitting model to feature number 150, Diethanolamine_106.1
+2022-07-10 13:35:42 INFO::Fitting model to feature number 151, Diethyl.2.Methyl.3.Oxosuccinate_201.1
+2022-07-10 13:35:43 INFO::Fitting model to feature number 152, Dihydrobiopterin_240.1
+2022-07-10 13:35:43 INFO::Fitting model to feature number 153, Dihydrouracil_115.1
+2022-07-10 13:35:43 INFO::Fitting model to feature number 154, Dimethylarginine_203.2
+2022-07-10 13:35:43 INFO::Fitting model to feature number 155, Dimethylglycine_104.1
+2022-07-10 13:35:43 INFO::Fitting model to feature number 156, D.Mannosamine_180.1
+2022-07-10 13:35:43 INFO::Fitting model to feature number 157, Docosahexaenoic.acid_327.2
+2022-07-10 13:35:43 INFO::Fitting model to feature number 158, Docosatrienoic.Acid_333.3
+2022-07-10 13:35:43 INFO::Fitting model to feature number 159, Dodecanoic.acid_199.2
+2022-07-10 13:35:43 INFO::Fitting model to feature number 160, Dopamine_154.1
+2022-07-10 13:35:43 INFO::Fitting model to feature number 161, D.Pinitol_193.1
+2022-07-10 13:35:43 INFO::Fitting model to feature number 162, D.Sedoheptulose_209.1
+2022-07-10 13:35:43 INFO::Fitting model to feature number 163, Eicosapentaenoic.acid_301.2
+2022-07-10 13:35:43 INFO::Fitting model to feature number 164, Epinephrine_184.1
+2022-07-10 13:35:43 INFO::Fitting model to feature number 165, Erucic.acid_337.3
+2022-07-10 13:35:43 INFO::Fitting model to feature number 166, Farnesyl.pyrophosphate_381.1
+2022-07-10 13:35:43 INFO::Fitting model to feature number 167, Ferulate_193.1
+2022-07-10 13:35:43 INFO::Fitting model to feature number 168, Fructose_179.1
+2022-07-10 13:35:43 INFO::Fitting model to feature number 169, Fructose.6.phosphate_259
+2022-07-10 13:35:43 INFO::Fitting model to feature number 170, Fumarate_115
+2022-07-10 13:35:43 INFO::Fitting model to feature number 171, GABA_104.1
+2022-07-10 13:35:43 INFO::Fitting model to feature number 172, Galactarate_209
+2022-07-10 13:35:43 INFO::Fitting model to feature number 173, Galactosamine_180.1
+2022-07-10 13:35:43 INFO::Fitting model to feature number 174, Galactose.1.Phosphate_261
+2022-07-10 13:35:44 INFO::Fitting model to feature number 175, Galacturonate_193
+2022-07-10 13:35:44 INFO::Fitting model to feature number 176, Gemcitabine_264.1
+2022-07-10 13:35:44 INFO::Fitting model to feature number 177, Glucosaminate_196.1
+2022-07-10 13:35:44 INFO::Fitting model to feature number 178, Glucosamine_180.1
+2022-07-10 13:35:44 INFO::Fitting model to feature number 179, Glucosamine.6.Phosphate_260.1
+2022-07-10 13:35:44 INFO::Fitting model to feature number 180, Glucose_179.1
+2022-07-10 13:35:44 INFO::Fitting model to feature number 181, Glucose.6.Phosphate_259
+2022-07-10 13:35:44 INFO::Fitting model to feature number 182, Glucuronolactone_175
+2022-07-10 13:35:44 INFO::Fitting model to feature number 183, Glutamate_148.1
+2022-07-10 13:35:44 INFO::Fitting model to feature number 184, Glutamine_147.1
+2022-07-10 13:35:44 INFO::Fitting model to feature number 185, Glutarate_131
+2022-07-10 13:35:44 INFO::Fitting model to feature number 186, Glutarylcarnitine_276.1
+2022-07-10 13:35:44 INFO::Fitting model to feature number 187, Glyceraldehyde.3.phosphate_169
+2022-07-10 13:35:44 INFO::Fitting model to feature number 188, Glycerate_105
+2022-07-10 13:35:44 INFO::Fitting model to feature number 189, Glycerol_91
+2022-07-10 13:35:44 INFO::Fitting model to feature number 190, Glycerol.3.phosphate_173
+2022-07-10 13:35:44 INFO::Fitting model to feature number 191, Glycerol.3.phosphate_171
+2022-07-10 13:35:44 INFO::Fitting model to feature number 192, Glycerol.Myristate_301.2
+2022-07-10 13:35:44 INFO::Fitting model to feature number 193, Glycine_76
+2022-07-10 13:35:44 INFO::Fitting model to feature number 194, Glycochenodeoxycholate_448.3
+2022-07-10 13:35:44 INFO::Fitting model to feature number 195, Glycocholate_464.3
+2022-07-10 13:35:44 INFO::Fitting model to feature number 196, Glycolate_75
+2022-07-10 13:35:45 INFO::Fitting model to feature number 197, GMP_362.1
+2022-07-10 13:35:45 INFO::Fitting model to feature number 198, GMP_364.1
+2022-07-10 13:35:45 INFO::Fitting model to feature number 199, GPP_313.1
+2022-07-10 13:35:45 INFO::Fitting model to feature number 200, Guaiacol_123
+2022-07-10 13:35:45 INFO::Fitting model to feature number 201, Guanidinoacetate_118.1
+2022-07-10 13:35:45 INFO::Fitting model to feature number 202, Guanidinosuccinic.Acid_176.1
+2022-07-10 13:35:45 INFO::Fitting model to feature number 203, Guanine_152.1
+2022-07-10 13:35:45 INFO::Fitting model to feature number 204, Guanosine_284.1
+2022-07-10 13:35:45 INFO::Fitting model to feature number 205, Gulonolactone_177
+2022-07-10 13:35:45 INFO::Fitting model to feature number 206, Heneicosanoic.acid_325.3
+2022-07-10 13:35:45 INFO::Fitting model to feature number 207, Heptanoic.acid_129.1
+2022-07-10 13:35:45 INFO::Fitting model to feature number 208, Hexanoic.acid_115.1
+2022-07-10 13:35:45 INFO::Fitting model to feature number 209, Hippurate_178.1
+2022-07-10 13:35:45 INFO::Fitting model to feature number 210, Histamine_112.1
+2022-07-10 13:35:45 INFO::Fitting model to feature number 211, Histidine_156.1
+2022-07-10 13:35:45 INFO::Fitting model to feature number 212, Homocysteine_136
+2022-07-10 13:35:45 INFO::Fitting model to feature number 213, Homoserine_120.1
+2022-07-10 13:35:45 INFO::Fitting model to feature number 214, Hydroquinone_109
+2022-07-10 13:35:45 INFO::Fitting model to feature number 215, Hypotaurine_110
+2022-07-10 13:35:45 INFO::Fitting model to feature number 216, Hypoxanthine_137
+2022-07-10 13:35:45 INFO::Fitting model to feature number 217, Indole.3.Acetamide_175.1
+2022-07-10 13:35:45 INFO::Fitting model to feature number 218, Indole.3.Acetate_174.1
+2022-07-10 13:35:46 INFO::Fitting model to feature number 219, Indole.3.Methyl.Acetate_190.1
+2022-07-10 13:35:46 INFO::Fitting model to feature number 220, Indole.3.Pyruvate_204.1
+2022-07-10 13:35:46 INFO::Fitting model to feature number 221, Indoxyl.Glucoside_294.1
+2022-07-10 13:35:46 INFO::Fitting model to feature number 222, Inosine_269.1
+2022-07-10 13:35:46 INFO::Fitting model to feature number 223, Isoleucine_132.1
+2022-07-10 13:35:46 INFO::Fitting model to feature number 224, Itaconate_129
+2022-07-10 13:35:46 INFO::Fitting model to feature number 225, Kynurenate_188
+2022-07-10 13:35:46 INFO::Fitting model to feature number 226, Kynurenine_209.1
+2022-07-10 13:35:46 INFO::Fitting model to feature number 227, Lactose_343.1
+2022-07-10 13:35:46 INFO::Fitting model to feature number 228, L.Cysteic.Acid_186
+2022-07-10 13:35:46 INFO::Fitting model to feature number 229, L.Dopa_198.1
+2022-07-10 13:35:46 INFO::Fitting model to feature number 230, Leucine_132.1
+2022-07-10 13:35:46 INFO::Fitting model to feature number 231, Lignoceric.acid_367.4
+2022-07-10 13:35:46 INFO::Fitting model to feature number 232, Linoleic.acid_279.2
+2022-07-10 13:35:46 INFO::Fitting model to feature number 233, Linolenic.acid_277.2
+2022-07-10 13:35:46 INFO::Fitting model to feature number 234, Lithocholate_375.3
+2022-07-10 13:35:46 INFO::Fitting model to feature number 235, Lithocholyltaurine_482.3
+2022-07-10 13:35:46 INFO::Fitting model to feature number 236, Lumichrome_241.1
+2022-07-10 13:35:46 INFO::Fitting model to feature number 237, Lysine_147.1
+2022-07-10 13:35:46 INFO::Fitting model to feature number 238, Malate_133
+2022-07-10 13:35:46 INFO::Fitting model to feature number 239, Maleamate_114
+2022-07-10 13:35:47 INFO::Fitting model to feature number 240, Maleate_115
+2022-07-10 13:35:47 INFO::Fitting model to feature number 241, Maleimide_98
+2022-07-10 13:35:47 INFO::Fitting model to feature number 242, Malonate_103
+2022-07-10 13:35:47 INFO::Fitting model to feature number 243, Mandelate_151
+2022-07-10 13:35:47 INFO::Fitting model to feature number 244, Mannitol_181.1
+2022-07-10 13:35:47 INFO::Fitting model to feature number 245, Melatonin_233.1
+2022-07-10 13:35:47 INFO::Fitting model to feature number 246, Mesaconic.acid_129
+2022-07-10 13:35:47 INFO::Fitting model to feature number 247, Mesoxalate_117
+2022-07-10 13:35:47 INFO::Fitting model to feature number 248, Methionine_150.1
+2022-07-10 13:35:47 INFO::Fitting model to feature number 249, Methionine.Sulfoximine_181.1
+2022-07-10 13:35:47 INFO::Fitting model to feature number 250, Methyglutarate_145.1
+2022-07-10 13:35:47 INFO::Fitting model to feature number 251, Methyl.4.Aminobutyrate_118.1
+2022-07-10 13:35:47 INFO::Fitting model to feature number 252, Methyl.Galactoside_193.1
+2022-07-10 13:35:47 INFO::Fitting model to feature number 253, Methyl.Jasmonate_225.1
+2022-07-10 13:35:47 INFO::Fitting model to feature number 254, Methyl.Vanillate_181.1
+2022-07-10 13:35:47 INFO::Fitting model to feature number 255, Methylarginine_189.1
+2022-07-10 13:35:47 INFO::Fitting model to feature number 256, Methylguanidine_74.1
+2022-07-10 13:35:47 INFO::Fitting model to feature number 257, methyl.lysine_161.1
+2022-07-10 13:35:47 INFO::Fitting model to feature number 258, Methylmalonate_117
+2022-07-10 13:35:47 INFO::Fitting model to feature number 259, Methylthioadenosine_298.1
+2022-07-10 13:35:47 INFO::Fitting model to feature number 260, Mevalolactone_131.1
+2022-07-10 13:35:48 INFO::Fitting model to feature number 261, Mevalonate_147.1
+2022-07-10 13:35:48 INFO::Fitting model to feature number 262, Monoethylmalonate_131
+2022-07-10 13:35:48 INFO::Fitting model to feature number 263, Myo.Inositol_179.1
+2022-07-10 13:35:48 INFO::Fitting model to feature number 264, Myristic.acid_227.2
+2022-07-10 13:35:48 INFO::Fitting model to feature number 265, Myristoleic.acid_225.2
+2022-07-10 13:35:48 INFO::Fitting model to feature number 266, N6..Delta2.Isopentenyl..Adenine_204.1
+2022-07-10 13:35:48 INFO::Fitting model to feature number 267, N.Acetylalanine_130.1
+2022-07-10 13:35:48 INFO::Fitting model to feature number 268, N.Acetylasparagine_175.1
+2022-07-10 13:35:48 INFO::Fitting model to feature number 269, N.Acetylglucosamine_222.1
+2022-07-10 13:35:48 INFO::Fitting model to feature number 270, N.Acetylglutamate_190.1
+2022-07-10 13:35:48 INFO::Fitting model to feature number 271, N.Acetylglycine_116
+2022-07-10 13:35:48 INFO::Fitting model to feature number 272, N.Acetyl.L.Aspartic.Acid_176.1
+2022-07-10 13:35:48 INFO::Fitting model to feature number 273, N.Acetyl.L.Aspartic.Acid_174
+2022-07-10 13:35:48 INFO::Fitting model to feature number 274, N.Acetylleucine_172.1
+2022-07-10 13:35:48 INFO::Fitting model to feature number 275, N.Acetyl.L.glutamine_189.1
+2022-07-10 13:35:48 INFO::Fitting model to feature number 276, N.Acetylmethionine_192.1
+2022-07-10 13:35:48 INFO::Fitting model to feature number 277, N.Acetylneuraminate_310.1
+2022-07-10 13:35:48 INFO::Fitting model to feature number 278, N.Acetylphenylalanine_206.1
+2022-07-10 13:35:48 INFO::Fitting model to feature number 279, N.Acetylputrescine_131.1
+2022-07-10 13:35:48 INFO::Fitting model to feature number 280, N.Acetylserine_146
+2022-07-10 13:35:48 INFO::Fitting model to feature number 281, N.Acetylserotonin_219.1
+2022-07-10 13:35:48 INFO::Fitting model to feature number 282, N.Acetyltryptophan_247.1
+2022-07-10 13:35:49 INFO::Fitting model to feature number 283, NAD._664.1
+2022-07-10 13:35:49 INFO::Fitting model to feature number 284, N.Alpha.Acetyllysine_189.1
+2022-07-10 13:35:49 INFO::Fitting model to feature number 285, NAPQI_150.1
+2022-07-10 13:35:49 INFO::Fitting model to feature number 286, N.Carbamoyl.L.aspartate_177.1
+2022-07-10 13:35:49 INFO::Fitting model to feature number 287, Nervonic.acid_365.3
+2022-07-10 13:35:49 INFO::Fitting model to feature number 288, N.Formylglycine_102
+2022-07-10 13:35:49 INFO::Fitting model to feature number 289, N.Formyl.L.Methionine_176
+2022-07-10 13:35:49 INFO::Fitting model to feature number 290, Nicotinamide_123.1
+2022-07-10 13:35:49 INFO::Fitting model to feature number 291, Nicotinamide.Mononucleotide_335.1
+2022-07-10 13:35:49 INFO::Fitting model to feature number 292, Nicotinate_124
+2022-07-10 13:35:49 INFO::Fitting model to feature number 293, N.Methylaspartate_148.1
+2022-07-10 13:35:49 INFO::Fitting model to feature number 294, N.Methylglutamate_162.1
+2022-07-10 13:35:49 INFO::Fitting model to feature number 295, Nonadecanoic.acid_297.3
+2022-07-10 13:35:49 INFO::Fitting model to feature number 296, Nonanoic.acid_157.1
+2022-07-10 13:35:49 INFO::Fitting model to feature number 297, Norepinephrine_170.1
+2022-07-10 13:35:49 INFO::Fitting model to feature number 298, Normetanephrine_184.1
+2022-07-10 13:35:49 INFO::Fitting model to feature number 299, Norvaline_118.1
+2022-07-10 13:35:49 INFO::Fitting model to feature number 300, O.Acetylserine_148.1
+2022-07-10 13:35:49 INFO::Fitting model to feature number 301, Octanoic.acid_143.1
+2022-07-10 13:35:49 INFO::Fitting model to feature number 302, Oleic.acid_281.2
+2022-07-10 13:35:49 INFO::Fitting model to feature number 303, Oleoyl.Glycerol_355.3
+2022-07-10 13:35:49 INFO::Fitting model to feature number 304, Omega.Hydroxydodecanoate_215.2
+2022-07-10 13:35:50 INFO::Fitting model to feature number 305, Ophthalmate_290.1
+2022-07-10 13:35:50 INFO::Fitting model to feature number 306, Ornithine_133.1
+2022-07-10 13:35:50 INFO::Fitting model to feature number 307, Orotate_155
+2022-07-10 13:35:50 INFO::Fitting model to feature number 308, O.Succinyl.Homoserine_220.1
+2022-07-10 13:35:50 INFO::Fitting model to feature number 309, Oxalate_89
+2022-07-10 13:35:50 INFO::Fitting model to feature number 310, Oxoadipate_159
+2022-07-10 13:35:50 INFO::Fitting model to feature number 311, Oxoglutarate_145
+2022-07-10 13:35:50 INFO::Fitting model to feature number 312, Oxoproline_128
+2022-07-10 13:35:50 INFO::Fitting model to feature number 313, Palmitic.acid_255.2
+2022-07-10 13:35:50 INFO::Fitting model to feature number 314, Palmitoleic.acid_253.2
+2022-07-10 13:35:50 INFO::Fitting model to feature number 315, Paraxanthine_181.1
+2022-07-10 13:35:50 INFO::Fitting model to feature number 316, Pentadecanoic.acid_241.2
+2022-07-10 13:35:50 INFO::Fitting model to feature number 317, Pentanoate_101.1
+2022-07-10 13:35:50 INFO::Fitting model to feature number 318, PEP_167
+2022-07-10 13:35:50 INFO::Fitting model to feature number 319, Phenylacetaldehyde_119.1
+2022-07-10 13:35:50 INFO::Fitting model to feature number 320, Phenylalanine_166.1
+2022-07-10 13:35:50 INFO::Fitting model to feature number 321, Phenylethanolamine_138.1
+2022-07-10 13:35:50 INFO::Fitting model to feature number 322, Phenylpyruvate_163
+2022-07-10 13:35:50 INFO::Fitting model to feature number 323, Phosphoserine_186
+2022-07-10 13:35:50 INFO::Fitting model to feature number 324, Picolinate_123
+2022-07-10 13:35:50 INFO::Fitting model to feature number 325, Picolinate_122
+2022-07-10 13:35:50 INFO::Fitting model to feature number 326, Pipecolate_130.1
+2022-07-10 13:35:51 INFO::Fitting model to feature number 327, P.Octopamine_154.1
+2022-07-10 13:35:51 INFO::Fitting model to feature number 328, Proline_116.1
+2022-07-10 13:35:51 INFO::Fitting model to feature number 329, Propionyl.carnitine_218.1
+2022-07-10 13:35:51 INFO::Fitting model to feature number 330, Protoporphyrin_563.3
+2022-07-10 13:35:51 INFO::Fitting model to feature number 331, Pterin_164.1
+2022-07-10 13:35:51 INFO::Fitting model to feature number 332, Pyridoxal_168.1
+2022-07-10 13:35:51 INFO::Fitting model to feature number 333, Pyridoxine_170.1
+2022-07-10 13:35:51 INFO::Fitting model to feature number 334, Pyrocatechol_109
+2022-07-10 13:35:51 INFO::Fitting model to feature number 335, Pyruvate_87
+2022-07-10 13:35:51 INFO::Fitting model to feature number 336, Quinate_191.1
+2022-07-10 13:35:51 INFO::Fitting model to feature number 337, Quinolinate_166
+2022-07-10 13:35:51 INFO::Fitting model to feature number 338, Quinoline_130.1
+2022-07-10 13:35:51 INFO::Fitting model to feature number 339, Raffinose_503.2
+2022-07-10 13:35:51 INFO::Fitting model to feature number 340, Rhamnose_163.1
+2022-07-10 13:35:51 INFO::Fitting model to feature number 341, Riboflavin_377.1
+2022-07-10 13:35:51 INFO::Fitting model to feature number 342, Ribose_149
+2022-07-10 13:35:51 INFO::Fitting model to feature number 343, Ribose.phosphate_229
+2022-07-10 13:35:51 INFO::Fitting model to feature number 344, Ricinoleic.acid_297.2
+2022-07-10 13:35:51 INFO::Fitting model to feature number 345, Saccharate_209
+2022-07-10 13:35:51 INFO::Fitting model to feature number 346, S.Adenosyl.L.methionine_399.1
+2022-07-10 13:35:51 INFO::Fitting model to feature number 347, SAICAr_375.1
+2022-07-10 13:35:52 INFO::Fitting model to feature number 348, Salicylamide_136
+2022-07-10 13:35:52 INFO::Fitting model to feature number 349, Salicylate_137
+2022-07-10 13:35:52 INFO::Fitting model to feature number 350, Salsolinol_180.1
+2022-07-10 13:35:52 INFO::Fitting model to feature number 351, Sarcosine_90.1
+2022-07-10 13:35:52 INFO::Fitting model to feature number 352, Sedoheptulose.7.phosphate_289
+2022-07-10 13:35:52 INFO::Fitting model to feature number 353, Serine_106
+2022-07-10 13:35:52 INFO::Fitting model to feature number 354, Serotonin_177.1
+2022-07-10 13:35:52 INFO::Fitting model to feature number 355, S.Hexyl.Glutathione_392.2
+2022-07-10 13:35:52 INFO::Fitting model to feature number 356, Shikimate_173
+2022-07-10 13:35:52 INFO::Fitting model to feature number 357, Sn.Glycero.3.Phosphocholine_258.1
+2022-07-10 13:35:52 INFO::Fitting model to feature number 358, Sorbate_111
+2022-07-10 13:35:52 INFO::Fitting model to feature number 359, Sphinganine_302.3
+2022-07-10 13:35:52 INFO::Fitting model to feature number 360, Stachydrine_144.1
+2022-07-10 13:35:52 INFO::Fitting model to feature number 361, Stachyose_665.2
+2022-07-10 13:35:52 INFO::Fitting model to feature number 362, Stearic.acid_283.3
+2022-07-10 13:35:52 INFO::Fitting model to feature number 363, Suberate_173.1
+2022-07-10 13:35:52 INFO::Fitting model to feature number 364, Succinic.Acid_117
+2022-07-10 13:35:52 INFO::Fitting model to feature number 365, Succinyladenosine_384.1
+2022-07-10 13:35:52 INFO::Fitting model to feature number 366, Sucrose_341.1
+2022-07-10 13:35:52 INFO::Fitting model to feature number 367, Tartrate_149
+2022-07-10 13:35:52 INFO::Fitting model to feature number 368, Taurine_124
+2022-07-10 13:35:52 INFO::Fitting model to feature number 369, Tetrahydrofolate_446.2
+2022-07-10 13:35:53 INFO::Fitting model to feature number 370, Theophylline_179.1
+2022-07-10 13:35:53 INFO::Fitting model to feature number 371, Thiamine_266.1
+2022-07-10 13:35:53 INFO::Fitting model to feature number 372, Thiamine_265.1
+2022-07-10 13:35:53 INFO::Fitting model to feature number 373, Thiamine.Monophosphate_345.1
+2022-07-10 13:35:53 INFO::Fitting model to feature number 374, Thiopurine.S.Methylether_167
+2022-07-10 13:35:53 INFO::Fitting model to feature number 375, Threitol_121.1
+2022-07-10 13:35:53 INFO::Fitting model to feature number 376, Threonine_120.1
+2022-07-10 13:35:53 INFO::Fitting model to feature number 377, Thymidine_241.1
+2022-07-10 13:35:53 INFO::Fitting model to feature number 378, Thymine_125
+2022-07-10 13:35:53 INFO::Fitting model to feature number 379, Thyrotropin.Releasing.Hormone_363.2
+2022-07-10 13:35:53 INFO::Fitting model to feature number 380, TMP_323.1
+2022-07-10 13:35:53 INFO::Fitting model to feature number 381, trans.trans.Muconic.acid_141
+2022-07-10 13:35:53 INFO::Fitting model to feature number 382, trans.3.Hexenoic.acid_113.1
+2022-07-10 13:35:53 INFO::Fitting model to feature number 383, Trans.4.Hydroxy.L.Proline_132.1
+2022-07-10 13:35:53 INFO::Fitting model to feature number 384, Trehalose_341.1
+2022-07-10 13:35:53 INFO::Fitting model to feature number 385, Tricosanoic.acid_353.3
+2022-07-10 13:35:53 INFO::Fitting model to feature number 386, Tridecanoic.acid_213.2
+2022-07-10 13:35:53 INFO::Fitting model to feature number 387, Trigonelline_138.1
+2022-07-10 13:35:53 INFO::Fitting model to feature number 388, Trimethyllysine_189.2
+2022-07-10 13:35:53 INFO::Fitting model to feature number 389, Tryptamine_161.1
+2022-07-10 13:35:53 INFO::Fitting model to feature number 390, Tryptophan_205.1
+2022-07-10 13:35:53 INFO::Fitting model to feature number 391, Tryptophanamide_204.1
+2022-07-10 13:35:54 INFO::Fitting model to feature number 392, Tyramine_138.1
+2022-07-10 13:35:54 INFO::Fitting model to feature number 393, Tyrosine_182.1
+2022-07-10 13:35:54 INFO::Fitting model to feature number 394, UDP_403
+2022-07-10 13:35:54 INFO::Fitting model to feature number 395, UMP_323
+2022-07-10 13:35:54 INFO::Fitting model to feature number 396, Undecanoic.acid_185.2
+2022-07-10 13:35:54 INFO::Fitting model to feature number 397, Uracil_111
+2022-07-10 13:35:54 INFO::Fitting model to feature number 398, Urate_167
+2022-07-10 13:35:54 INFO::Fitting model to feature number 399, Ureidopropionate_133.1
+2022-07-10 13:35:54 INFO::Fitting model to feature number 400, Uridine_245.1
+2022-07-10 13:35:54 INFO::Fitting model to feature number 401, Uridine_243.1
+2022-07-10 13:35:54 INFO::Fitting model to feature number 402, Urocanate_139.1
+2022-07-10 13:35:54 INFO::Fitting model to feature number 403, Valine_118.1
+2022-07-10 13:35:54 INFO::Fitting model to feature number 404, Xanthine_153
+2022-07-10 13:35:54 INFO::Fitting model to feature number 405, Xanthine_151
+2022-07-10 13:35:54 INFO::Fitting model to feature number 406, Xanthosine_285.1
+2022-07-10 13:35:54 INFO::Fitting model to feature number 407, Xanthurenate_206
+2022-07-10 13:35:54 INFO::Fitting model to feature number 408, Ximeninic.Acid_277.2
+2022-07-10 13:35:54 INFO::Fitting model to feature number 409, Xylitol_151.1
+2022-07-10 13:35:54 INFO::Fitting model to feature number 410, Xylose_149
+2022-07-10 13:35:54 INFO::Counting total values for each feature
+2022-07-10 13:35:54 INFO::Writing residuals to file Stool_maaslin_#4_IIRNFlare2/residuals.rds
+2022-07-10 13:35:54 INFO::Writing fitted values to file Stool_maaslin_#4_IIRNFlare2/fitted.rds
+2022-07-10 13:35:55 INFO::Writing extracted random effects to file Stool_maaslin_#4_IIRNFlare2/ranef.rds
+2022-07-10 13:35:55 INFO::Writing all results to file (ordered by increasing q-values): Stool_maaslin_#4_IIRNFlare2/all_results.tsv
+2022-07-10 13:35:55 INFO::Writing the significant results (those which are less than or equal to the threshold of 0.250000 ) to file (ordered by increasing q-values): Stool_maaslin_#4_IIRNFlare2/significant_results.tsv
+2022-07-10 13:35:55 INFO::Writing heatmap of significant results to file: Stool_maaslin_#4_IIRNFlare2/heatmap.pdf
+2022-07-10 13:35:55 INFO::Writing association plots (one for each significant association) to output folder: Stool_maaslin_#4_IIRNFlare2
+2022-07-10 13:35:55 INFO::Plotting associations from most to least significant, grouped by metadata
+2022-07-10 13:35:55 INFO::Plotting data for metadata number 1, IIRN_Flare
+2022-07-10 13:35:55 INFO::Creating boxplot for categorical data, IIRN_Flare vs Thymidine_241.1
+2022-07-10 13:35:55 INFO::Creating boxplot for categorical data, IIRN_Flare vs Oleic.acid_281.2
+2022-07-10 13:35:55 INFO::Creating boxplot for categorical data, IIRN_Flare vs Succinic.Acid_117
+2022-07-10 13:35:55 INFO::Creating boxplot for categorical data, IIRN_Flare vs cis.10.Nonadecenoic.acid_295.3
+2022-07-10 13:35:55 INFO::Creating boxplot for categorical data, IIRN_Flare vs Benzyl.Alcohol_107.1
+2022-07-10 13:35:55 INFO::Creating boxplot for categorical data, IIRN_Flare vs cis.11.Eicosenoic.acid_309.3
+2022-07-10 13:35:55 INFO::Creating boxplot for categorical data, IIRN_Flare vs D.Sedoheptulose_209.1
+2022-07-10 13:35:55 INFO::Creating boxplot for categorical data, IIRN_Flare vs Malonate_103
+2022-07-10 13:35:55 INFO::Creating boxplot for categorical data, IIRN_Flare vs Methylguanidine_74.1
+2022-07-10 13:35:56 INFO::Creating boxplot for categorical data, IIRN_Flare vs Taurine_124
+2022-07-10 13:35:56 INFO::Creating boxplot for categorical data, IIRN_Flare vs Trimethyllysine_189.2
+2022-07-10 13:35:56 INFO::Creating boxplot for categorical data, IIRN_Flare vs Pentadecanoic.acid_241.2
+2022-07-10 13:35:56 INFO::Creating boxplot for categorical data, IIRN_Flare vs X5.Deoxyadenosine_252.1
+2022-07-10 13:35:56 INFO::Creating boxplot for categorical data, IIRN_Flare vs Kynurenate_188
+2022-07-10 13:35:56 INFO::Creating boxplot for categorical data, IIRN_Flare vs Mesaconic.acid_129
+2022-07-10 13:35:56 INFO::Creating boxplot for categorical data, IIRN_Flare vs X14.Methylhexadecanoic.acid_269.2
+2022-07-10 13:35:56 INFO::Creating boxplot for categorical data, IIRN_Flare vs X4.Acetamidobutanoate_146.1
+2022-07-10 13:35:56 INFO::Creating boxplot for categorical data, IIRN_Flare vs Biotin_245.1
+2022-07-10 13:35:56 INFO::Creating boxplot for categorical data, IIRN_Flare vs Creatine_130.1
+2022-07-10 13:35:56 INFO::Creating boxplot for categorical data, IIRN_Flare vs Creatine_132.1
+2022-07-10 13:35:57 INFO::Creating boxplot for categorical data, IIRN_Flare vs D.Pinitol_193.1
+2022-07-10 13:35:57 INFO::Creating boxplot for categorical data, IIRN_Flare vs Palmitoleic.acid_253.2
+2022-07-10 13:35:57 INFO::Creating boxplot for categorical data, IIRN_Flare vs Pentanoate_101.1
+2022-07-10 13:35:57 INFO::Creating boxplot for categorical data, IIRN_Flare vs Pipecolate_130.1
+2022-07-10 13:35:57 INFO::Creating boxplot for categorical data, IIRN_Flare vs Raffinose_503.2
+2022-07-10 13:35:57 INFO::Creating boxplot for categorical data, IIRN_Flare vs Thymine_125
+2022-07-10 13:35:57 INFO::Creating boxplot for categorical data, IIRN_Flare vs Fructose_179.1
+2022-07-10 13:35:57 INFO::Creating boxplot for categorical data, IIRN_Flare vs Glycine_76
+2022-07-10 13:35:57 INFO::Creating boxplot for categorical data, IIRN_Flare vs Myo.Inositol_179.1
+2022-07-10 13:35:57 INFO::Creating boxplot for categorical data, IIRN_Flare vs N.Acetylmethionine_192.1
+2022-07-10 13:35:58 INFO::Creating boxplot for categorical data, IIRN_Flare vs Quinolinate_166
+2022-07-10 13:35:58 INFO::Creating boxplot for categorical data, IIRN_Flare vs Stachyose_665.2
+2022-07-10 13:35:58 INFO::Creating boxplot for categorical data, IIRN_Flare vs X4.Pyridoxate_184.1
+2022-07-10 13:35:58 INFO::Creating boxplot for categorical data, IIRN_Flare vs Ascorbic.acid_175
+2022-07-10 13:35:58 INFO::Creating boxplot for categorical data, IIRN_Flare vs Hypotaurine_110
+2022-07-10 13:35:58 INFO::Creating boxplot for categorical data, IIRN_Flare vs Melatonin_233.1
+2022-07-10 13:35:58 INFO::Creating boxplot for categorical data, IIRN_Flare vs Oxoglutarate_145
+2022-07-10 13:35:58 INFO::Creating boxplot for categorical data, IIRN_Flare vs Stachydrine_144.1
+2022-07-10 13:35:58 INFO::Creating boxplot for categorical data, IIRN_Flare vs X2.hydroxyglutarate_147
+2022-07-10 13:35:58 INFO::Creating boxplot for categorical data, IIRN_Flare vs Deoxyguanosine_268.1
+2022-07-10 13:35:58 INFO::Creating boxplot for categorical data, IIRN_Flare vs N.Formyl.L.Methionine_176
+2022-07-10 13:35:59 INFO::Creating boxplot for categorical data, IIRN_Flare vs X4.Hydroxybenzoate_137
+2022-07-10 13:35:59 INFO::Creating boxplot for categorical data, IIRN_Flare vs Histidine_156.1
+2022-07-10 13:35:59 INFO::Creating boxplot for categorical data, IIRN_Flare vs Erucic.acid_337.3
+2022-07-10 13:35:59 INFO::Creating boxplot for categorical data, IIRN_Flare vs X5.Valerolactone_101.1
+2022-07-10 13:35:59 INFO::Creating boxplot for categorical data, IIRN_Flare vs Uridine_245.1
+2022-07-10 13:35:59 INFO::Creating boxplot for categorical data, IIRN_Flare vs Guanidinoacetate_118.1
+2022-07-10 13:35:59 INFO::Creating boxplot for categorical data, IIRN_Flare vs Trehalose_341.1
+2022-07-10 13:35:59 INFO::Creating boxplot for categorical data, IIRN_Flare vs Urocanate_139.1
+2022-07-10 13:36:01 INFO::Plotting data for metadata number 2, Gender
+2022-07-10 13:36:01 INFO::Creating boxplot for categorical data, Gender vs Sarcosine_90.1
+2022-07-10 13:36:01 INFO::Creating boxplot for categorical data, Gender vs N.Acetylmethionine_192.1
+2022-07-10 13:36:01 INFO::Creating boxplot for categorical data, Gender vs Dimethylarginine_203.2
+2022-07-10 13:36:01 INFO::Creating boxplot for categorical data, Gender vs Methylmalonate_117
+2022-07-10 13:36:01 INFO::Creating boxplot for categorical data, Gender vs X3.Hydroxybenzyl.Alcohol_123
+2022-07-10 13:36:01 INFO::Creating boxplot for categorical data, Gender vs Allothreonine_120.1
+2022-07-10 13:36:01 INFO::Creating boxplot for categorical data, Gender vs Cis.4.Hydroxy.D.Proline_132.1
+2022-07-10 13:36:01 INFO::Creating boxplot for categorical data, Gender vs Epinephrine_184.1
+2022-07-10 13:36:01 INFO::Creating boxplot for categorical data, Gender vs Methylarginine_189.1
+2022-07-10 13:36:01 INFO::Creating boxplot for categorical data, Gender vs N.Acetylglycine_116
+2022-07-10 13:36:02 INFO::Creating boxplot for categorical data, Gender vs P.Octopamine_154.1
+2022-07-10 13:36:02 INFO::Creating boxplot for categorical data, Gender vs Thymine_125
+2022-07-10 13:36:02 INFO::Creating boxplot for categorical data, Gender vs Trimethyllysine_189.2
+2022-07-10 13:36:02 INFO::Creating boxplot for categorical data, Gender vs Xanthurenate_206
+2022-07-10 13:36:02 INFO::Creating boxplot for categorical data, Gender vs Pyridoxine_170.1
+2022-07-10 13:36:02 INFO::Creating boxplot for categorical data, Gender vs Pyridoxal_168.1
+2022-07-10 13:36:02 INFO::Creating boxplot for categorical data, Gender vs X4.Hydroxybenzaldehyde_121
+2022-07-10 13:36:02 INFO::Creating boxplot for categorical data, Gender vs cis.10.Nonadecenoic.acid_295.3
+2022-07-10 13:36:02 INFO::Creating boxplot for categorical data, Gender vs Guaiacol_123
+2022-07-10 13:36:02 INFO::Creating boxplot for categorical data, Gender vs N.Acetylalanine_130.1
+2022-07-10 13:36:03 INFO::Creating boxplot for categorical data, Gender vs N.Methylaspartate_148.1
+2022-07-10 13:36:03 INFO::Creating boxplot for categorical data, Gender vs trans.trans.Muconic.acid_141
+2022-07-10 13:36:03 INFO::Creating boxplot for categorical data, Gender vs X3.Amino.5.Hydroxybenzoate_152
+2022-07-10 13:36:03 INFO::Creating boxplot for categorical data, Gender vs X3.Methoxytyrosine_210.1
+2022-07-10 13:36:03 INFO::Creating boxplot for categorical data, Gender vs all.cis.4.7.10.13.16.Docosapentaenoic.acid_329.2
+2022-07-10 13:36:03 INFO::Creating boxplot for categorical data, Gender vs Cystine_241
+2022-07-10 13:36:03 INFO::Creating boxplot for categorical data, Gender vs Dehydroascorbate_173
+2022-07-10 13:36:03 INFO::Creating boxplot for categorical data, Gender vs Diethanolamine_106.1
+2022-07-10 13:36:03 INFO::Creating boxplot for categorical data, Gender vs Dodecanoic.acid_199.2
+2022-07-10 13:36:03 INFO::Creating boxplot for categorical data, Gender vs Glycolate_75
+2022-07-10 13:36:04 INFO::Creating boxplot for categorical data, Gender vs Mesoxalate_117
+2022-07-10 13:36:04 INFO::Creating boxplot for categorical data, Gender vs methyl.lysine_161.1
+2022-07-10 13:36:04 INFO::Creating boxplot for categorical data, Gender vs N.Acetylneuraminate_310.1
+2022-07-10 13:36:04 INFO::Creating boxplot for categorical data, Gender vs Orotate_155
+2022-07-10 13:36:04 INFO::Creating boxplot for categorical data, Gender vs Salicylate_137
+2022-07-10 13:36:04 INFO::Creating boxplot for categorical data, Gender vs Tryptophan_205.1
+2022-07-10 13:36:04 INFO::Creating boxplot for categorical data, Gender vs X2.Hydroxypyridine_96
+2022-07-10 13:36:04 INFO::Creating boxplot for categorical data, Gender vs X3..4.Hydroxyphenyl.Pyruvate_179
+2022-07-10 13:36:04 INFO::Creating boxplot for categorical data, Gender vs X3.Amino.4.Hydroxybenzoate_152
+2022-07-10 13:36:04 INFO::Creating boxplot for categorical data, Gender vs X3.Methyl.L.Histidine_170.1
+2022-07-10 13:36:05 INFO::Creating boxplot for categorical data, Gender vs X3.Sulfinoalanine_154
+2022-07-10 13:36:05 INFO::Creating boxplot for categorical data, Gender vs X6.Carboxyhexanoate_159.1
+2022-07-10 13:36:05 INFO::Creating boxplot for categorical data, Gender vs Benzyl.Alcohol_107.1
+2022-07-10 13:36:05 INFO::Creating boxplot for categorical data, Gender vs Biotin_245.1
+2022-07-10 13:36:05 INFO::Creating boxplot for categorical data, Gender vs Citrulline_176.1
+2022-07-10 13:36:05 INFO::Creating boxplot for categorical data, Gender vs Kynurenate_188
+2022-07-10 13:36:05 INFO::Creating boxplot for categorical data, Gender vs Methyl.4.Aminobutyrate_118.1
+2022-07-10 13:36:05 INFO::Creating boxplot for categorical data, Gender vs N.Acetylputrescine_131.1
+2022-07-10 13:36:05 INFO::Creating boxplot for categorical data, Gender vs X2.Acetamido.2.Deoxy.Beta.D.Glucosylamine_221.1
+2022-07-10 13:36:05 INFO::Creating boxplot for categorical data, Gender vs Aspartate_132
+2022-07-10 13:36:06 INFO::Creating boxplot for categorical data, Gender vs Decanoic.acid_171.1
+2022-07-10 13:36:06 INFO::Creating boxplot for categorical data, Gender vs Oleic.acid_281.2
+2022-07-10 13:36:06 INFO::Creating boxplot for categorical data, Gender vs X3.Hydroxybenzaldehyde_121
+2022-07-10 13:36:06 INFO::Creating boxplot for categorical data, Gender vs X3.hydroxybutyric.acid_103
+2022-07-10 13:36:06 INFO::Creating boxplot for categorical data, Gender vs Cholate_407.3
+2022-07-10 13:36:06 INFO::Creating boxplot for categorical data, Gender vs Dimethylglycine_104.1
+2022-07-10 13:36:06 INFO::Creating boxplot for categorical data, Gender vs N.Formylglycine_102
+2022-07-10 13:36:06 INFO::Creating boxplot for categorical data, Gender vs Stearic.acid_283.3
+2022-07-10 13:36:06 INFO::Creating boxplot for categorical data, Gender vs Tartrate_149
+2022-07-10 13:36:06 INFO::Creating boxplot for categorical data, Gender vs Bis.2.Ethylhexyl.Phthalate_391.3
+2022-07-10 13:36:06 INFO::Creating boxplot for categorical data, Gender vs Deoxycholate_391.3
+2022-07-10 13:36:07 INFO::Creating boxplot for categorical data, Gender vs Fructose_179.1
+2022-07-10 13:36:07 INFO::Creating boxplot for categorical data, Gender vs Acetoacetate_101
+2022-07-10 13:36:07 INFO::Creating boxplot for categorical data, Gender vs X6.Hydroxynicotinate_138
+2022-07-10 13:36:07 INFO::Creating boxplot for categorical data, Gender vs Methylguanidine_74.1
+2022-07-10 13:36:07 INFO::Creating boxplot for categorical data, Gender vs Eicosapentaenoic.acid_301.2
+2022-07-10 13:36:07 INFO::Creating boxplot for categorical data, Gender vs Trigonelline_138.1
+2022-07-10 13:36:07 INFO::Creating boxplot for categorical data, Gender vs Phenylpyruvate_163
+2022-07-10 13:36:07 INFO::Creating boxplot for categorical data, Gender vs Octanoic.acid_143.1
+2022-07-10 13:36:07 INFO::Creating boxplot for categorical data, Gender vs X3.Methylglutaconate_143
+2022-07-10 13:36:07 INFO::Creating boxplot for categorical data, Gender vs Glucuronolactone_175
+2022-07-10 13:36:08 INFO::Creating boxplot for categorical data, Gender vs Methyl.Vanillate_181.1
+2022-07-10 13:36:08 INFO::Creating boxplot for categorical data, Gender vs trans.3.Hexenoic.acid_113.1
+2022-07-10 13:36:09 INFO::Plotting data for metadata number 3, Age
+2022-07-10 13:36:09 INFO::Creating scatter plot for continuous data, Age vs X2.Acetamido.2.Deoxy.Beta.D.Glucosylamine_221.1
+2022-07-10 13:36:09 DEBUG::`geom_smooth()` using formula 'y ~ x'
+2022-07-10 13:36:09 INFO::Creating scatter plot for continuous data, Age vs aminoadipate_162.1
+2022-07-10 13:36:09 DEBUG::`geom_smooth()` using formula 'y ~ x'
+2022-07-10 13:36:09 INFO::Creating scatter plot for continuous data, Age vs N.Acetylneuraminate_310.1
+2022-07-10 13:36:10 DEBUG::`geom_smooth()` using formula 'y ~ x'
+2022-07-10 13:36:10 INFO::Creating scatter plot for continuous data, Age vs Phosphoserine_186
+2022-07-10 13:36:10 DEBUG::`geom_smooth()` using formula 'y ~ x'
+2022-07-10 13:36:10 INFO::Creating scatter plot for continuous data, Age vs Adenosine.Diphosphate.Ribose_560.1
+2022-07-10 13:36:10 DEBUG::`geom_smooth()` using formula 'y ~ x'
+2022-07-10 13:36:10 INFO::Creating scatter plot for continuous data, Age vs Arachidonic.acid_303.2
+2022-07-10 13:36:10 DEBUG::`geom_smooth()` using formula 'y ~ x'
+2022-07-10 13:36:10 INFO::Creating scatter plot for continuous data, Age vs Xanthosine_285.1
+2022-07-10 13:36:10 DEBUG::`geom_smooth()` using formula 'y ~ x'
+2022-07-10 13:36:10 INFO::Creating scatter plot for continuous data, Age vs X4.Acetamidobutanoate_146.1
+2022-07-10 13:36:10 DEBUG::`geom_smooth()` using formula 'y ~ x'
+2022-07-10 13:36:10 INFO::Creating scatter plot for continuous data, Age vs Guanosine_284.1
+2022-07-10 13:36:10 DEBUG::`geom_smooth()` using formula 'y ~ x'
+2022-07-10 13:36:10 INFO::Creating scatter plot for continuous data, Age vs Lithocholyltaurine_482.3
+2022-07-10 13:36:10 DEBUG::`geom_smooth()` using formula 'y ~ x'
+2022-07-10 13:36:10 INFO::Creating scatter plot for continuous data, Age vs Picolinate_123
+2022-07-10 13:36:10 DEBUG::`geom_smooth()` using formula 'y ~ x'
+2022-07-10 13:36:10 INFO::Creating scatter plot for continuous data, Age vs Thymine_125
+2022-07-10 13:36:10 DEBUG::`geom_smooth()` using formula 'y ~ x'
+2022-07-10 13:36:10 INFO::Creating scatter plot for continuous data, Age vs cis.7.10.13.16.Docosatetraenoic.acid_331.3
+2022-07-10 13:36:11 DEBUG::`geom_smooth()` using formula 'y ~ x'
+2022-07-10 13:36:11 INFO::Creating scatter plot for continuous data, Age vs Mesaconic.acid_129
+2022-07-10 13:36:11 DEBUG::`geom_smooth()` using formula 'y ~ x'
+2022-07-10 13:36:11 INFO::Creating scatter plot for continuous data, Age vs N.Acetylglucosamine_222.1
+2022-07-10 13:36:11 DEBUG::`geom_smooth()` using formula 'y ~ x'
+2022-07-10 13:36:11 INFO::Creating scatter plot for continuous data, Age vs Cis.4.Hydroxy.D.Proline_132.1
+2022-07-10 13:36:11 DEBUG::`geom_smooth()` using formula 'y ~ x'
+2022-07-10 13:36:11 INFO::Creating scatter plot for continuous data, Age vs Paraxanthine_181.1
+2022-07-10 13:36:11 DEBUG::`geom_smooth()` using formula 'y ~ x'
+2022-07-10 13:36:11 INFO::Creating scatter plot for continuous data, Age vs Pentanoate_101.1
+2022-07-10 13:36:11 DEBUG::`geom_smooth()` using formula 'y ~ x'
+2022-07-10 13:36:11 INFO::Creating scatter plot for continuous data, Age vs Deoxycarnitine_146.1
+2022-07-10 13:36:11 DEBUG::`geom_smooth()` using formula 'y ~ x'
+2022-07-10 13:36:11 INFO::Creating scatter plot for continuous data, Age vs Mesoxalate_117
+2022-07-10 13:36:11 DEBUG::`geom_smooth()` using formula 'y ~ x'
+2022-07-10 13:36:11 INFO::Creating scatter plot for continuous data, Age vs N.Acetylphenylalanine_206.1
+2022-07-10 13:36:11 DEBUG::`geom_smooth()` using formula 'y ~ x'
+2022-07-10 13:36:11 INFO::Creating scatter plot for continuous data, Age vs X2.hydroxyglutarate_147
+2022-07-10 13:36:12 DEBUG::`geom_smooth()` using formula 'y ~ x'
+2022-07-10 13:36:12 INFO::Creating scatter plot for continuous data, Age vs N.Acetylserine_146
+2022-07-10 13:36:12 DEBUG::`geom_smooth()` using formula 'y ~ x'
+2022-07-10 13:36:12 INFO::Creating scatter plot for continuous data, Age vs Citrate_191
+2022-07-10 13:36:12 DEBUG::`geom_smooth()` using formula 'y ~ x'

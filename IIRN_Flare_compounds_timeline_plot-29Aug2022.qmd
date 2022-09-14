@@ -51,18 +51,14 @@ data$name_mz <- make.names(data$name_mz)
 #| echo: false
 
 metadata <- paste0('./',sample_type, '_metadata.txt') %>% read_tsv()
-
 # metadata <- paste0('~/Dropbox/Metabolomics/Final_datasets/',sample_type, '_metadata.txt') %>% read_tsv()
-
 metadata1 <- metadata %>% filter(Cohort == 'IIRN')
-
 iirn <- metadata1$SampleID
 ```
 
 ```{r}
 #| echo: false
 iirn1 <- intersect(colnames(data), iirn)
-
 data1 <- data %>% select('name_mz',all_of(iirn1))
 ```
 
@@ -129,8 +125,9 @@ ggsave(filename = paste0(sample_type,'_maaslin4_compounds_lineplot2.png'), width
 
 ```{r}
 #| echo: false
-first_metabolites <- unique(data3$feature)[1:7]
-last_metabolites <- unique(data3$feature)[8:14]
+num_mtb <- unique(data3$feature) |> length()
+first_metabolites <- unique(data3$feature)[1:num_mtb/2]
+last_metabolites <- unique(data3$feature)[num_mtb/2+1:num_mtb]
 ```
 
 ```{r}
@@ -140,6 +137,7 @@ pl1 <-
   data3 |> 
   filter(feature %in% first_metabolites) |> 
   ggplot(aes(x=Visit * -1, y=Peak_Area, color = IIRN_Flare, shape = Disease_Status, group = pn_ID)) +
+  scale_color_manual(values = c("red", "blue")) +
   geom_point(size = 3) + 
   geom_line(color = "gray", alpha = .5) +
   ggh4x::facet_nested(IIRN_Flare ~ feature, scales = "free", independent = "y" ) +
@@ -151,6 +149,7 @@ pl2 <-
   filter(feature %in% last_metabolites) |> 
   ggplot(aes(x=Visit * -1, y=Peak_Area, color = IIRN_Flare, shape = Disease_Status, group = pn_ID)) +
   geom_point(size = 3) + 
+  scale_color_manual(values = c("red", "blue")) +
   geom_line(color = "gray", alpha = .5) +
   ggh4x::facet_nested(IIRN_Flare ~ feature, scales = "free_y", independent = "y" ) +
   scale_x_continuous(breaks = seq(from = 1,to = 11,by = 2)) + 
