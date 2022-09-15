@@ -6,6 +6,7 @@ author: Rotem & Nina
 code-fold: true
 warnings: false
 messages: false
+jupyter: "qiime2-2022.2"
 ---
 
 ## Data read and preperation
@@ -97,7 +98,9 @@ pl <- nba |>
         , axis.title = element_blank(), legend.position = c(0.5, 0.5)) +
   geom_text(aes(x= -Inf, label = metadata), size = 3.5, data = nba[!duplicated(nba$metadata),], vjust = 0) +   scale_x_discrete(expand = c(0.05, 0)) +
     geom_text(aes(x = feature, y = num.metadata, label = ifelse(signif, "+","")), size = 2) + 
-    ggtitle(sample_type)
+    ggtitle(sample_type) + 
+    theme(plot.margin = unit(c(1,1,1,1), "cm"))
+
 pl  
 ```
 
@@ -116,6 +119,6 @@ Plot settings.
 
 # knitr::md("")
 pl
-ggsave(filename = paste0(sample_type, "_donut3.png"), height = 10, width = 10)
+ggsave(filename = paste0(sample_type, "_donut3.png"), height = 15, width = 15)
 ```
 
