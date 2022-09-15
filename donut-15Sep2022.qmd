@@ -1,0 +1,177 @@
+---
+title: "Donut heatmap"
+date: "`r Sys.Date()`"
+format: html
+author: Rotem & Nina
+code-fold: true
+warnings: false
+messages: false
+---
+
+## Data read and preperation
+
+```{r}
+#| echo: fenced
+#| cache: true
+library(tidyverse)
+#sample_type  <- "Serum"
+sample_type  <-  "Stool"
+
+general_vars <- c("Fasting","Gender","Age")
+
+hole <- 5
+a_alpha <- .25
+```
+
+
+```{r}
+#| message= FALSE 
+maaslin_var <- "onlyDS"
+
+sig_DS <- paste0(sample_type, "_maaslin_#2_CD_",maaslin_var, "/significant_results.tsv") |> read_tsv() |> filter(!(metadata %in% general_vars))
+DS_sig_features <- sig_DS |> filter(!(metadata %in% general_vars)) |> pull(feature)
+
+all_results_DS <- paste0(sample_type, "_maaslin_#2_CD_",maaslin_var, "/all_results.tsv") |> read_tsv() |> filter(!(metadata %in% general_vars))
+
+#|> filter(feature %in% DS_sig_features)
+```
+
+```{r}
+#| message= FALSE
+maaslin_var <- "onlyFCPCat"
+
+sig_FCP <- paste0(sample_type, "_maaslin_#2_CD_",maaslin_var, "/significant_results.tsv") |> read_tsv() |> filter(!(metadata %in% general_vars))
+FCP_sig_features <- sig_FCP |> filter(!(metadata %in% general_vars)) |> pull(feature)
+
+all_results_FCP <- paste0(sample_type, "_maaslin_#2_CD_",maaslin_var, "/all_results.tsv") |> read_tsv() |> filter(!(metadata %in% general_vars))
+
+```
+
+```{r}
+#| message= FALSE
+maaslin_var <- "onlyCRPCat"
+
+sig_CRP <- paste0(sample_type, "_maaslin_#2_CD_",maaslin_var, "/significant_results.tsv") |> read_tsv() |> filter(!(metadata %in% general_vars))
+
+all_results_CRP <- paste0(sample_type, "_maaslin_#2_CD_",maaslin_var, "/all_results.tsv") |> read_tsv() |> filter(!(metadata %in% general_vars))
+```
+
+```{r}
+#| message= FALSE
+maaslin_var <- "onlyDI"
+
+sig_DI <- paste0(sample_type, "_maaslin_#2_CD_",maaslin_var, "/significant_results.tsv") |> read_tsv() |> filter(!(metadata %in% general_vars))
+
+all_results_DI <- paste0(sample_type, "_maaslin_#2_CD_",maaslin_var, "/all_results.tsv") |> read_tsv() |> filter(!(metadata %in% general_vars))
+```
+
+```{r}
+#| message= FALSE
+maaslin_var <- "onlyFaithpd"
+
+sig_FD <- paste0(sample_type, "_maaslin_#2_CD_",maaslin_var, "/significant_results.tsv") |> read_tsv() |> filter(!(metadata %in% general_vars))
+
+all_results_FD <- paste0(sample_type, "_maaslin_#2_CD_",maaslin_var, "/all_results.tsv") |> read_tsv() |> filter(!(metadata %in% general_vars))
+```
+
+
+```{r}
+sig_features <- rbind(sig_DS, sig_FCP, sig_CRP, sig_DI, sig_FD) |> select(feature) |> unique() |> pull(feature)
+
+all_results <- rbind(all_results_DS, all_results_FCP, all_results_CRP, all_results_DI, all_results_FD) |> filter(feature %in% sig_features)
+```
+
+```{r}
+
+nba <- 
+  all_results |> 
+  mutate(metadata = metadata |> as.factor(), 
+         num.metadata = metadata |> as.numeric() + hole) |>
+  mutate(signif = qval < a_alpha) |> 
+  mutate(mz = str_extract(feature, pattern = "(?!_)\\d+") |> as.numeric()) |> 
+  arrange(mz |> desc()) |> 
+  mutate(feature = str_remove(feature, "_.*")) |> distinct(feature, metadata, .keep_all = T)
+
+y_labels = levels(nba$metadata)
+y_breaks = seq_along(y_labels) + hole
+```
+
+Cluster coef
+```{r}
+#| cache: true
+#| echo: true
+
+temp <- nba |> select(feature, metadata, coef)  |> 
+  pivot_wider(names_from = metadata, values_from = coef) 
+# rownames(temp) <- paste0(temp$feature)
+ord <- hclust( dist(temp |> select(-1), method = "euclidean"), method = "ward.D" )$order
+nba$feature = factor(nba$feature, temp$feature[ord])
+
+```
+
+Also set the hole size (= `r hole`).
+
+```{r}
+#| cache: true
+#| echo: true
+nba.labs <- subset(nba, metadata==levels(nba$metadata)[nlevels(nba$metadata)])
+nba.labs <- nba.labs[order(nba.labs$feature),]
+
+nba.labs$ang <- seq(from=(360/nrow(nba.labs))/1.5
+                  , to=(1.5*(360/nrow(nba.labs)))-340
+                  , length.out=nrow(nba.labs))+90
+            
+nba.labs$hjust <- 0
+nba.labs$hjust[which(nba.labs$ang < -90)] <- 1
+nba.labs$ang[which(nba.labs$ang < -90)] <- (180+nba.labs$ang)[which(nba.labs$ang < -90)]
+```
+
+Set the text angle.
+
+```{r}
+#| cache: true
+#| echo: true
+
+pl <- nba |> 
+  ggplot(aes(fill = coef*-1, x = feature, y = num.metadata)) + 
+  geom_text(data = nba.labs, aes(x = feature, y = num.metadata + 1, label = feature, angle = ang, hjust = hjust), size = 2) +
+  geom_tile(color = "darkgrey", width=5, height = 5) +
+  ylim(c(0, max(nba$num.metadata) + 4.5)) +
+  scale_fill_gradient2(low="blue", mid = "white", high="red", 
+                       guide="colorbar",na.value="white") + 
+  coord_polar( start = -.3) +
+  theme_void() +
+  theme(plot.margin = grid::unit(c(0,0,0,0), "mm")) +
+  theme(axis.text = element_blank() , panel.grid = element_blank()
+        , axis.title = element_blank(), legend.position = c(0.5, 0.5)) +
+  geom_text(aes(x= -Inf, label = metadata), size = 3, data = nba[!duplicated(nba$metadata),], vjust = 0) +
+  scale_x_discrete(expand = c(0.05, 0)) +
+  geom_text(aes(x = feature, y = num.metadata, label = ifelse(signif, "+","")), size = 2) + 
+  labs(title = sample_type, fill = "Coefficient") +
+  theme(plot.title = element_text(hjust = 0.5, vjust = 0.5))
+pl  
+```
+
+
+Plot settings.
+```{r}
+ggsave(filename = paste0(sample_type, "_donut92.png"), height = 10, width = 10, pl)
+```
+
+#### Plot at next slide.
+
+## Plot
+
+```{r}
+#| fig-width: 10
+#| fig-height: 10
+#| echo: false
+#| cache: true
+#| fig-cap: "[Download](https://raw.githubusercontent.com/baobabprince/mbx/master/Stool_donut3.png)"
+
+# knitr::md("")
+pl
+ggsave(filename = paste0(sample_type, "_donut92.png"), height = 10, width = 10, pl)
+
+```
+
