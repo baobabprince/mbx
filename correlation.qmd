@@ -59,7 +59,7 @@ for(row in couples |> nrow() |> seq()){ # Shame on me
     select(SampleID, !!sym(v1), !!sym(v2)) |> drop_na() |>
   summarise(cor.test(x = !!sym(v1),y =  !!sym(v2), method = "spearman")$p.value)
 
-    couples[row, "N"] <- 
+  couples[row, "N"] <- 
   serum |> 
     select(SampleID, !!sym(v1), !!sym(v2)) |> drop_na() |>
     summarise(n = n())
@@ -115,7 +115,7 @@ corrplot::corrplot(m ,p.mat = peas$p
                    # , sig.level = 0.05
                    # , sig.level = 1
                    , order = 'hclust'
-                   # , insig = 'label_sig', sig.level = c(.000001,.0001, 0.001, 0.01, 0.05)
+                   #,insig='label_sig', sig.level = c(.000001,.0001, 0.001, 0.01, 0.05)
                    , addrect = 2
                    , number.cex = 1
                    ,col = "white"
@@ -129,4 +129,31 @@ corrplot::corrplot(m ,p.mat = peas$p
 corrplot::corrplot.mixed(m, order = "AOE", p.mat = peas$p, addCoef.col ='black')
 m
 peas$p
+```
+
+
+
+```{r}
+library(ggpmisc)
+plots = list()
+for(row in couples |> rownames() |> as.numeric()){
+  plots[[row]] <- 
+  serum |> 
+    select(couples[row,]$V1, couples[row,]$V2) |> 
+    ggplot() + 
+    aes_string(couples[row,]$V1, couples[row,]$V2) + 
+    geom_point() + 
+    geom_smooth(method = "lm") + 
+    stat_poly_eq() + 
+    theme_minimal()
+  #pl |> print()
+}
+
+
+plots[[1]]
+plots[[2]]
+plots[[4]]
+plots[[5]]
+plots[[6]]
+
 ```
