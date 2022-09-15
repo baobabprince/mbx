@@ -1,0 +1,724 @@
+2022-09-15 12:28:39 INFO::Writing function arguments to log file
+2022-09-15 12:28:39 DEBUG::Function arguments
+2022-09-15 12:28:39 DEBUG::Input data file: maaslin_otu_MZM.tsv
+2022-09-15 12:28:39 DEBUG::Input metadata file: maaslin_metadata_MZM_#2_CD_onlyCRPCat.tsv
+2022-09-15 12:28:39 DEBUG::Output folder: Serum_maaslin_#2_CD_onlyCRPCat
+2022-09-15 12:28:39 DEBUG::Min Abundance: 0.000000
+2022-09-15 12:28:39 DEBUG::Min Prevalence: 0.100000
+2022-09-15 12:28:39 DEBUG::Normalization: TSS
+2022-09-15 12:28:39 DEBUG::Transform: LOG
+2022-09-15 12:28:39 DEBUG::Analysis method: LM
+2022-09-15 12:28:39 DEBUG::Max significance: 0.250000
+2022-09-15 12:28:39 DEBUG::Random effects: pn_ID
+2022-09-15 12:28:39 DEBUG::Fixed effects: Fasting,Gender,Age,CRP_Category
+2022-09-15 12:28:39 DEBUG::Correction method: BH
+2022-09-15 12:28:39 DEBUG::Standardize: TRUE
+2022-09-15 12:28:39 DEBUG::Cores: 1
+2022-09-15 12:28:39 INFO::Verifying options selected are valid
+2022-09-15 12:28:39 INFO::Determining format of input files
+2022-09-15 12:28:39 INFO::Input format is data samples as columns and metadata samples as rows
+2022-09-15 12:28:39 DEBUG::Transformed data so samples are rows
+2022-09-15 12:28:39 DEBUG::The following samples were found to have features but no metadata. They will be removed. X128_SMC_CL_A307s1,X126_SMC_CL_A306s2,X117_SMC_CL_A302s2,X114_SMC_CL_A301s1,X130_SMC_CL_A307s3,X135_SMC_CL_A311s1,X140_SMC_SR_A002s1,X129_SMC_CL_A307s2,X125_SMC_CL_A306s1,X122_SMC_CL_A304s2,X138_SMC_CL_A313s1,X133_SMC_CL_A309s1,X137_SMC_CL_A312s1,X143_SMC_SR_A006s1,X118_SMC_CL_A303s1,X115_SMC_CL_A301s2,X120_SMC_CL_A303s3,X131_SMC_CL_A308s1,X127_SMC_CL_A306s3,X121_SMC_CL_A304s1,X119_SMC_CL_A303s2,X124_SMC_CL_A305s2,X116_SMC_CL_A302s1,X123_SMC_CL_A305s1,X136_SMC_CL_A311s2,X139_SMC_CL_A313s2,X134_SMC_CL_A309s2,X132_SMC_CL_A308s2,X141_SMC_SR_A004s1,X160_SMC_SR_A023s1,X152_SMC_SR_A015s1,X155_SMC_SR_A018s1,X146_SMC_SR_A009s1,X170_SMC_CL_A312s2,X159_SMC_SR_A022s1,X163_SMC_SR_A026s1,X189_SMC_EN_A105s1,X147_SMC_SR_A010s1,X158_SMC_SR_A021s1,X156_SMC_SR_A019s1,X184_SMC_EN_A048s1,X190_SMC_EN_A112s1,X182_SMC_EN_A012s1,X186_SMC_EN_A060s1,X185_SMC_EN_A055s1,X183_SMC_EN_A042s1
+2022-09-15 12:28:39 DEBUG::The following samples were found to have metadata but no features. They will be removed. X072_SMC_IIRN_p27s1,X073_SMC_IIRN_p27s2,X098_SMC_IIRN_p38s1
+2022-09-15 12:28:39 DEBUG::A total of 156 samples were found in both the data and metadata
+2022-09-15 12:28:39 DEBUG::Reordering data/metadata to use same sample ordering
+2022-09-15 12:28:39 INFO::Formula for random effects: expr ~ (1 | pn_ID)
+2022-09-15 12:28:39 INFO::Formula for fixed effects: expr ~  Fasting + Gender + Age + CRP_Category
+2022-09-15 12:28:39 INFO::Filter data based on min abundance and min prevalence
+2022-09-15 12:28:39 INFO::Total samples in data: 156
+2022-09-15 12:28:39 INFO::Min samples required with min abundance for a feature not to be filtered: 15.600000
+2022-09-15 12:28:39 INFO::Total filtered features: 0
+2022-09-15 12:28:39 INFO::Filtered feature names from abundance and prevalence filtering:
+2022-09-15 12:28:39 INFO::Total filtered features with variance filtering: 0
+2022-09-15 12:28:39 INFO::Filtered feature names from variance filtering:
+2022-09-15 12:28:39 INFO::Running selected normalization method: TSS
+2022-09-15 12:28:39 INFO::Applying z-score to standardize continuous metadata
+2022-09-15 12:28:39 INFO::Running selected transform method: LOG
+2022-09-15 12:28:39 INFO::Running selected analysis method: LM
+2022-09-15 12:28:39 INFO::Fitting model to feature number 1, X10.HAD_185.1
+2022-09-15 12:28:39 INFO::Fitting model to feature number 2, X10.Hydroxydecanoic.acid_187.1
+2022-09-15 12:28:39 INFO::Fitting model to feature number 3, X14.Methylhexadecanoic.acid_269.2
+2022-09-15 12:28:39 INFO::Fitting model to feature number 4, X1.Aminocyclopropanecarboxylate_102.1
+2022-09-15 12:28:39 INFO::Fitting model to feature number 5, X1.Methyladenosine_282.1
+2022-09-15 12:28:39 INFO::Fitting model to feature number 6, X2.Deoxy.D.Glucose_163.1
+2022-09-15 12:28:39 INFO::Fitting model to feature number 7, X2.3.Dihydroxybenzoate_153
+2022-09-15 12:28:39 INFO::Fitting model to feature number 8, X2.6.Dihydroxypyridine_112
+2022-09-15 12:28:40 INFO::Fitting model to feature number 9, X2.Acetamido.2.Deoxy.Beta.D.Glucosylamine_221.1
+2022-09-15 12:28:40 INFO::Fitting model to feature number 10, X2.Aminoisobutyrate_104.1
+2022-09-15 12:28:40 INFO::Fitting model to feature number 11, X2.Deoxy.5.Adenosine.Monophosphate_332.1
+2022-09-15 12:28:40 INFO::Fitting model to feature number 12, X2.Deoxy.D.Glucose.6.phosphate_243
+2022-09-15 12:28:40 INFO::Fitting model to feature number 13, X2.hydroxyglutarate_147
+2022-09-15 12:28:40 INFO::Fitting model to feature number 14, X2.Hydroxyhexadecanoic.acid_271.2
+2022-09-15 12:28:40 INFO::Fitting model to feature number 15, X2.Hydroxyisocaproic.acid_131.1
+2022-09-15 12:28:40 INFO::Fitting model to feature number 16, X2.Hydroxypyridine_96
+2022-09-15 12:28:40 INFO::Fitting model to feature number 17, X2.Hydroxytetradecanoic.acid_243.2
+2022-09-15 12:28:40 INFO::Fitting model to feature number 18, X2.Methylmaleate_129
+2022-09-15 12:28:40 INFO::Fitting model to feature number 19, X2.Phosphoglycerate_185
+2022-09-15 12:28:40 INFO::Fitting model to feature number 20, X3..2.Hydroxyphenyl.Propanoate_165.1
+2022-09-15 12:28:40 INFO::Fitting model to feature number 21, X3..4.Hydroxyphenyl.Pyruvate_179
+2022-09-15 12:28:40 INFO::Fitting model to feature number 22, X3.4.Dihydroxymandelate_183
+2022-09-15 12:28:40 INFO::Fitting model to feature number 23, X3.4.Dihydroxybenzoate_153
+2022-09-15 12:28:40 INFO::Fitting model to feature number 24, X3.Dehydroshikimate_171
+2022-09-15 12:28:40 INFO::Fitting model to feature number 25, X3.Hydroxybenzaldehyde_121
+2022-09-15 12:28:40 INFO::Fitting model to feature number 26, X3.hydroxybutyric.acid_103
+2022-09-15 12:28:40 INFO::Fitting model to feature number 27, X3.Hydroxymethylglutarate_161
+2022-09-15 12:28:40 INFO::Fitting model to feature number 28, X3.Hydroxyoctanoic.acid_159.1
+2022-09-15 12:28:40 INFO::Fitting model to feature number 29, X3.Methoxytyrosine_210.1
+2022-09-15 12:28:41 INFO::Fitting model to feature number 30, X3.Methyl.2.Oxindole_148.1
+2022-09-15 12:28:41 INFO::Fitting model to feature number 31, X3.Methyl.2.Oxovalerate_129.1
+2022-09-15 12:28:41 INFO::Fitting model to feature number 32, X3.Methylglutaconate_143
+2022-09-15 12:28:41 INFO::Fitting model to feature number 33, X3.Methyl.L.Histidine_170.1
+2022-09-15 12:28:41 INFO::Fitting model to feature number 34, X3.Sulfinoalanine_154
+2022-09-15 12:28:41 INFO::Fitting model to feature number 35, X4.Acetamidobutanoate_146.1
+2022-09-15 12:28:41 INFO::Fitting model to feature number 36, X4.Aminobenzoate_136
+2022-09-15 12:28:41 INFO::Fitting model to feature number 37, X4.Guanidinobutanoate_146.1
+2022-09-15 12:28:41 INFO::Fitting model to feature number 38, X4.Hydroxybenzaldehyde_121
+2022-09-15 12:28:41 INFO::Fitting model to feature number 39, X4.Hydroxybenzoate_137
+2022-09-15 12:28:41 INFO::Fitting model to feature number 40, X4.Hydroxy.L.Phenylglycine_168.1
+2022-09-15 12:28:41 INFO::Fitting model to feature number 41, X4.Imidazoleacetate_127.1
+2022-09-15 12:28:41 INFO::Fitting model to feature number 42, X4.Pyridoxate_184.1
+2022-09-15 12:28:41 INFO::Fitting model to feature number 43, X5.Z..8.Z..11.Z..Eicosatrienoic.Acid_305.2
+2022-09-15 12:28:41 INFO::Fitting model to feature number 44, X5.6.Dimethylbenzimidazole_147.1
+2022-09-15 12:28:41 INFO::Fitting model to feature number 45, X5.Aminolevulinic.acid_132.1
+2022-09-15 12:28:41 INFO::Fitting model to feature number 46, X5.Aminopentanoate_118.1
+2022-09-15 12:28:41 INFO::Fitting model to feature number 47, X5.Hydroxylysine_163.1
+2022-09-15 12:28:41 INFO::Fitting model to feature number 48, X5.Hydroxymethyluracil_141
+2022-09-15 12:28:42 INFO::Fitting model to feature number 49, X5.Methylcytosine_126.1
+2022-09-15 12:28:42 INFO::Fitting model to feature number 50, X5.Valerolactone_101.1
+2022-09-15 12:28:42 INFO::Fitting model to feature number 51, X6.Carboxyhexanoate_159.1
+2022-09-15 12:28:42 INFO::Fitting model to feature number 52, X6.Hydroxynicotinate_138
+2022-09-15 12:28:42 INFO::Fitting model to feature number 53, X9.Decenoic.acid_169.1
+2022-09-15 12:28:42 INFO::Fitting model to feature number 54, Acetaminophen_152.1
+2022-09-15 12:28:42 INFO::Fitting model to feature number 55, Acetoacetate_101
+2022-09-15 12:28:42 INFO::Fitting model to feature number 56, acetyl.carnitine_204.1
+2022-09-15 12:28:42 INFO::Fitting model to feature number 57, Acetylcholine_146.1
+2022-09-15 12:28:42 INFO::Fitting model to feature number 58, acetyl.lysine_189.1
+2022-09-15 12:28:42 INFO::Fitting model to feature number 59, Adenine_136.1
+2022-09-15 12:28:42 INFO::Fitting model to feature number 60, Adenosine_268.1
+2022-09-15 12:28:42 INFO::Fitting model to feature number 61, Adipate_145.1
+2022-09-15 12:28:42 INFO::Fitting model to feature number 62, Alanine_90.1
+2022-09-15 12:28:42 INFO::Fitting model to feature number 63, Aleuritic.acid_303.2
+2022-09-15 12:28:42 INFO::Fitting model to feature number 64, all.cis.4.7.10.13.16.Docosapentaenoic.acid_329.2
+2022-09-15 12:28:42 INFO::Fitting model to feature number 65, Allothreonine_120.1
+2022-09-15 12:28:42 INFO::Fitting model to feature number 66, Alpha.Tocopherol_429.4
+2022-09-15 12:28:42 INFO::Fitting model to feature number 67, aminoadipate_162.1
+2022-09-15 12:28:42 INFO::Fitting model to feature number 68, AMP_346.1
+2022-09-15 12:28:42 INFO::Fitting model to feature number 69, Aniline.2.Sulfonate_172
+2022-09-15 12:28:43 INFO::Fitting model to feature number 70, Arachidic.acid_311.3
+2022-09-15 12:28:43 INFO::Fitting model to feature number 71, Arachidonic.acid_303.2
+2022-09-15 12:28:43 INFO::Fitting model to feature number 72, Arginine_175.1
+2022-09-15 12:28:43 INFO::Fitting model to feature number 73, Asparagine_133.1
+2022-09-15 12:28:43 INFO::Fitting model to feature number 74, Aspartate_134
+2022-09-15 12:28:43 INFO::Fitting model to feature number 75, Aspartate_132
+2022-09-15 12:28:43 INFO::Fitting model to feature number 76, Azelate_187.1
+2022-09-15 12:28:43 INFO::Fitting model to feature number 77, Benzylamine_108.1
+2022-09-15 12:28:43 INFO::Fitting model to feature number 78, Beta.Alanine_90.1
+2022-09-15 12:28:43 INFO::Fitting model to feature number 79, Beta.hydroxyvaleric.Acid_117.1
+2022-09-15 12:28:43 INFO::Fitting model to feature number 80, Betaine_118.1
+2022-09-15 12:28:43 INFO::Fitting model to feature number 81, Bilirubin_585.3
+2022-09-15 12:28:43 INFO::Fitting model to feature number 82, Biliverdin_583.3
+2022-09-15 12:28:43 INFO::Fitting model to feature number 83, Biotin_245.1
+2022-09-15 12:28:43 INFO::Fitting model to feature number 84, Bis.2.Ethylhexyl.Phthalate_391.3
+2022-09-15 12:28:43 INFO::Fitting model to feature number 85, Butyric.acid_87
+2022-09-15 12:28:43 INFO::Fitting model to feature number 86, Butyryl.carnitine_232.2
+2022-09-15 12:28:43 INFO::Fitting model to feature number 87, Caffeine_195.1
+2022-09-15 12:28:44 INFO::Fitting model to feature number 88, Carnitine_162.1
+2022-09-15 12:28:44 INFO::Fitting model to feature number 89, CDP_404
+2022-09-15 12:28:44 INFO::Fitting model to feature number 90, Choline_104.1
+2022-09-15 12:28:44 INFO::Fitting model to feature number 91, cis.10.Nonadecenoic.acid_295.3
+2022-09-15 12:28:44 INFO::Fitting model to feature number 92, cis.11.Eicosenoic.acid_309.3
+2022-09-15 12:28:44 INFO::Fitting model to feature number 93, Cis.4.Hydroxy.D.Proline_132.1
+2022-09-15 12:28:44 INFO::Fitting model to feature number 94, cis.5.Dodecenoic.acid_197.2
+2022-09-15 12:28:44 INFO::Fitting model to feature number 95, cis.7.10.13.16.Docosatetraenoic.acid_331.3
+2022-09-15 12:28:44 INFO::Fitting model to feature number 96, cis.aconitate_173
+2022-09-15 12:28:44 INFO::Fitting model to feature number 97, Citramalate_147
+2022-09-15 12:28:44 INFO::Fitting model to feature number 98, Citrate_191
+2022-09-15 12:28:44 INFO::Fitting model to feature number 99, Citrulline_176.1
+2022-09-15 12:28:44 INFO::Fitting model to feature number 100, Creatine_130.1
+2022-09-15 12:28:44 INFO::Fitting model to feature number 101, Creatine_132.1
+2022-09-15 12:28:44 INFO::Fitting model to feature number 102, Creatinine_114.1
+2022-09-15 12:28:44 INFO::Fitting model to feature number 103, Crotonic.acid_85
+2022-09-15 12:28:44 INFO::Fitting model to feature number 104, Cysteate_170
+2022-09-15 12:28:44 INFO::Fitting model to feature number 105, Cysteine_122
+2022-09-15 12:28:44 INFO::Fitting model to feature number 106, Cystine_241
+2022-09-15 12:28:44 INFO::Fitting model to feature number 107, Cytosine_112.1
+2022-09-15 12:28:44 INFO::Fitting model to feature number 108, Decanoic.acid_171.1
+2022-09-15 12:28:44 INFO::Fitting model to feature number 109, Dehydroascorbate_173
+2022-09-15 12:28:45 INFO::Fitting model to feature number 110, Deoxycarnitine_146.1
+2022-09-15 12:28:45 INFO::Fitting model to feature number 111, Deoxycholate_391.3
+2022-09-15 12:28:45 INFO::Fitting model to feature number 112, Deoxycytidine_228.1
+2022-09-15 12:28:45 INFO::Fitting model to feature number 113, Deoxyguanosine_268.1
+2022-09-15 12:28:45 INFO::Fitting model to feature number 114, Deoxyribose_133.1
+2022-09-15 12:28:45 INFO::Fitting model to feature number 115, Diethyl.2.Methyl.3.Oxosuccinate_201.1
+2022-09-15 12:28:45 INFO::Fitting model to feature number 116, Dihydroorotate_157
+2022-09-15 12:28:45 INFO::Fitting model to feature number 117, Dimethylarginine_203.2
+2022-09-15 12:28:45 INFO::Fitting model to feature number 118, Dimethylglycine_104.1
+2022-09-15 12:28:45 INFO::Fitting model to feature number 119, Dipalmitoyl.Phosphoethanolamine_690.5
+2022-09-15 12:28:45 INFO::Fitting model to feature number 120, D.Mannosamine_180.1
+2022-09-15 12:28:45 INFO::Fitting model to feature number 121, Docosahexaenoic.acid_327.2
+2022-09-15 12:28:45 INFO::Fitting model to feature number 122, Dodecanoic.acid_199.2
+2022-09-15 12:28:45 INFO::Fitting model to feature number 123, Dopamine_154.1
+2022-09-15 12:28:45 INFO::Fitting model to feature number 124, D.Sedoheptulose_209.1
+2022-09-15 12:28:45 INFO::Fitting model to feature number 125, Eicosapentaenoic.acid_301.2
+2022-09-15 12:28:45 INFO::Fitting model to feature number 126, Erucic.acid_337.3
+2022-09-15 12:28:45 INFO::Fitting model to feature number 127, Fructose_179.1
+2022-09-15 12:28:45 INFO::Fitting model to feature number 128, Fumarate_115
+2022-09-15 12:28:45 INFO::Fitting model to feature number 129, GABA_104.1
+2022-09-15 12:28:45 INFO::Fitting model to feature number 130, Galactosamine_180.1
+2022-09-15 12:28:46 INFO::Fitting model to feature number 131, Galacturonate_193
+2022-09-15 12:28:46 INFO::Fitting model to feature number 132, Glucosaminate_196.1
+2022-09-15 12:28:46 INFO::Fitting model to feature number 133, Glucosamine_180.1
+2022-09-15 12:28:46 INFO::Fitting model to feature number 134, Glucose_179.1
+2022-09-15 12:28:46 INFO::Fitting model to feature number 135, Glutamate_148.1
+2022-09-15 12:28:46 INFO::Fitting model to feature number 136, Glutamine_147.1
+2022-09-15 12:28:46 INFO::Fitting model to feature number 137, Glutarate_131
+2022-09-15 12:28:46 INFO::Fitting model to feature number 138, Glutarylcarnitine_276.1
+2022-09-15 12:28:46 INFO::Fitting model to feature number 139, Glycerate_105
+2022-09-15 12:28:46 INFO::Fitting model to feature number 140, Glycerol_91
+2022-09-15 12:28:46 INFO::Fitting model to feature number 141, Glycerol.Myristate_301.2
+2022-09-15 12:28:46 INFO::Fitting model to feature number 142, Glycine_76
+2022-09-15 12:28:46 INFO::Fitting model to feature number 143, Glycochenodeoxycholate_448.3
+2022-09-15 12:28:46 INFO::Fitting model to feature number 144, Glycocholate_464.3
+2022-09-15 12:28:46 INFO::Fitting model to feature number 145, Glycolate_75
+2022-09-15 12:28:46 INFO::Fitting model to feature number 146, Guanidinoacetate_118.1
+2022-09-15 12:28:46 INFO::Fitting model to feature number 147, Guanidinosuccinic.Acid_176.1
+2022-09-15 12:28:46 INFO::Fitting model to feature number 148, Guanine_152.1
+2022-09-15 12:28:46 INFO::Fitting model to feature number 149, Guanosine_284.1
+2022-09-15 12:28:46 INFO::Fitting model to feature number 150, Gulonolactone_177
+2022-09-15 12:28:46 INFO::Fitting model to feature number 151, Heptanoic.acid_129.1
+2022-09-15 12:28:47 INFO::Fitting model to feature number 152, Hexanoic.acid_115.1
+2022-09-15 12:28:47 INFO::Fitting model to feature number 153, Hexanoyl.carnitine_260.2
+2022-09-15 12:28:47 INFO::Fitting model to feature number 154, Hippurate_178.1
+2022-09-15 12:28:47 INFO::Fitting model to feature number 155, Histidine_156.1
+2022-09-15 12:28:47 INFO::Fitting model to feature number 156, Homocysteine_136
+2022-09-15 12:28:47 INFO::Fitting model to feature number 157, Homoserine_120.1
+2022-09-15 12:28:47 INFO::Fitting model to feature number 158, Hypotaurine_110
+2022-09-15 12:28:47 INFO::Fitting model to feature number 159, Hypoxanthine_137
+2022-09-15 12:28:47 INFO::Fitting model to feature number 160, Indole.3.Acetamide_175.1
+2022-09-15 12:28:47 INFO::Fitting model to feature number 161, Indole.3.Acetate_174.1
+2022-09-15 12:28:47 INFO::Fitting model to feature number 162, Indole.3.Methyl.Acetate_190.1
+2022-09-15 12:28:47 INFO::Fitting model to feature number 163, Indoxyl.Sulfate_212
+2022-09-15 12:28:47 INFO::Fitting model to feature number 164, Inosine_269.1
+2022-09-15 12:28:47 INFO::Fitting model to feature number 165, Isoleucine_132.1
+2022-09-15 12:28:47 INFO::Fitting model to feature number 166, Itaconate_129
+2022-09-15 12:28:47 INFO::Fitting model to feature number 167, Kynurenine_209.1
+2022-09-15 12:28:47 INFO::Fitting model to feature number 168, Lauroylcarnitine_344.3
+2022-09-15 12:28:47 INFO::Fitting model to feature number 169, L.Cysteic.Acid_186
+2022-09-15 12:28:47 INFO::Fitting model to feature number 170, L.Dopa_198.1
+2022-09-15 12:28:47 INFO::Fitting model to feature number 171, Leucine_132.1
+2022-09-15 12:28:48 INFO::Fitting model to feature number 172, Lignoceric.acid_367.4
+2022-09-15 12:28:48 INFO::Fitting model to feature number 173, Linoleic.acid_279.2
+2022-09-15 12:28:48 INFO::Fitting model to feature number 174, Linolenic.acid_277.2
+2022-09-15 12:28:48 INFO::Fitting model to feature number 175, Lithocholyltaurine_482.3
+2022-09-15 12:28:48 INFO::Fitting model to feature number 176, Lysine_147.1
+2022-09-15 12:28:48 INFO::Fitting model to feature number 177, Malate_133
+2022-09-15 12:28:48 INFO::Fitting model to feature number 178, Maleamate_114
+2022-09-15 12:28:48 INFO::Fitting model to feature number 179, Maleate_115
+2022-09-15 12:28:48 INFO::Fitting model to feature number 180, Maleimide_98
+2022-09-15 12:28:48 INFO::Fitting model to feature number 181, Malonate_103
+2022-09-15 12:28:48 INFO::Fitting model to feature number 182, Mandelate_151
+2022-09-15 12:28:48 INFO::Fitting model to feature number 183, Mannitol_181.1
+2022-09-15 12:28:48 INFO::Fitting model to feature number 184, Melatonin_233.1
+2022-09-15 12:28:48 INFO::Fitting model to feature number 185, Mesaconic.acid_129
+2022-09-15 12:28:48 INFO::Fitting model to feature number 186, Mesoxalate_117
+2022-09-15 12:28:48 INFO::Fitting model to feature number 187, Methionine_150.1
+2022-09-15 12:28:48 INFO::Fitting model to feature number 188, Methionine.Sulfoximine_181.1
+2022-09-15 12:28:48 INFO::Fitting model to feature number 189, Methyglutarate_145.1
+2022-09-15 12:28:48 INFO::Fitting model to feature number 190, Methyl.4.Aminobutyrate_118.1
+2022-09-15 12:28:48 INFO::Fitting model to feature number 191, Methyl.Galactoside_193.1
+2022-09-15 12:28:48 INFO::Fitting model to feature number 192, Methyl.Vanillate_181.1
+2022-09-15 12:28:49 INFO::Fitting model to feature number 193, Methylarginine_189.1
+2022-09-15 12:28:49 INFO::Fitting model to feature number 194, methyl.lysine_161.1
+2022-09-15 12:28:49 INFO::Fitting model to feature number 195, Methylmalonate_117
+2022-09-15 12:28:49 INFO::Fitting model to feature number 196, Methylthioadenosine_298.1
+2022-09-15 12:28:49 INFO::Fitting model to feature number 197, Mevalolactone_131.1
+2022-09-15 12:28:49 INFO::Fitting model to feature number 198, Mevalonate_147.1
+2022-09-15 12:28:49 INFO::Fitting model to feature number 199, Monoethylmalonate_131
+2022-09-15 12:28:49 INFO::Fitting model to feature number 200, Myo.Inositol_179.1
+2022-09-15 12:28:49 INFO::Fitting model to feature number 201, Myristic.acid_227.2
+2022-09-15 12:28:49 INFO::Fitting model to feature number 202, Myristoleic.acid_225.2
+2022-09-15 12:28:49 INFO::Fitting model to feature number 203, N.N.Diethyl.P.phenylenediamine_137.1
+2022-09-15 12:28:49 INFO::Fitting model to feature number 204, N6..Delta2.Isopentenyl..Adenine_204.1
+2022-09-15 12:28:49 INFO::Fitting model to feature number 205, N.Acetylalanine_130.1
+2022-09-15 12:28:49 INFO::Fitting model to feature number 206, N.Acetylasparagine_175.1
+2022-09-15 12:28:49 INFO::Fitting model to feature number 207, N.Acetylglucosamine_222.1
+2022-09-15 12:28:49 INFO::Fitting model to feature number 208, N.Acetylglycine_116
+2022-09-15 12:28:49 INFO::Fitting model to feature number 209, N.Acetyl.L.Aspartic.Acid_174
+2022-09-15 12:28:49 INFO::Fitting model to feature number 210, N.Acetylleucine_172.1
+2022-09-15 12:28:49 INFO::Fitting model to feature number 211, N.Acetyl.L.glutamine_189.1
+2022-09-15 12:28:49 INFO::Fitting model to feature number 212, N.Acetylneuraminate_310.1
+2022-09-15 12:28:49 INFO::Fitting model to feature number 213, N.Acetylputrescine_131.1
+2022-09-15 12:28:49 INFO::Fitting model to feature number 214, N.Acetylserine_146
+2022-09-15 12:28:50 INFO::Fitting model to feature number 215, N.Acetyltryptophan_247.1
+2022-09-15 12:28:50 INFO::Fitting model to feature number 216, N.Alpha.Acetyllysine_189.1
+2022-09-15 12:28:50 INFO::Fitting model to feature number 217, NAPQI_150.1
+2022-09-15 12:28:50 INFO::Fitting model to feature number 218, N.Butylbenzenesulfonamide_212.1
+2022-09-15 12:28:50 INFO::Fitting model to feature number 219, Nervonic.acid_365.3
+2022-09-15 12:28:50 INFO::Fitting model to feature number 220, N.Formylglycine_102
+2022-09-15 12:28:50 INFO::Fitting model to feature number 221, N.Formyl.L.Methionine_176
+2022-09-15 12:28:50 INFO::Fitting model to feature number 222, Nicotinamide_123.1
+2022-09-15 12:28:50 INFO::Fitting model to feature number 223, nicotinamide.N.oxide_139.1
+2022-09-15 12:28:50 INFO::Fitting model to feature number 224, Nicotinate_124
+2022-09-15 12:28:50 INFO::Fitting model to feature number 225, Nicotine_163.1
+2022-09-15 12:28:50 INFO::Fitting model to feature number 226, N.Methylaspartate_148.1
+2022-09-15 12:28:50 INFO::Fitting model to feature number 227, N.Methylglutamate_162.1
+2022-09-15 12:28:50 INFO::Fitting model to feature number 228, N.Methyltryptamine_175.1
+2022-09-15 12:28:50 INFO::Fitting model to feature number 229, Nonanoic.acid_157.1
+2022-09-15 12:28:50 INFO::Fitting model to feature number 230, Norepinephrine_170.1
+2022-09-15 12:28:50 INFO::Fitting model to feature number 231, Normetanephrine_184.1
+2022-09-15 12:28:50 INFO::Fitting model to feature number 232, Norvaline_118.1
+2022-09-15 12:28:50 INFO::Fitting model to feature number 233, O.Acetylserine_148.1
+2022-09-15 12:28:50 INFO::Fitting model to feature number 234, Octanoic.acid_143.1
+2022-09-15 12:28:50 INFO::Fitting model to feature number 235, Octanoyl.carnitine_288.2
+2022-09-15 12:28:51 INFO::Fitting model to feature number 236, Oleic.acid_281.2
+2022-09-15 12:28:51 INFO::Fitting model to feature number 237, Oleoyl.Glycerol_355.3
+2022-09-15 12:28:51 INFO::Fitting model to feature number 238, Omega.Hydroxydodecanoate_215.2
+2022-09-15 12:28:51 INFO::Fitting model to feature number 239, O.Phosphoethanolamine_142
+2022-09-15 12:28:51 INFO::Fitting model to feature number 240, Ornithine_133.1
+2022-09-15 12:28:51 INFO::Fitting model to feature number 241, Orotate_155
+2022-09-15 12:28:51 INFO::Fitting model to feature number 242, Oxalate_89
+2022-09-15 12:28:51 INFO::Fitting model to feature number 243, Oxoadipate_159
+2022-09-15 12:28:51 INFO::Fitting model to feature number 244, Oxoglutarate_145
+2022-09-15 12:28:51 INFO::Fitting model to feature number 245, Oxoproline_128
+2022-09-15 12:28:51 INFO::Fitting model to feature number 246, Oxypurinol_151
+2022-09-15 12:28:51 INFO::Fitting model to feature number 247, Palmitic.acid_255.2
+2022-09-15 12:28:51 INFO::Fitting model to feature number 248, Palmitoleic.acid_253.2
+2022-09-15 12:28:51 INFO::Fitting model to feature number 249, Palmitoyl.carnitine_400.3
+2022-09-15 12:28:51 INFO::Fitting model to feature number 250, Paraxanthine_181.1
+2022-09-15 12:28:51 INFO::Fitting model to feature number 251, Pentadecanoic.acid_241.2
+2022-09-15 12:28:51 INFO::Fitting model to feature number 252, Pentanoate_101.1
+2022-09-15 12:28:51 INFO::Fitting model to feature number 253, Phenylalanine_166.1
+2022-09-15 12:28:51 INFO::Fitting model to feature number 254, Phenylpyruvate_163
+2022-09-15 12:28:51 INFO::Fitting model to feature number 255, Phosphoserine_186
+2022-09-15 12:28:51 INFO::Fitting model to feature number 256, Picolinate_122
+2022-09-15 12:28:52 INFO::Fitting model to feature number 257, Pipecolate_130.1
+2022-09-15 12:28:52 INFO::Fitting model to feature number 258, P.Octopamine_154.1
+2022-09-15 12:28:52 INFO::Fitting model to feature number 259, Pregnenolone.Sulfate_395.2
+2022-09-15 12:28:52 INFO::Fitting model to feature number 260, Proline_116.1
+2022-09-15 12:28:52 INFO::Fitting model to feature number 261, Propionyl.carnitine_218.1
+2022-09-15 12:28:52 INFO::Fitting model to feature number 262, Pyrazole_69
+2022-09-15 12:28:52 INFO::Fitting model to feature number 263, Pyridoxal_168.1
+2022-09-15 12:28:52 INFO::Fitting model to feature number 264, Pyridoxine_170.1
+2022-09-15 12:28:52 INFO::Fitting model to feature number 265, Pyruvate_87
+2022-09-15 12:28:52 INFO::Fitting model to feature number 266, Quinate_191.1
+2022-09-15 12:28:52 INFO::Fitting model to feature number 267, Quinoline_130.1
+2022-09-15 12:28:52 INFO::Fitting model to feature number 268, Raffinose_503.2
+2022-09-15 12:28:52 INFO::Fitting model to feature number 269, Rhamnose_163.1
+2022-09-15 12:28:52 INFO::Fitting model to feature number 270, Riboflavin_377.1
+2022-09-15 12:28:52 INFO::Fitting model to feature number 271, Ribose_149
+2022-09-15 12:28:52 INFO::Fitting model to feature number 272, Ricinoleic.acid_297.2
+2022-09-15 12:28:52 INFO::Fitting model to feature number 273, SAICAr_375.1
+2022-09-15 12:28:52 INFO::Fitting model to feature number 274, Salicylate_137
+2022-09-15 12:28:52 INFO::Fitting model to feature number 275, Salsolinol_180.1
+2022-09-15 12:28:52 INFO::Fitting model to feature number 276, Sarcosine_90.1
+2022-09-15 12:28:52 INFO::Fitting model to feature number 277, Serine_106
+2022-09-15 12:28:52 INFO::Fitting model to feature number 278, Serotonin_177.1
+2022-09-15 12:28:53 INFO::Fitting model to feature number 279, S.Hexyl.Glutathione_392.2
+2022-09-15 12:28:53 INFO::Fitting model to feature number 280, Sn.Glycero.3.Phosphocholine_258.1
+2022-09-15 12:28:53 INFO::Fitting model to feature number 281, Sphingomyelin_731.6
+2022-09-15 12:28:53 INFO::Fitting model to feature number 282, Stachydrine_144.1
+2022-09-15 12:28:53 INFO::Fitting model to feature number 283, Stearic.acid_283.3
+2022-09-15 12:28:53 INFO::Fitting model to feature number 284, Suberate_173.1
+2022-09-15 12:28:53 INFO::Fitting model to feature number 285, Succinic.Acid_117
+2022-09-15 12:28:53 INFO::Fitting model to feature number 286, Sucrose_341.1
+2022-09-15 12:28:53 INFO::Fitting model to feature number 287, Taurine_124
+2022-09-15 12:28:53 INFO::Fitting model to feature number 288, Tetradecanoylcarnitine_372.3
+2022-09-15 12:28:53 INFO::Fitting model to feature number 289, Theophylline_179.1
+2022-09-15 12:28:53 INFO::Fitting model to feature number 290, Thiopurine.S.Methylether_167
+2022-09-15 12:28:53 INFO::Fitting model to feature number 291, Threitol_121.1
+2022-09-15 12:28:53 INFO::Fitting model to feature number 292, Threonine_120.1
+2022-09-15 12:28:53 INFO::Fitting model to feature number 293, trans.trans.Muconic.acid_141
+2022-09-15 12:28:53 INFO::Fitting model to feature number 294, Trans.4.Hydroxy.L.Proline_132.1
+2022-09-15 12:28:53 INFO::Fitting model to feature number 295, Trehalose_341.1
+2022-09-15 12:28:53 INFO::Fitting model to feature number 296, Tridecanoic.acid_213.2
+2022-09-15 12:28:53 INFO::Fitting model to feature number 297, Trigonelline_138.1
+2022-09-15 12:28:53 INFO::Fitting model to feature number 298, Trimethyllysine_189.2
+2022-09-15 12:28:53 INFO::Fitting model to feature number 299, Tryptamine_161.1
+2022-09-15 12:28:54 INFO::Fitting model to feature number 300, Tryptophan_205.1
+2022-09-15 12:28:54 INFO::Fitting model to feature number 301, Tyramine_138.1
+2022-09-15 12:28:54 INFO::Fitting model to feature number 302, Tyrosine_182.1
+2022-09-15 12:28:54 INFO::Fitting model to feature number 303, Undecanoic.acid_185.2
+2022-09-15 12:28:54 INFO::Fitting model to feature number 304, Urate_167
+2022-09-15 12:28:54 INFO::Fitting model to feature number 305, Ureidopropionate_133.1
+2022-09-15 12:28:54 INFO::Fitting model to feature number 306, Uridine_245.1
+2022-09-15 12:28:54 INFO::Fitting model to feature number 307, Uridine_243.1
+2022-09-15 12:28:54 INFO::Fitting model to feature number 308, Urocanate_139.1
+2022-09-15 12:28:54 INFO::Fitting model to feature number 309, Valine_118.1
+2022-09-15 12:28:54 INFO::Fitting model to feature number 310, Xanthine_153
+2022-09-15 12:28:54 INFO::Fitting model to feature number 311, Xanthine_151
+2022-09-15 12:28:54 INFO::Fitting model to feature number 312, Ximeninic.Acid_277.2
+2022-09-15 12:28:54 INFO::Fitting model to feature number 313, Xylitol_151.1
+2022-09-15 12:28:54 INFO::Fitting model to feature number 314, Xylose_149
+2022-09-15 12:28:54 INFO::Counting total values for each feature
+2022-09-15 12:28:54 WARNING::Deleting existing residuals file: Serum_maaslin_#2_CD_onlyCRPCat/residuals.rds
+2022-09-15 12:28:54 INFO::Writing residuals to file Serum_maaslin_#2_CD_onlyCRPCat/residuals.rds
+2022-09-15 12:28:54 WARNING::Deleting existing fitted file: Serum_maaslin_#2_CD_onlyCRPCat/fitted.rds
+2022-09-15 12:28:54 INFO::Writing fitted values to file Serum_maaslin_#2_CD_onlyCRPCat/fitted.rds
+2022-09-15 12:28:54 WARNING::Deleting existing ranef file: Serum_maaslin_#2_CD_onlyCRPCat/ranef.rds
+2022-09-15 12:28:54 INFO::Writing extracted random effects to file Serum_maaslin_#2_CD_onlyCRPCat/ranef.rds
+2022-09-15 12:28:54 INFO::Writing all results to file (ordered by increasing q-values): Serum_maaslin_#2_CD_onlyCRPCat/all_results.tsv
+2022-09-15 12:28:54 INFO::Writing the significant results (those which are less than or equal to the threshold of 0.250000 ) to file (ordered by increasing q-values): Serum_maaslin_#2_CD_onlyCRPCat/significant_results.tsv
+2022-09-15 12:28:54 INFO::Writing heatmap of significant results to file: Serum_maaslin_#2_CD_onlyCRPCat/heatmap.pdf
+2022-09-15 12:28:54 INFO::Writing association plots (one for each significant association) to output folder: Serum_maaslin_#2_CD_onlyCRPCat
+2022-09-15 12:28:55 INFO::Plotting associations from most to least significant, grouped by metadata
+2022-09-15 12:28:55 INFO::Plotting data for metadata number 1, Fasting
+2022-09-15 12:28:55 INFO::Creating boxplot for categorical data, Fasting vs Proline_116.1
+2022-09-15 12:28:55 INFO::Creating boxplot for categorical data, Fasting vs X3.hydroxybutyric.acid_103
+2022-09-15 12:28:55 INFO::Creating boxplot for categorical data, Fasting vs Linoleic.acid_279.2
+2022-09-15 12:28:55 INFO::Creating boxplot for categorical data, Fasting vs Oleic.acid_281.2
+2022-09-15 12:28:55 INFO::Creating boxplot for categorical data, Fasting vs Palmitic.acid_255.2
+2022-09-15 12:28:55 INFO::Creating boxplot for categorical data, Fasting vs Glycochenodeoxycholate_448.3
+2022-09-15 12:28:55 INFO::Creating boxplot for categorical data, Fasting vs Fructose_179.1
+2022-09-15 12:28:55 INFO::Creating boxplot for categorical data, Fasting vs Docosahexaenoic.acid_327.2
+2022-09-15 12:28:55 INFO::Creating boxplot for categorical data, Fasting vs Hexanoyl.carnitine_260.2
+2022-09-15 12:28:55 INFO::Creating boxplot for categorical data, Fasting vs acetyl.carnitine_204.1
+2022-09-15 12:28:55 INFO::Creating boxplot for categorical data, Fasting vs Glycerol.Myristate_301.2
+2022-09-15 12:28:56 INFO::Creating boxplot for categorical data, Fasting vs Palmitoleic.acid_253.2
+2022-09-15 12:28:56 INFO::Creating boxplot for categorical data, Fasting vs N.Acetylglycine_116
+2022-09-15 12:28:56 INFO::Creating boxplot for categorical data, Fasting vs Uridine_243.1
+2022-09-15 12:28:56 INFO::Creating boxplot for categorical data, Fasting vs Arachidonic.acid_303.2
+2022-09-15 12:28:56 INFO::Creating boxplot for categorical data, Fasting vs cis.11.Eicosenoic.acid_309.3
+2022-09-15 12:28:56 INFO::Creating boxplot for categorical data, Fasting vs all.cis.4.7.10.13.16.Docosapentaenoic.acid_329.2
+2022-09-15 12:28:56 INFO::Creating boxplot for categorical data, Fasting vs cis.10.Nonadecenoic.acid_295.3
+2022-09-15 12:28:56 INFO::Creating boxplot for categorical data, Fasting vs Octanoyl.carnitine_288.2
+2022-09-15 12:28:56 INFO::Creating boxplot for categorical data, Fasting vs Ximeninic.Acid_277.2
+2022-09-15 12:28:56 INFO::Creating boxplot for categorical data, Fasting vs Trigonelline_138.1
+2022-09-15 12:28:57 INFO::Creating boxplot for categorical data, Fasting vs X5.Z..8.Z..11.Z..Eicosatrienoic.Acid_305.2
+2022-09-15 12:28:57 INFO::Creating boxplot for categorical data, Fasting vs Sucrose_341.1
+2022-09-15 12:28:57 INFO::Creating boxplot for categorical data, Fasting vs cis.5.Dodecenoic.acid_197.2
+2022-09-15 12:28:57 INFO::Creating boxplot for categorical data, Fasting vs Caffeine_195.1
+2022-09-15 12:28:57 INFO::Creating boxplot for categorical data, Fasting vs X4.Guanidinobutanoate_146.1
+2022-09-15 12:28:57 INFO::Creating boxplot for categorical data, Fasting vs Linolenic.acid_277.2
+2022-09-15 12:28:57 INFO::Creating boxplot for categorical data, Fasting vs Myristic.acid_227.2
+2022-09-15 12:28:57 INFO::Creating boxplot for categorical data, Fasting vs Myristoleic.acid_225.2
+2022-09-15 12:28:57 INFO::Creating boxplot for categorical data, Fasting vs X3..4.Hydroxyphenyl.Pyruvate_179
+2022-09-15 12:28:57 INFO::Creating boxplot for categorical data, Fasting vs X14.Methylhexadecanoic.acid_269.2
+2022-09-15 12:28:58 INFO::Creating boxplot for categorical data, Fasting vs Xylose_149
+2022-09-15 12:28:58 INFO::Creating boxplot for categorical data, Fasting vs Propionyl.carnitine_218.1
+2022-09-15 12:28:58 INFO::Creating boxplot for categorical data, Fasting vs Mannitol_181.1
+2022-09-15 12:28:58 INFO::Creating boxplot for categorical data, Fasting vs Acetaminophen_152.1
+2022-09-15 12:28:58 INFO::Creating boxplot for categorical data, Fasting vs Paraxanthine_181.1
+2022-09-15 12:28:58 INFO::Creating boxplot for categorical data, Fasting vs Glycocholate_464.3
+2022-09-15 12:28:58 INFO::Creating boxplot for categorical data, Fasting vs X9.Decenoic.acid_169.1
+2022-09-15 12:28:58 INFO::Creating boxplot for categorical data, Fasting vs Acetoacetate_101
+2022-09-15 12:28:58 INFO::Creating boxplot for categorical data, Fasting vs Palmitoyl.carnitine_400.3
+2022-09-15 12:28:58 INFO::Creating boxplot for categorical data, Fasting vs N.Acetylputrescine_131.1
+2022-09-15 12:28:58 INFO::Creating boxplot for categorical data, Fasting vs Dimethylarginine_203.2
+2022-09-15 12:28:59 INFO::Creating boxplot for categorical data, Fasting vs Bilirubin_585.3
+2022-09-15 12:28:59 INFO::Creating boxplot for categorical data, Fasting vs Hippurate_178.1
+2022-09-15 12:28:59 INFO::Creating boxplot for categorical data, Fasting vs Glycerol_91
+2022-09-15 12:28:59 INFO::Creating boxplot for categorical data, Fasting vs Indole.3.Acetate_174.1
+2022-09-15 12:28:59 INFO::Creating boxplot for categorical data, Fasting vs X2.3.Dihydroxybenzoate_153
+2022-09-15 12:28:59 INFO::Creating boxplot for categorical data, Fasting vs Salicylate_137
+2022-09-15 12:28:59 INFO::Creating boxplot for categorical data, Fasting vs Pentadecanoic.acid_241.2
+2022-09-15 12:28:59 INFO::Creating boxplot for categorical data, Fasting vs Trans.4.Hydroxy.L.Proline_132.1
+2022-09-15 12:28:59 INFO::Creating boxplot for categorical data, Fasting vs X2.Methylmaleate_129
+2022-09-15 12:28:59 INFO::Creating boxplot for categorical data, Fasting vs N.Acetylalanine_130.1
+2022-09-15 12:28:59 INFO::Creating boxplot for categorical data, Fasting vs Dodecanoic.acid_199.2
+2022-09-15 12:29:00 INFO::Creating boxplot for categorical data, Fasting vs Biliverdin_583.3
+2022-09-15 12:29:00 INFO::Creating boxplot for categorical data, Fasting vs Sarcosine_90.1
+2022-09-15 12:29:00 INFO::Creating boxplot for categorical data, Fasting vs Betaine_118.1
+2022-09-15 12:29:00 INFO::Creating boxplot for categorical data, Fasting vs Homocysteine_136
+2022-09-15 12:29:00 INFO::Creating boxplot for categorical data, Fasting vs Pyridoxine_170.1
+2022-09-15 12:29:00 INFO::Creating boxplot for categorical data, Fasting vs Cis.4.Hydroxy.D.Proline_132.1
+2022-09-15 12:29:00 INFO::Creating boxplot for categorical data, Fasting vs Phenylpyruvate_163
+2022-09-15 12:29:00 INFO::Creating boxplot for categorical data, Fasting vs Methionine.Sulfoximine_181.1
+2022-09-15 12:29:00 INFO::Creating boxplot for categorical data, Fasting vs Alanine_90.1
+2022-09-15 12:29:00 INFO::Creating boxplot for categorical data, Fasting vs Kynurenine_209.1
+2022-09-15 12:29:01 INFO::Creating boxplot for categorical data, Fasting vs X3.Methyl.2.Oxovalerate_129.1
+2022-09-15 12:29:01 INFO::Creating boxplot for categorical data, Fasting vs X10.HAD_185.1
+2022-09-15 12:29:01 INFO::Creating boxplot for categorical data, Fasting vs X4.Acetamidobutanoate_146.1
+2022-09-15 12:29:01 INFO::Creating boxplot for categorical data, Fasting vs Indole.3.Methyl.Acetate_190.1
+2022-09-15 12:29:01 INFO::Creating boxplot for categorical data, Fasting vs Stearic.acid_283.3
+2022-09-15 12:29:01 INFO::Creating boxplot for categorical data, Fasting vs Aleuritic.acid_303.2
+2022-09-15 12:29:01 INFO::Creating boxplot for categorical data, Fasting vs NAPQI_150.1
+2022-09-15 12:29:01 INFO::Creating boxplot for categorical data, Fasting vs Ribose_149
+2022-09-15 12:29:01 INFO::Creating boxplot for categorical data, Fasting vs Trehalose_341.1
+2022-09-15 12:29:01 INFO::Creating boxplot for categorical data, Fasting vs Tryptamine_161.1
+2022-09-15 12:29:01 INFO::Creating boxplot for categorical data, Fasting vs N.Acetyl.L.glutamine_189.1
+2022-09-15 12:29:02 INFO::Creating boxplot for categorical data, Fasting vs Deoxycholate_391.3
+2022-09-15 12:29:02 INFO::Creating boxplot for categorical data, Fasting vs Glucose_179.1
+2022-09-15 12:29:02 INFO::Creating boxplot for categorical data, Fasting vs Trimethyllysine_189.2
+2022-09-15 12:29:02 INFO::Creating boxplot for categorical data, Fasting vs Alpha.Tocopherol_429.4
+2022-09-15 12:29:02 INFO::Creating boxplot for categorical data, Fasting vs Tyrosine_182.1
+2022-09-15 12:29:02 INFO::Creating boxplot for categorical data, Fasting vs X2.Hydroxyhexadecanoic.acid_271.2
+2022-09-15 12:29:02 INFO::Creating boxplot for categorical data, Fasting vs Glucosamine_180.1
+2022-09-15 12:29:02 INFO::Creating boxplot for categorical data, Fasting vs Rhamnose_163.1
+2022-09-15 12:29:02 INFO::Creating boxplot for categorical data, Fasting vs X5.Aminopentanoate_118.1
+2022-09-15 12:29:02 INFO::Creating boxplot for categorical data, Fasting vs Omega.Hydroxydodecanoate_215.2
+2022-09-15 12:29:03 INFO::Creating boxplot for categorical data, Fasting vs Lignoceric.acid_367.4
+2022-09-15 12:29:03 INFO::Creating boxplot for categorical data, Fasting vs Aspartate_134
+2022-09-15 12:29:03 INFO::Creating boxplot for categorical data, Fasting vs Octanoic.acid_143.1
+2022-09-15 12:29:03 INFO::Creating boxplot for categorical data, Fasting vs X3.Hydroxymethylglutarate_161
+2022-09-15 12:29:03 INFO::Creating boxplot for categorical data, Fasting vs Mevalonate_147.1
+2022-09-15 12:29:03 INFO::Creating boxplot for categorical data, Fasting vs Nicotinate_124
+2022-09-15 12:29:03 INFO::Creating boxplot for categorical data, Fasting vs Lysine_147.1
+2022-09-15 12:29:03 INFO::Creating boxplot for categorical data, Fasting vs Homoserine_120.1
+2022-09-15 12:29:03 INFO::Creating boxplot for categorical data, Fasting vs Threonine_120.1
+2022-09-15 12:29:03 INFO::Creating boxplot for categorical data, Fasting vs acetyl.lysine_189.1
+2022-09-15 12:29:04 INFO::Creating boxplot for categorical data, Fasting vs Quinoline_130.1
+2022-09-15 12:29:04 INFO::Creating boxplot for categorical data, Fasting vs Bis.2.Ethylhexyl.Phthalate_391.3
+2022-09-15 12:29:04 INFO::Creating boxplot for categorical data, Fasting vs Tetradecanoylcarnitine_372.3
+2022-09-15 12:29:04 INFO::Creating boxplot for categorical data, Fasting vs Xylitol_151.1
+2022-09-15 12:29:04 INFO::Creating boxplot for categorical data, Fasting vs N.Acetylserine_146
+2022-09-15 12:29:04 INFO::Creating boxplot for categorical data, Fasting vs Glycolate_75
+2022-09-15 12:29:04 INFO::Creating boxplot for categorical data, Fasting vs Oxalate_89
+2022-09-15 12:29:04 INFO::Creating boxplot for categorical data, Fasting vs X1.Aminocyclopropanecarboxylate_102.1
+2022-09-15 12:29:04 INFO::Creating boxplot for categorical data, Fasting vs GABA_104.1
+2022-09-15 12:29:04 INFO::Creating boxplot for categorical data, Fasting vs X2.Deoxy.D.Glucose_163.1
+2022-09-15 12:29:05 INFO::Creating boxplot for categorical data, Fasting vs Dopamine_154.1
+2022-09-15 12:29:05 INFO::Creating boxplot for categorical data, Fasting vs Xanthine_151
+2022-09-15 12:29:05 INFO::Creating boxplot for categorical data, Fasting vs Azelate_187.1
+2022-09-15 12:29:05 INFO::Creating boxplot for categorical data, Fasting vs X2.Hydroxytetradecanoic.acid_243.2
+2022-09-15 12:29:05 INFO::Creating boxplot for categorical data, Fasting vs Methyglutarate_145.1
+2022-09-15 12:29:05 INFO::Creating boxplot for categorical data, Fasting vs Pipecolate_130.1
+2022-09-15 12:29:05 INFO::Creating boxplot for categorical data, Fasting vs Threitol_121.1
+2022-09-15 12:29:05 INFO::Creating boxplot for categorical data, Fasting vs Uridine_245.1
+2022-09-15 12:29:05 INFO::Creating boxplot for categorical data, Fasting vs Beta.hydroxyvaleric.Acid_117.1
+2022-09-15 12:29:05 INFO::Creating boxplot for categorical data, Fasting vs Hypoxanthine_137
+2022-09-15 12:29:06 INFO::Creating boxplot for categorical data, Fasting vs N.Acetylasparagine_175.1
+2022-09-15 12:29:06 INFO::Creating boxplot for categorical data, Fasting vs N.Acetyltryptophan_247.1
+2022-09-15 12:29:06 INFO::Creating boxplot for categorical data, Fasting vs Glycine_76
+2022-09-15 12:29:06 INFO::Creating boxplot for categorical data, Fasting vs Thiopurine.S.Methylether_167
+2022-09-15 12:29:06 INFO::Creating boxplot for categorical data, Fasting vs X4.Aminobenzoate_136
+2022-09-15 12:29:06 INFO::Creating boxplot for categorical data, Fasting vs Quinate_191.1
+2022-09-15 12:29:07 INFO::Plotting data for metadata number 2, Gender
+2022-09-15 12:29:07 INFO::Creating boxplot for categorical data, Gender vs Proline_116.1
+2022-09-15 12:29:08 INFO::Creating boxplot for categorical data, Gender vs Norvaline_118.1
+2022-09-15 12:29:08 INFO::Creating boxplot for categorical data, Gender vs X3.Hydroxyoctanoic.acid_159.1
+2022-09-15 12:29:08 INFO::Creating boxplot for categorical data, Gender vs Valine_118.1
+2022-09-15 12:29:08 INFO::Creating boxplot for categorical data, Gender vs Ornithine_133.1
+2022-09-15 12:29:08 INFO::Creating boxplot for categorical data, Gender vs Propionyl.carnitine_218.1
+2022-09-15 12:29:08 INFO::Creating boxplot for categorical data, Gender vs Xanthine_153
+2022-09-15 12:29:08 INFO::Creating boxplot for categorical data, Gender vs Deoxycarnitine_146.1
+2022-09-15 12:29:08 INFO::Creating boxplot for categorical data, Gender vs Leucine_132.1
+2022-09-15 12:29:08 INFO::Creating boxplot for categorical data, Gender vs Betaine_118.1
+2022-09-15 12:29:08 INFO::Creating boxplot for categorical data, Gender vs Carnitine_162.1
+2022-09-15 12:29:09 INFO::Creating boxplot for categorical data, Gender vs Isoleucine_132.1
+2022-09-15 12:29:09 INFO::Creating boxplot for categorical data, Gender vs acetyl.lysine_189.1
+2022-09-15 12:29:09 INFO::Creating boxplot for categorical data, Gender vs Palmitoleic.acid_253.2
+2022-09-15 12:29:09 INFO::Creating boxplot for categorical data, Gender vs Guanidinoacetate_118.1
+2022-09-15 12:29:09 INFO::Creating boxplot for categorical data, Gender vs Trimethyllysine_189.2
+2022-09-15 12:29:09 INFO::Creating boxplot for categorical data, Gender vs Urate_167
+2022-09-15 12:29:09 INFO::Creating boxplot for categorical data, Gender vs Methyl.Galactoside_193.1
+2022-09-15 12:29:09 INFO::Creating boxplot for categorical data, Gender vs Homocysteine_136
+2022-09-15 12:29:09 INFO::Creating boxplot for categorical data, Gender vs Docosahexaenoic.acid_327.2
+2022-09-15 12:29:10 INFO::Creating boxplot for categorical data, Gender vs Citrulline_176.1
+2022-09-15 12:29:10 INFO::Creating boxplot for categorical data, Gender vs X9.Decenoic.acid_169.1
+2022-09-15 12:29:10 INFO::Creating boxplot for categorical data, Gender vs Myristoleic.acid_225.2
+2022-09-15 12:29:10 INFO::Creating boxplot for categorical data, Gender vs Indole.3.Methyl.Acetate_190.1
+2022-09-15 12:29:10 INFO::Creating boxplot for categorical data, Gender vs aminoadipate_162.1
+2022-09-15 12:29:10 INFO::Creating boxplot for categorical data, Gender vs Normetanephrine_184.1
+2022-09-15 12:29:10 INFO::Creating boxplot for categorical data, Gender vs Glycerol_91
+2022-09-15 12:29:10 INFO::Creating boxplot for categorical data, Gender vs Pentadecanoic.acid_241.2
+2022-09-15 12:29:10 INFO::Creating boxplot for categorical data, Gender vs Salicylate_137
+2022-09-15 12:29:10 INFO::Creating boxplot for categorical data, Gender vs Dodecanoic.acid_199.2
+2022-09-15 12:29:11 INFO::Creating boxplot for categorical data, Gender vs CDP_404
+2022-09-15 12:29:11 INFO::Creating boxplot for categorical data, Gender vs X10.Hydroxydecanoic.acid_187.1
+2022-09-15 12:29:11 INFO::Creating boxplot for categorical data, Gender vs Nicotinate_124
+2022-09-15 12:29:11 INFO::Creating boxplot for categorical data, Gender vs Tyrosine_182.1
+2022-09-15 12:29:11 INFO::Creating boxplot for categorical data, Gender vs cis.5.Dodecenoic.acid_197.2
+2022-09-15 12:29:11 INFO::Creating boxplot for categorical data, Gender vs Beta.Alanine_90.1
+2022-09-15 12:29:11 INFO::Creating boxplot for categorical data, Gender vs cis.11.Eicosenoic.acid_309.3
+2022-09-15 12:29:11 INFO::Creating boxplot for categorical data, Gender vs Linoleic.acid_279.2
+2022-09-15 12:29:11 INFO::Creating boxplot for categorical data, Gender vs X5.Z..8.Z..11.Z..Eicosatrienoic.Acid_305.2
+2022-09-15 12:29:11 INFO::Creating boxplot for categorical data, Gender vs X1.Methyladenosine_282.1
+2022-09-15 12:29:12 INFO::Creating boxplot for categorical data, Gender vs Erucic.acid_337.3
+2022-09-15 12:29:12 INFO::Creating boxplot for categorical data, Gender vs X10.HAD_185.1
+2022-09-15 12:29:12 INFO::Creating boxplot for categorical data, Gender vs Oleic.acid_281.2
+2022-09-15 12:29:12 INFO::Creating boxplot for categorical data, Gender vs Palmitic.acid_255.2
+2022-09-15 12:29:12 INFO::Creating boxplot for categorical data, Gender vs Indole.3.Acetate_174.1
+2022-09-15 12:29:12 INFO::Creating boxplot for categorical data, Gender vs Caffeine_195.1
+2022-09-15 12:29:12 INFO::Creating boxplot for categorical data, Gender vs Sarcosine_90.1
+2022-09-15 12:29:12 INFO::Creating boxplot for categorical data, Gender vs Glutarylcarnitine_276.1
+2022-09-15 12:29:12 INFO::Creating boxplot for categorical data, Gender vs X4.Guanidinobutanoate_146.1
+2022-09-15 12:29:12 INFO::Creating boxplot for categorical data, Gender vs cis.10.Nonadecenoic.acid_295.3
+2022-09-15 12:29:13 INFO::Creating boxplot for categorical data, Gender vs Ximeninic.Acid_277.2
+2022-09-15 12:29:13 INFO::Creating boxplot for categorical data, Gender vs N.Acetylputrescine_131.1
+2022-09-15 12:29:13 INFO::Creating boxplot for categorical data, Gender vs D.Mannosamine_180.1
+2022-09-15 12:29:13 INFO::Creating boxplot for categorical data, Gender vs X2.Acetamido.2.Deoxy.Beta.D.Glucosylamine_221.1
+2022-09-15 12:29:13 INFO::Creating boxplot for categorical data, Gender vs Arachidic.acid_311.3
+2022-09-15 12:29:13 INFO::Creating boxplot for categorical data, Gender vs X3.hydroxybutyric.acid_103
+2022-09-15 12:29:13 INFO::Creating boxplot for categorical data, Gender vs Omega.Hydroxydodecanoate_215.2
+2022-09-15 12:29:13 INFO::Creating boxplot for categorical data, Gender vs N.Acetylserine_146
+2022-09-15 12:29:13 INFO::Creating boxplot for categorical data, Gender vs Galacturonate_193
+2022-09-15 12:29:15 INFO::Plotting data for metadata number 3, Age
+2022-09-15 12:29:15 INFO::Creating scatter plot for continuous data, Age vs X4.Imidazoleacetate_127.1
+2022-09-15 12:29:15 DEBUG::`geom_smooth()` using formula 'y ~ x'
+2022-09-15 12:29:15 INFO::Creating scatter plot for continuous data, Age vs Caffeine_195.1
+2022-09-15 12:29:15 DEBUG::`geom_smooth()` using formula 'y ~ x'
+2022-09-15 12:29:15 INFO::Creating scatter plot for continuous data, Age vs Hypotaurine_110
+2022-09-15 12:29:15 DEBUG::`geom_smooth()` using formula 'y ~ x'
+2022-09-15 12:29:15 INFO::Creating scatter plot for continuous data, Age vs Cystine_241
+2022-09-15 12:29:16 DEBUG::`geom_smooth()` using formula 'y ~ x'
+2022-09-15 12:29:16 INFO::Creating scatter plot for continuous data, Age vs X2.Deoxy.D.Glucose.6.phosphate_243
+2022-09-15 12:29:16 DEBUG::`geom_smooth()` using formula 'y ~ x'
+2022-09-15 12:29:16 INFO::Creating scatter plot for continuous data, Age vs Galacturonate_193
+2022-09-15 12:29:16 DEBUG::`geom_smooth()` using formula 'y ~ x'
+2022-09-15 12:29:16 INFO::Creating scatter plot for continuous data, Age vs Xylitol_151.1
+2022-09-15 12:29:16 DEBUG::`geom_smooth()` using formula 'y ~ x'
+2022-09-15 12:29:16 INFO::Creating scatter plot for continuous data, Age vs Homoserine_120.1
+2022-09-15 12:29:16 DEBUG::`geom_smooth()` using formula 'y ~ x'
+2022-09-15 12:29:16 INFO::Creating scatter plot for continuous data, Age vs Monoethylmalonate_131
+2022-09-15 12:29:16 DEBUG::`geom_smooth()` using formula 'y ~ x'
+2022-09-15 12:29:16 INFO::Creating scatter plot for continuous data, Age vs Quinate_191.1
+2022-09-15 12:29:16 DEBUG::`geom_smooth()` using formula 'y ~ x'
+2022-09-15 12:29:16 INFO::Creating scatter plot for continuous data, Age vs N.N.Diethyl.P.phenylenediamine_137.1
+2022-09-15 12:29:16 DEBUG::`geom_smooth()` using formula 'y ~ x'
+2022-09-15 12:29:16 INFO::Creating scatter plot for continuous data, Age vs Guanine_152.1
+2022-09-15 12:29:16 DEBUG::`geom_smooth()` using formula 'y ~ x'
+2022-09-15 12:29:16 INFO::Creating scatter plot for continuous data, Age vs X2.Methylmaleate_129
+2022-09-15 12:29:17 DEBUG::`geom_smooth()` using formula 'y ~ x'
+2022-09-15 12:29:17 INFO::Creating scatter plot for continuous data, Age vs Trigonelline_138.1
+2022-09-15 12:29:17 DEBUG::`geom_smooth()` using formula 'y ~ x'
+2022-09-15 12:29:17 INFO::Creating scatter plot for continuous data, Age vs Urate_167
+2022-09-15 12:29:17 DEBUG::`geom_smooth()` using formula 'y ~ x'
+2022-09-15 12:29:17 INFO::Creating scatter plot for continuous data, Age vs Cis.4.Hydroxy.D.Proline_132.1
+2022-09-15 12:29:17 DEBUG::`geom_smooth()` using formula 'y ~ x'
+2022-09-15 12:29:17 INFO::Creating scatter plot for continuous data, Age vs cis.7.10.13.16.Docosatetraenoic.acid_331.3
+2022-09-15 12:29:17 DEBUG::`geom_smooth()` using formula 'y ~ x'
+2022-09-15 12:29:17 INFO::Creating scatter plot for continuous data, Age vs Glycerol.Myristate_301.2
+2022-09-15 12:29:17 DEBUG::`geom_smooth()` using formula 'y ~ x'
+2022-09-15 12:29:17 INFO::Creating scatter plot for continuous data, Age vs Creatine_130.1
+2022-09-15 12:29:17 DEBUG::`geom_smooth()` using formula 'y ~ x'
+2022-09-15 12:29:17 INFO::Creating scatter plot for continuous data, Age vs Homocysteine_136
+2022-09-15 12:29:17 DEBUG::`geom_smooth()` using formula 'y ~ x'
+2022-09-15 12:29:17 INFO::Creating scatter plot for continuous data, Age vs Creatinine_114.1
+2022-09-15 12:29:17 DEBUG::`geom_smooth()` using formula 'y ~ x'
+2022-09-15 12:29:17 INFO::Creating scatter plot for continuous data, Age vs Hypoxanthine_137
+2022-09-15 12:29:17 DEBUG::`geom_smooth()` using formula 'y ~ x'
+2022-09-15 12:29:17 INFO::Creating scatter plot for continuous data, Age vs Xanthine_151
+2022-09-15 12:29:18 DEBUG::`geom_smooth()` using formula 'y ~ x'
+2022-09-15 12:29:18 INFO::Creating scatter plot for continuous data, Age vs Tyramine_138.1
+2022-09-15 12:29:18 DEBUG::`geom_smooth()` using formula 'y ~ x'
+2022-09-15 12:29:18 INFO::Creating scatter plot for continuous data, Age vs Dipalmitoyl.Phosphoethanolamine_690.5
+2022-09-15 12:29:18 DEBUG::`geom_smooth()` using formula 'y ~ x'
+2022-09-15 12:29:18 INFO::Creating scatter plot for continuous data, Age vs Acetaminophen_152.1
+2022-09-15 12:29:18 DEBUG::`geom_smooth()` using formula 'y ~ x'
+2022-09-15 12:29:18 INFO::Creating scatter plot for continuous data, Age vs X3.Methyl.2.Oxovalerate_129.1
+2022-09-15 12:29:18 DEBUG::`geom_smooth()` using formula 'y ~ x'
+2022-09-15 12:29:18 INFO::Creating scatter plot for continuous data, Age vs N.Alpha.Acetyllysine_189.1
+2022-09-15 12:29:18 DEBUG::`geom_smooth()` using formula 'y ~ x'
+2022-09-15 12:29:18 INFO::Creating scatter plot for continuous data, Age vs Paraxanthine_181.1
+2022-09-15 12:29:18 DEBUG::`geom_smooth()` using formula 'y ~ x'
+2022-09-15 12:29:18 INFO::Creating scatter plot for continuous data, Age vs Linoleic.acid_279.2
+2022-09-15 12:29:18 DEBUG::`geom_smooth()` using formula 'y ~ x'
+2022-09-15 12:29:18 INFO::Creating scatter plot for continuous data, Age vs Methylthioadenosine_298.1
+2022-09-15 12:29:18 DEBUG::`geom_smooth()` using formula 'y ~ x'
+2022-09-15 12:29:18 INFO::Creating scatter plot for continuous data, Age vs Raffinose_503.2
+2022-09-15 12:29:18 DEBUG::`geom_smooth()` using formula 'y ~ x'
+2022-09-15 12:29:18 INFO::Creating scatter plot for continuous data, Age vs X2.6.Dihydroxypyridine_112
+2022-09-15 12:29:19 DEBUG::`geom_smooth()` using formula 'y ~ x'
+2022-09-15 12:29:19 INFO::Creating scatter plot for continuous data, Age vs X5.Valerolactone_101.1
+2022-09-15 12:29:19 DEBUG::`geom_smooth()` using formula 'y ~ x'
+2022-09-15 12:29:19 INFO::Creating scatter plot for continuous data, Age vs Nicotinamide_123.1
+2022-09-15 12:29:19 DEBUG::`geom_smooth()` using formula 'y ~ x'
+2022-09-15 12:29:19 INFO::Creating scatter plot for continuous data, Age vs X2.hydroxyglutarate_147
+2022-09-15 12:29:19 DEBUG::`geom_smooth()` using formula 'y ~ x'
+2022-09-15 12:29:19 INFO::Creating scatter plot for continuous data, Age vs Citramalate_147
+2022-09-15 12:29:19 DEBUG::`geom_smooth()` using formula 'y ~ x'
+2022-09-15 12:29:19 INFO::Creating scatter plot for continuous data, Age vs Myo.Inositol_179.1
+2022-09-15 12:29:19 DEBUG::`geom_smooth()` using formula 'y ~ x'
+2022-09-15 12:29:19 INFO::Creating scatter plot for continuous data, Age vs NAPQI_150.1
+2022-09-15 12:29:19 DEBUG::`geom_smooth()` using formula 'y ~ x'
+2022-09-15 12:29:19 INFO::Creating scatter plot for continuous data, Age vs cis.aconitate_173
+2022-09-15 12:29:19 DEBUG::`geom_smooth()` using formula 'y ~ x'
+2022-09-15 12:29:19 INFO::Creating scatter plot for continuous data, Age vs Guanidinoacetate_118.1
+2022-09-15 12:29:19 DEBUG::`geom_smooth()` using formula 'y ~ x'
+2022-09-15 12:29:19 INFO::Creating scatter plot for continuous data, Age vs Histidine_156.1
+2022-09-15 12:29:20 DEBUG::`geom_smooth()` using formula 'y ~ x'
+2022-09-15 12:29:20 INFO::Creating scatter plot for continuous data, Age vs Lysine_147.1
+2022-09-15 12:29:20 DEBUG::`geom_smooth()` using formula 'y ~ x'
+2022-09-15 12:29:20 INFO::Creating scatter plot for continuous data, Age vs Lauroylcarnitine_344.3
+2022-09-15 12:29:20 DEBUG::`geom_smooth()` using formula 'y ~ x'
+2022-09-15 12:29:20 INFO::Creating scatter plot for continuous data, Age vs Biotin_245.1
+2022-09-15 12:29:20 DEBUG::`geom_smooth()` using formula 'y ~ x'
+2022-09-15 12:29:20 INFO::Creating scatter plot for continuous data, Age vs Trimethyllysine_189.2
+2022-09-15 12:29:20 DEBUG::`geom_smooth()` using formula 'y ~ x'
+2022-09-15 12:29:20 INFO::Creating scatter plot for continuous data, Age vs X9.Decenoic.acid_169.1
+2022-09-15 12:29:20 DEBUG::`geom_smooth()` using formula 'y ~ x'
+2022-09-15 12:29:20 INFO::Creating scatter plot for continuous data, Age vs Aspartate_134
+2022-09-15 12:29:20 DEBUG::`geom_smooth()` using formula 'y ~ x'
+2022-09-15 12:29:20 INFO::Creating scatter plot for continuous data, Age vs Methyl.Vanillate_181.1
+2022-09-15 12:29:20 DEBUG::`geom_smooth()` using formula 'y ~ x'
+2022-09-15 12:29:20 INFO::Creating scatter plot for continuous data, Age vs X2.Phosphoglycerate_185
+2022-09-15 12:29:20 DEBUG::`geom_smooth()` using formula 'y ~ x'
+2022-09-15 12:29:20 INFO::Creating scatter plot for continuous data, Age vs Methionine.Sulfoximine_181.1
+2022-09-15 12:29:21 DEBUG::`geom_smooth()` using formula 'y ~ x'
+2022-09-15 12:29:21 INFO::Creating scatter plot for continuous data, Age vs Uridine_245.1
+2022-09-15 12:29:21 DEBUG::`geom_smooth()` using formula 'y ~ x'
+2022-09-15 12:29:21 INFO::Creating scatter plot for continuous data, Age vs X2.Deoxy.D.Glucose_163.1
+2022-09-15 12:29:21 DEBUG::`geom_smooth()` using formula 'y ~ x'
+2022-09-15 12:29:21 INFO::Creating scatter plot for continuous data, Age vs Ribose_149
+2022-09-15 12:29:21 DEBUG::`geom_smooth()` using formula 'y ~ x'
+2022-09-15 12:29:21 INFO::Creating scatter plot for continuous data, Age vs Methylarginine_189.1
+2022-09-15 12:29:21 DEBUG::`geom_smooth()` using formula 'y ~ x'
+2022-09-15 12:29:21 INFO::Creating scatter plot for continuous data, Age vs X4.Hydroxy.L.Phenylglycine_168.1
+2022-09-15 12:29:21 DEBUG::`geom_smooth()` using formula 'y ~ x'
+2022-09-15 12:29:21 INFO::Creating scatter plot for continuous data, Age vs Glucose_179.1
+2022-09-15 12:29:21 DEBUG::`geom_smooth()` using formula 'y ~ x'
+2022-09-15 12:29:21 INFO::Creating scatter plot for continuous data, Age vs Serotonin_177.1
+2022-09-15 12:29:21 DEBUG::`geom_smooth()` using formula 'y ~ x'
+2022-09-15 12:29:21 INFO::Creating scatter plot for continuous data, Age vs X5.Z..8.Z..11.Z..Eicosatrienoic.Acid_305.2
+2022-09-15 12:29:21 DEBUG::`geom_smooth()` using formula 'y ~ x'
+2022-09-15 12:29:21 INFO::Creating scatter plot for continuous data, Age vs Alanine_90.1
+2022-09-15 12:29:22 DEBUG::`geom_smooth()` using formula 'y ~ x'
+2022-09-15 12:29:22 INFO::Creating scatter plot for continuous data, Age vs Sarcosine_90.1
+2022-09-15 12:29:22 DEBUG::`geom_smooth()` using formula 'y ~ x'
+2022-09-15 12:29:22 INFO::Creating scatter plot for continuous data, Age vs X2.Deoxy.5.Adenosine.Monophosphate_332.1
+2022-09-15 12:29:22 DEBUG::`geom_smooth()` using formula 'y ~ x'
+2022-09-15 12:29:22 INFO::Creating scatter plot for continuous data, Age vs Trans.4.Hydroxy.L.Proline_132.1
+2022-09-15 12:29:22 DEBUG::`geom_smooth()` using formula 'y ~ x'
+2022-09-15 12:29:22 INFO::Creating scatter plot for continuous data, Age vs N.Formyl.L.Methionine_176
+2022-09-15 12:29:22 DEBUG::`geom_smooth()` using formula 'y ~ x'
+2022-09-15 12:29:23 INFO::Plotting data for metadata number 4, CRP_Category
+2022-09-15 12:29:23 INFO::Creating boxplot for categorical data, CRP_Category vs X1.Methyladenosine_282.1
+2022-09-15 12:29:23 INFO::Creating boxplot for categorical data, CRP_Category vs Citrulline_176.1
+2022-09-15 12:29:24 INFO::Creating boxplot for categorical data, CRP_Category vs Riboflavin_377.1
+2022-09-15 12:29:24 INFO::Creating boxplot for categorical data, CRP_Category vs Guanidinoacetate_118.1
+2022-09-15 12:29:24 INFO::Creating boxplot for categorical data, CRP_Category vs N.Acetylasparagine_175.1
+2022-09-15 12:29:24 INFO::Creating boxplot for categorical data, CRP_Category vs Biliverdin_583.3
+2022-09-15 12:29:24 INFO::Creating boxplot for categorical data, CRP_Category vs N.Acetylneuraminate_310.1
+2022-09-15 12:29:24 INFO::Creating boxplot for categorical data, CRP_Category vs Glycine_76
+2022-09-15 12:29:24 INFO::Creating boxplot for categorical data, CRP_Category vs Aspartate_134
+2022-09-15 12:29:24 INFO::Creating boxplot for categorical data, CRP_Category vs Galacturonate_193
+2022-09-15 12:29:24 INFO::Creating boxplot for categorical data, CRP_Category vs Bilirubin_585.3
+2022-09-15 12:29:24 INFO::Creating boxplot for categorical data, CRP_Category vs Maleate_115
+2022-09-15 12:29:25 INFO::Creating boxplot for categorical data, CRP_Category vs AMP_346.1
+2022-09-15 12:29:25 INFO::Creating boxplot for categorical data, CRP_Category vs N.Acetyl.L.Aspartic.Acid_174
+2022-09-15 12:29:25 INFO::Creating boxplot for categorical data, CRP_Category vs Acetaminophen_152.1
+2022-09-15 12:29:25 INFO::Creating boxplot for categorical data, CRP_Category vs N.Acetylputrescine_131.1
+2022-09-15 12:29:25 INFO::Creating boxplot for categorical data, CRP_Category vs Bis.2.Ethylhexyl.Phthalate_391.3
+2022-09-15 12:29:25 INFO::Creating boxplot for categorical data, CRP_Category vs Serotonin_177.1
+2022-09-15 12:29:25 INFO::Creating boxplot for categorical data, CRP_Category vs Indole.3.Methyl.Acetate_190.1
+2022-09-15 12:29:25 INFO::Creating boxplot for categorical data, CRP_Category vs Glucosamine_180.1
+2022-09-15 12:29:25 INFO::Creating boxplot for categorical data, CRP_Category vs cis.aconitate_173
+2022-09-15 12:29:26 INFO::Creating boxplot for categorical data, CRP_Category vs Glycocholate_464.3
+2022-09-15 12:29:26 INFO::Creating boxplot for categorical data, CRP_Category vs D.Mannosamine_180.1
+2022-09-15 12:29:26 INFO::Creating boxplot for categorical data, CRP_Category vs Glutamine_147.1
+2022-09-15 12:29:26 INFO::Creating boxplot for categorical data, CRP_Category vs Hippurate_178.1
+2022-09-15 12:29:26 INFO::Creating boxplot for categorical data, CRP_Category vs X3.Methyl.2.Oxindole_148.1
+2022-09-15 12:29:26 INFO::Creating boxplot for categorical data, CRP_Category vs X10.HAD_185.1
+2022-09-15 12:29:26 INFO::Creating boxplot for categorical data, CRP_Category vs N.Alpha.Acetyllysine_189.1
+2022-09-15 12:29:26 INFO::Creating boxplot for categorical data, CRP_Category vs Methionine_150.1
+2022-09-15 12:29:26 INFO::Creating boxplot for categorical data, CRP_Category vs Phosphoserine_186
+2022-09-15 12:29:26 INFO::Creating boxplot for categorical data, CRP_Category vs Kynurenine_209.1
+2022-09-15 12:29:27 INFO::Creating boxplot for categorical data, CRP_Category vs Tridecanoic.acid_213.2
+2022-09-15 12:29:27 INFO::Creating boxplot for categorical data, CRP_Category vs X2.Deoxy.D.Glucose.6.phosphate_243
+2022-09-15 12:29:27 INFO::Creating boxplot for categorical data, CRP_Category vs Choline_104.1
+2022-09-15 12:29:27 INFO::Creating boxplot for categorical data, CRP_Category vs Pyruvate_87
+2022-09-15 12:29:27 INFO::Creating boxplot for categorical data, CRP_Category vs Lysine_147.1
+2022-09-15 12:29:27 INFO::Creating boxplot for categorical data, CRP_Category vs Ornithine_133.1
+2022-09-15 12:29:27 INFO::Creating boxplot for categorical data, CRP_Category vs Deoxycytidine_228.1
+2022-09-15 12:29:27 INFO::Creating boxplot for categorical data, CRP_Category vs Methylmalonate_117
+2022-09-15 12:29:27 INFO::Creating boxplot for categorical data, CRP_Category vs Nicotinamide_123.1
+2022-09-15 12:29:27 INFO::Creating boxplot for categorical data, CRP_Category vs Allothreonine_120.1
+2022-09-15 12:29:28 INFO::Creating boxplot for categorical data, CRP_Category vs Sucrose_341.1
+2022-09-15 12:29:28 INFO::Creating boxplot for categorical data, CRP_Category vs N.Acetylserine_146
+2022-09-15 12:29:28 INFO::Creating boxplot for categorical data, CRP_Category vs Beta.Alanine_90.1
+2022-09-15 12:29:28 INFO::Creating boxplot for categorical data, CRP_Category vs Omega.Hydroxydodecanoate_215.2
+2022-09-15 12:29:28 INFO::Creating boxplot for categorical data, CRP_Category vs Deoxycholate_391.3
+2022-09-15 12:29:28 INFO::Creating boxplot for categorical data, CRP_Category vs L.Cysteic.Acid_186
+2022-09-15 12:29:28 INFO::Creating boxplot for categorical data, CRP_Category vs Octanoic.acid_143.1
+2022-09-15 12:29:28 INFO::Creating boxplot for categorical data, CRP_Category vs Palmitoyl.carnitine_400.3
+2022-09-15 12:29:28 INFO::Creating boxplot for categorical data, CRP_Category vs X3.Dehydroshikimate_171
